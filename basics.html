@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'basics';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Prac" href="prac.html" />
-    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
+    <link rel="next" title="useful link" href="useful_link.html" />
+    <link rel="prev" title="Welcome to MAST90138" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -154,14 +154,15 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to your Jupyter Book
+                    Welcome to MAST90138
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="useful_link.html">useful link</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="prac.html">Prac</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="prac7.html">prac 7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prac7.html">prac7</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="week5.html">week5 lec2</a></li>
@@ -372,6 +373,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pcr-principal-component-regression"><strong>PCR (Principal Component Regression):</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Z</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#communality">Communality</a></li>
 </ul>
 </li>
 </ul>
@@ -527,6 +529,49 @@ To get the projection of the data onto the principal components, you multiply th
 <p>The resulting matrix <span class="math notranslate nohighlight">\( Y \)</span> gives the scores of each original data point on the principal components.</p>
 <p>In real scenarios with larger datasets and higher dimensions, you’d typically use software packages like Python’s <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> or R’s built-in functions to do PCA. They handle the numerical details and optimizations behind the scenes.</p>
 </section>
+<section id="communality">
+<h3>Communality<a class="headerlink" href="#communality" title="Permalink to this heading">#</a></h3>
+<p>In multivariate statistics, particularly in factor analysis, “communality” refers to the portion of the variance of a given variable that is accounted for by the common factors. In simpler terms, it’s the variance in a particular variable explained by the factors in a factor analysis.</p>
+<p>Here’s a more detailed breakdown:</p>
+<ol class="arabic simple">
+<li><p><strong>Total Variance</strong>: For each variable in a dataset, there’s a total amount of variance associated with that variable.</p></li>
+<li><p><strong>Unique Variance</strong>: A part of this total variance is unique to the variable, meaning it’s not shared with any other variables in the analysis. This unique variance could be due to unique factors or error.</p></li>
+<li><p><strong>Common Variance or Communality</strong>: The remaining variance (i.e., total variance minus unique variance) is the variance shared with other variables. This shared variance is what the factors in factor analysis aim to represent.</p></li>
+</ol>
+<p>Mathematically, for a given variable:
+<span class="math notranslate nohighlight">\(
+\text{Total Variance} = \text{Unique Variance} + \text{Communality}
+\)</span></p>
+<p>In the context of factor analysis:</p>
+<ul class="simple">
+<li><p>High communality for a variable indicates that a large portion of its variance is accounted for by the factors.</p></li>
+<li><p>Low communality indicates that the factors do not explain a significant portion of the variance of that variable.</p></li>
+</ul>
+<p>When you conduct factor analysis, you’re essentially trying to find underlying factors that account for the communalities among variables, which helps in reducing dimensionality and in understanding the underlying structure of the data.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Communality Example</p>
+<p>Suppose you are conducting a study on student performance, and you have three measures:</p>
+<ol class="arabic simple">
+<li><p>Math scores</p></li>
+<li><p>Physics scores</p></li>
+<li><p>Writing scores</p></li>
+</ol>
+<p>You suspect there are underlying factors (like numerical aptitude and verbal aptitude) that might explain correlations among these scores.</p>
+<p>After conducting factor analysis on the data, you extract the communalities for each measure:</p>
+<ol class="arabic simple">
+<li><p>Math scores: 0.85</p></li>
+<li><p>Physics scores: 0.82</p></li>
+<li><p>Writing scores: 0.70</p></li>
+</ol>
+<p>Here’s how to interpret these communalities:</p>
+<ol class="arabic simple">
+<li><p><strong>Math scores (0.85)</strong>: 85% of the variance in math scores can be explained by the extracted factors. Given that Physics also has a high communality, it’s likely that there’s a common factor like “Numerical Aptitude” that both Math and Physics scores relate to.</p></li>
+<li><p><strong>Physics scores (0.82)</strong>: Similarly, 82% of the variance in physics scores can be explained by the extracted factors. Again, this could be due to the “Numerical Aptitude” factor.</p></li>
+<li><p><strong>Writing scores (0.70)</strong>: 70% of the variance in writing scores can be explained by the extracted factors. This might indicate a different factor, like “Verbal Aptitude”, influencing Writing scores. The fact that it’s slightly lower might also indicate that there are other specific skills or knowledge unique to Writing (not captured by the factors) that account for the remaining 30% of the variance.</p></li>
+</ol>
+<p>This is a simplified example, but it demonstrates the concept. In practice, you’d use the factor loadings to further interpret and label the factors. The communalities give you an idea of how well each variable fits into the factor structure you’ve identified.</p>
+</div>
+</section>
 </section>
 </section>
 
@@ -567,15 +612,15 @@ To get the projection of the data onto the principal components, you multiply th
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Welcome to your Jupyter Book</p>
+        <p class="prev-next-title">Welcome to MAST90138</p>
       </div>
     </a>
     <a class="right-next"
-       href="prac.html"
+       href="useful_link.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Prac</p>
+        <p class="prev-next-title">useful link</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -608,6 +653,7 @@ To get the projection of the data onto the principal components, you multiply th
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pcr-principal-component-regression"><strong>PCR (Principal Component Regression):</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Z</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#communality">Communality</a></li>
 </ul>
 </li>
 </ul>

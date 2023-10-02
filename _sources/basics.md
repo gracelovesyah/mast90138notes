@@ -147,3 +147,55 @@ Y =   [-2/3 1/3 5/3]  *  [b d]
 The resulting matrix $ Y $ gives the scores of each original data point on the principal components.
 
 In real scenarios with larger datasets and higher dimensions, you'd typically use software packages like Python's `scikit-learn` or R's built-in functions to do PCA. They handle the numerical details and optimizations behind the scenes.
+
+### Communality
+In multivariate statistics, particularly in factor analysis, "communality" refers to the portion of the variance of a given variable that is accounted for by the common factors. In simpler terms, it's the variance in a particular variable explained by the factors in a factor analysis.
+
+Here's a more detailed breakdown:
+
+1. **Total Variance**: For each variable in a dataset, there's a total amount of variance associated with that variable.
+
+2. **Unique Variance**: A part of this total variance is unique to the variable, meaning it's not shared with any other variables in the analysis. This unique variance could be due to unique factors or error.
+
+3. **Common Variance or Communality**: The remaining variance (i.e., total variance minus unique variance) is the variance shared with other variables. This shared variance is what the factors in factor analysis aim to represent. 
+
+Mathematically, for a given variable:
+$
+\text{Total Variance} = \text{Unique Variance} + \text{Communality}
+$
+
+In the context of factor analysis:
+
+- High communality for a variable indicates that a large portion of its variance is accounted for by the factors.
+  
+- Low communality indicates that the factors do not explain a significant portion of the variance of that variable.
+
+When you conduct factor analysis, you're essentially trying to find underlying factors that account for the communalities among variables, which helps in reducing dimensionality and in understanding the underlying structure of the data.
+
+```{admonition} Communality Example
+:class: tip, dropdown
+
+Suppose you are conducting a study on student performance, and you have three measures:
+
+1. Math scores
+2. Physics scores
+3. Writing scores
+
+You suspect there are underlying factors (like numerical aptitude and verbal aptitude) that might explain correlations among these scores.
+
+After conducting factor analysis on the data, you extract the communalities for each measure:
+
+1. Math scores: 0.85
+2. Physics scores: 0.82
+3. Writing scores: 0.70
+
+Here's how to interpret these communalities:
+
+1. **Math scores (0.85)**: 85% of the variance in math scores can be explained by the extracted factors. Given that Physics also has a high communality, it's likely that there's a common factor like "Numerical Aptitude" that both Math and Physics scores relate to.
+
+2. **Physics scores (0.82)**: Similarly, 82% of the variance in physics scores can be explained by the extracted factors. Again, this could be due to the "Numerical Aptitude" factor.
+
+3. **Writing scores (0.70)**: 70% of the variance in writing scores can be explained by the extracted factors. This might indicate a different factor, like "Verbal Aptitude", influencing Writing scores. The fact that it's slightly lower might also indicate that there are other specific skills or knowledge unique to Writing (not captured by the factors) that account for the remaining 30% of the variance.
+
+This is a simplified example, but it demonstrates the concept. In practice, you'd use the factor loadings to further interpret and label the factors. The communalities give you an idea of how well each variable fits into the factor structure you've identified.
+```
