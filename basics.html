@@ -169,6 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="week6.html">week6 lec1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week6%20other.html">week 6 additional resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week7.html">week7 lec1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week10.html">week10 lec2</a></li>
 </ul>
 
     </div>
@@ -370,6 +371,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#z"><strong><span class="math notranslate nohighlight">\(Z\)</span></strong>:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda-lambda"><strong><span class="math notranslate nohighlight">\(\Lambda\)</span> (Lambda)</strong>:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda-1"><span class="math notranslate nohighlight">\( \lambda_1 \)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sigma-sigma"><span class="math notranslate nohighlight">\( \Sigma \)</span> (Sigma)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pcr-principal-component-regression"><strong>PCR (Principal Component Regression):</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Z</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
@@ -467,6 +469,57 @@ a_{p1} &amp; a_{p2} &amp; \dots &amp; a_{pp} \\
 <p>As a note, <span class="math notranslate nohighlight">\( \lambda_1 \)</span> (and other eigenvalues) can be interpreted as the amount of variance explained by the corresponding principal component. The ratio <span class="math notranslate nohighlight">\( \lambda_1 \)</span> divided by the sum of all eigenvalues gives the proportion of total variance explained by the first principal component.</p>
 </section>
 <hr class="docutils" />
+<section id="sigma-sigma">
+<h3><span class="math notranslate nohighlight">\( \Sigma \)</span> (Sigma)<a class="headerlink" href="#sigma-sigma" title="Permalink to this heading">#</a></h3>
+<p>Of course! Let’s consider a 4x4 covariance matrix for four random variables: A, B, C, D</p>
+<p>Here’s an example of such a covariance matrix:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\Sigma = \begin{bmatrix}
+\sigma_A^2 &amp; \sigma_{AB} &amp; \sigma_{AC} &amp; \sigma_{AD} \\
+\sigma_{AB} &amp; \sigma_B^2 &amp; \sigma_{BC} &amp; \sigma_{BD} \\
+\sigma_{AC} &amp; \sigma_{BC} &amp; \sigma_C^2 &amp; \sigma_{CD} \\
+\sigma_{AD} &amp; \sigma_{BD} &amp; \sigma_{CD} &amp; \sigma_D^2 \\
+\end{bmatrix}
+\end{split}\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p>Diagonal terms <span class="math notranslate nohighlight">\(\sigma_X^2\)</span> represent the variance of the respective random variable <span class="math notranslate nohighlight">\(X\)</span>.</p></li>
+<li><p>Off-diagonal terms <span class="math notranslate nohighlight">\(\sigma_{XY}\)</span> represent the covariance between random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>.</p></li>
+</ul>
+<p>Let’s use some arbitrary numbers to fill in this matrix:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+\Sigma = \begin{bmatrix}
+5 &amp; 1 &amp; 0.5 &amp; 0.3 \\
+1 &amp; 6 &amp; 1.2 &amp; 0.4 \\
+0.5 &amp; 1.2 &amp; 7 &amp; -0.5 \\
+0.3 &amp; 0.4 &amp; -0.5 &amp; 4 \\
+\end{bmatrix}
+\end{split}\]</div>
+<p>In this example:</p>
+<ul class="simple">
+<li><p>The variance of <span class="math notranslate nohighlight">\(A\)</span> is 5, of <span class="math notranslate nohighlight">\(B\)</span> is 6, of <span class="math notranslate nohighlight">\(C\)</span> is 7, and of <span class="math notranslate nohighlight">\(D\)</span> is 4.</p></li>
+<li><p>The covariance between <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> is 1, between <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(C\)</span> is 0.5, and so on.</p></li>
+</ul>
+<p>Remember, this is just an arbitrary example. In real scenarios, the covariance matrix is derived from data. The matrix is symmetric, so the upper triangle and the lower triangle of the matrix are mirror images of each other.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">features of the covariance matrix</p>
+<ol class="arabic">
+<li><p><strong>Symmetry</strong>: A covariance matrix is always symmetric. This is because the covariance between variable <span class="math notranslate nohighlight">\(i\)</span> and variable <span class="math notranslate nohighlight">\(j\)</span> is the same as the covariance between variable <span class="math notranslate nohighlight">\(j\)</span> and variable <span class="math notranslate nohighlight">\(i\)</span>. Hence, <span class="math notranslate nohighlight">\(cov(X_i, X_j) = cov(X_j, X_i)\)</span>.</p></li>
+<li><p><strong>Positive Semi-definite</strong>: A covariance matrix is always positive semi-definite. This means that for any non-zero column vector <span class="math notranslate nohighlight">\(z\)</span> of appropriate dimensions, the quadratic form <span class="math notranslate nohighlight">\(z^T \Sigma z\)</span> will always be non-negative.</p></li>
+<li><p><strong>Diagonal Elements are Variances</strong>: The diagonal entries of a covariance matrix are always variances. Hence, they are always non-negative.</p></li>
+<li><p><strong>Eigenvalue Decomposition</strong>: A covariance matrix can be decomposed into its eigenvectors and eigenvalues. This decomposition has a special property: the eigenvectors are orthogonal to each other. When we do this decomposition:</p>
+<p><span class="math notranslate nohighlight">\( \Sigma = Q\Lambda Q^T \)</span></p>
+<p>Here, <span class="math notranslate nohighlight">\(Q\)</span> is a matrix of the eigenvectors (which are orthogonal, and if normalized, orthonormal) and <span class="math notranslate nohighlight">\(\Lambda\)</span> is a diagonal matrix with eigenvalues (which are non-negative due to the positive semi-definite property of the covariance matrix).</p>
+</li>
+<li><p><strong>Determinant and Inverse</strong>: If the determinant of the covariance matrix is zero, then it’s singular, which means it doesn’t have an inverse. In practical terms, this implies that some variables are linear combinations of others. If the determinant is non-zero, then the covariance matrix is invertible.</p></li>
+<li><p><strong>Rank</strong>: The rank of a covariance matrix tells us the number of linearly independent columns (or rows, because it’s symmetric). If some variables are perfect linear combinations of others, then the covariance matrix will be rank-deficient.</p></li>
+</ol>
+<p>The orthogonality comes into play when we discuss the eigenvectors of the covariance matrix. If you’ve heard of Principal Component Analysis (PCA), it leverages this property. PCA finds the eigenvectors (principal components) of the data’s covariance matrix, and these eigenvectors are orthogonal to each other.</p>
+</div>
+</section>
+<hr class="docutils" />
 <section id="pcr-principal-component-regression">
 <h3><strong>PCR (Principal Component Regression):</strong><a class="headerlink" href="#pcr-principal-component-regression" title="Permalink to this heading">#</a></h3>
 </section>
@@ -548,29 +601,7 @@ To get the projection of the data onto the principal components, you multiply th
 <li><p>Low communality indicates that the factors do not explain a significant portion of the variance of that variable.</p></li>
 </ul>
 <p>When you conduct factor analysis, you’re essentially trying to find underlying factors that account for the communalities among variables, which helps in reducing dimensionality and in understanding the underlying structure of the data.</p>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Communality Example</p>
-<p>Suppose you are conducting a study on student performance, and you have three measures:</p>
-<ol class="arabic simple">
-<li><p>Math scores</p></li>
-<li><p>Physics scores</p></li>
-<li><p>Writing scores</p></li>
-</ol>
-<p>You suspect there are underlying factors (like numerical aptitude and verbal aptitude) that might explain correlations among these scores.</p>
-<p>After conducting factor analysis on the data, you extract the communalities for each measure:</p>
-<ol class="arabic simple">
-<li><p>Math scores: 0.85</p></li>
-<li><p>Physics scores: 0.82</p></li>
-<li><p>Writing scores: 0.70</p></li>
-</ol>
-<p>Here’s how to interpret these communalities:</p>
-<ol class="arabic simple">
-<li><p><strong>Math scores (0.85)</strong>: 85% of the variance in math scores can be explained by the extracted factors. Given that Physics also has a high communality, it’s likely that there’s a common factor like “Numerical Aptitude” that both Math and Physics scores relate to.</p></li>
-<li><p><strong>Physics scores (0.82)</strong>: Similarly, 82% of the variance in physics scores can be explained by the extracted factors. Again, this could be due to the “Numerical Aptitude” factor.</p></li>
-<li><p><strong>Writing scores (0.70)</strong>: 70% of the variance in writing scores can be explained by the extracted factors. This might indicate a different factor, like “Verbal Aptitude”, influencing Writing scores. The fact that it’s slightly lower might also indicate that there are other specific skills or knowledge unique to Writing (not captured by the factors) that account for the remaining 30% of the variance.</p></li>
-</ol>
-<p>This is a simplified example, but it demonstrates the concept. In practice, you’d use the factor loadings to further interpret and label the factors. The communalities give you an idea of how well each variable fits into the factor structure you’ve identified.</p>
-</div>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/communality.png"><img alt="communality" class="bg-primary mb-1 align-center" src="_images/communality.png" style="width: 800px;" /></a>
 </section>
 </section>
 </section>
@@ -650,6 +681,7 @@ To get the projection of the data onto the principal components, you multiply th
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#z"><strong><span class="math notranslate nohighlight">\(Z\)</span></strong>:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda-lambda"><strong><span class="math notranslate nohighlight">\(\Lambda\)</span> (Lambda)</strong>:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda-1"><span class="math notranslate nohighlight">\( \lambda_1 \)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sigma-sigma"><span class="math notranslate nohighlight">\( \Sigma \)</span> (Sigma)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pcr-principal-component-regression"><strong>PCR (Principal Component Regression):</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Z</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
