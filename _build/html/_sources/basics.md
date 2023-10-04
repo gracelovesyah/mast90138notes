@@ -237,26 +237,3 @@ When you conduct factor analysis, you're essentially trying to find underlying f
 :width: 800px
 :align: center
 ```
-
-Essay Summary:
-|
-|---> Optimization Problem
-|       |
-|       |---> Balancing splines and empirical error
-|       |---> Gradient boosting with shallow regression trees
-|
-|---> Case Study: Pneumonia Risk
-|       |
-|       |---> Dataset details (14,199 patients, 46 features)
-|       |---> Objective: Predict Probability of Death (POD)
-|       |---> 10.86% death rate in the dataset
-|
-|---> GA2M Model Components
-|       |
-|       |---> Single features (e.g., age, pH)
-|       |---> Pairwise interaction terms
-|
-|---> Correlation vs. Causation
-        |
-        |---> Models are based on correlation
-        |---> Warning against causal interpretation
