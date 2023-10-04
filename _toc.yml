@@ -5,6 +5,7 @@ format: jb-book
 root: intro
 chapters:
 - file: basics
+- file: useful_link
 - file: prac
   sections:
   - file: prac7

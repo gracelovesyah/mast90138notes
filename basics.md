@@ -82,6 +82,65 @@ As a note, $ \lambda_1 $ (and other eigenvalues) can be interpreted as the amoun
 
 
 ---
+### $ \Sigma $ (Sigma)
+
+Of course! Let's consider a 4x4 covariance matrix for four random variables: A, B, C, D
+
+Here's an example of such a covariance matrix:
+
+$$ 
+\Sigma = \begin{bmatrix}
+\sigma_A^2 & \sigma_{AB} & \sigma_{AC} & \sigma_{AD} \\
+\sigma_{AB} & \sigma_B^2 & \sigma_{BC} & \sigma_{BD} \\
+\sigma_{AC} & \sigma_{BC} & \sigma_C^2 & \sigma_{CD} \\
+\sigma_{AD} & \sigma_{BD} & \sigma_{CD} & \sigma_D^2 \\
+\end{bmatrix}
+$$ 
+
+Where:
+- Diagonal terms $\sigma_X^2$ represent the variance of the respective random variable $X$.
+- Off-diagonal terms $\sigma_{XY}$ represent the covariance between random variables $X$ and $Y$.
+
+Let's use some arbitrary numbers to fill in this matrix:
+
+$$ 
+\Sigma = \begin{bmatrix}
+5 & 1 & 0.5 & 0.3 \\
+1 & 6 & 1.2 & 0.4 \\
+0.5 & 1.2 & 7 & -0.5 \\
+0.3 & 0.4 & -0.5 & 4 \\
+\end{bmatrix}
+$$ 
+
+In this example:
+- The variance of $A$ is 5, of $B$ is 6, of $C$ is 7, and of $D$ is 4.
+- The covariance between $A$ and $B$ is 1, between $A$ and $C$ is 0.5, and so on.
+
+Remember, this is just an arbitrary example. In real scenarios, the covariance matrix is derived from data. The matrix is symmetric, so the upper triangle and the lower triangle of the matrix are mirror images of each other.
+
+```{admonition} features of the covariance matrix
+:class: tip, dropdown
+
+1. **Symmetry**: A covariance matrix is always symmetric. This is because the covariance between variable $i$ and variable $j$ is the same as the covariance between variable $j$ and variable $i$. Hence, $cov(X_i, X_j) = cov(X_j, X_i)$.
+
+2. **Positive Semi-definite**: A covariance matrix is always positive semi-definite. This means that for any non-zero column vector $z$ of appropriate dimensions, the quadratic form $z^T \Sigma z$ will always be non-negative.
+
+3. **Diagonal Elements are Variances**: The diagonal entries of a covariance matrix are always variances. Hence, they are always non-negative.
+
+4. **Eigenvalue Decomposition**: A covariance matrix can be decomposed into its eigenvectors and eigenvalues. This decomposition has a special property: the eigenvectors are orthogonal to each other. When we do this decomposition:
+   
+   $ \Sigma = Q\Lambda Q^T $
+
+   Here, $Q$ is a matrix of the eigenvectors (which are orthogonal, and if normalized, orthonormal) and $\Lambda$ is a diagonal matrix with eigenvalues (which are non-negative due to the positive semi-definite property of the covariance matrix).
+
+5. **Determinant and Inverse**: If the determinant of the covariance matrix is zero, then it's singular, which means it doesn't have an inverse. In practical terms, this implies that some variables are linear combinations of others. If the determinant is non-zero, then the covariance matrix is invertible.
+
+6. **Rank**: The rank of a covariance matrix tells us the number of linearly independent columns (or rows, because it's symmetric). If some variables are perfect linear combinations of others, then the covariance matrix will be rank-deficient.
+
+The orthogonality comes into play when we discuss the eigenvectors of the covariance matrix. If you've heard of Principal Component Analysis (PCA), it leverages this property. PCA finds the eigenvectors (principal components) of the data's covariance matrix, and these eigenvectors are orthogonal to each other.
+
+```
+---
 
 ### **PCR (Principal Component Regression):**
 ### Z
@@ -147,3 +206,34 @@ Y =   [-2/3 1/3 5/3]  *  [b d]
 The resulting matrix $ Y $ gives the scores of each original data point on the principal components.
 
 In real scenarios with larger datasets and higher dimensions, you'd typically use software packages like Python's `scikit-learn` or R's built-in functions to do PCA. They handle the numerical details and optimizations behind the scenes.
+
+### Communality
+In multivariate statistics, particularly in factor analysis, "communality" refers to the portion of the variance of a given variable that is accounted for by the common factors. In simpler terms, it's the variance in a particular variable explained by the factors in a factor analysis.
+
+Here's a more detailed breakdown:
+
+1. **Total Variance**: For each variable in a dataset, there's a total amount of variance associated with that variable.
+
+2. **Unique Variance**: A part of this total variance is unique to the variable, meaning it's not shared with any other variables in the analysis. This unique variance could be due to unique factors or error.
+
+3. **Common Variance or Communality**: The remaining variance (i.e., total variance minus unique variance) is the variance shared with other variables. This shared variance is what the factors in factor analysis aim to represent. 
+
+Mathematically, for a given variable:
+$
+\text{Total Variance} = \text{Unique Variance} + \text{Communality}
+$
+
+In the context of factor analysis:
+
+- High communality for a variable indicates that a large portion of its variance is accounted for by the factors.
+  
+- Low communality indicates that the factors do not explain a significant portion of the variance of that variable.
+
+When you conduct factor analysis, you're essentially trying to find underlying factors that account for the communalities among variables, which helps in reducing dimensionality and in understanding the underlying structure of the data.
+
+```{image} ./images/communality.png
+:alt: communality
+:class: bg-primary mb-1
+:width: 800px
+:align: center
+```
