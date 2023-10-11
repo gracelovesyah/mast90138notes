@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>prac7 &#8212; My sample book</title>
+    <title>week11. lec1 &#8212; My sample book</title>
   
   
   
@@ -63,11 +63,10 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'prac7';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'week11';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="week5 lec2" href="week5.html" />
-    <link rel="prev" title="Prac" href="prac.html" />
+    <link rel="prev" title="week10 lec2" href="week10.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -161,8 +160,8 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="basics.html">basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="useful_link.html">useful link</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="prac.html">Prac</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">prac7</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="prac.html">Prac</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="prac7.html">prac7</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="week5.html">week5 lec2</a></li>
@@ -170,7 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="week6%20other.html">week 6 additional resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week7.html">week7 lec1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="week10.html">week10 lec2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week11.html">week11. lec1</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">week11. lec1</a></li>
 </ul>
 
     </div>
@@ -242,7 +241,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fprac7.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fweek11.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -272,7 +271,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/prac7.md" target="_blank"
+      <li><a href="_sources/week11.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -341,7 +340,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -352,11 +353,23 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>prac7</h1>
+    <h1>week11. lec1</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#out-of-bag">Out of Bag</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bagging-in-decision-trees"><strong>1. Bagging in Decision Trees:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forests-for-classification"><strong>2. Random Forests for Classification:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-importance-in-decision-trees-random-forests"><strong>3. Variable Importance in Decision Trees &amp; Random Forests:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-random-forests-in-r"><strong>4. Implementing Random Forests in R:</strong></a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -366,42 +379,87 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="prac7">
-<h1>prac7<a class="headerlink" href="#prac7" title="Permalink to this heading">#</a></h1>
-<p>The practical class described here is focused on multivariate statistics, specifically linear regression and principal component regression. Let’s break down what the class is trying to convey:</p>
-<ol class="arabic simple">
-<li><p><strong>Linear Regression with Centered Data</strong>:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="week11-lec1">
+<h1>week11. lec1<a class="headerlink" href="#week11-lec1" title="Permalink to this heading">#</a></h1>
+<p>This note is completed with the assistance of <a class="reference external" href="https://chat.openai.com/c/7579ad2e-6406-4ef1-b07d-a24466c1f587">ChatGPT</a></p>
+<section id="out-of-bag">
+<h2>Out of Bag<a class="headerlink" href="#out-of-bag" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>The problem starts with a linear regression model where the expected value of <span class="math notranslate nohighlight">\(Z_i\)</span> given <span class="math notranslate nohighlight">\(X_i\)</span> is a linear function of <span class="math notranslate nohighlight">\(X_i\)</span>.</p></li>
-<li><p>The least squares (LS) method is used to estimate the parameters of this model. The LS method minimizes the sum of squared differences between the observed and predicted values of <span class="math notranslate nohighlight">\(Z_i\)</span>.</p></li>
-<li><p>The problem then introduces the concept of centering the data. Centering is subtracting the mean from each observation. This is often done to simplify the calculations and interpretation in regression.</p></li>
-<li><p>The solution shows how the LS problem for the original data can be transformed into an LS problem for the centered data. This transformation simplifies the estimation of the regression coefficient <span class="math notranslate nohighlight">\( \beta \)</span> and shows that the intercept <span class="math notranslate nohighlight">\( \alpha \)</span> can be easily derived from the mean values of <span class="math notranslate nohighlight">\(Z\)</span> and <span class="math notranslate nohighlight">\(X\)</span>.</p></li>
+<li><p>Additional Resource</p>
+<ul>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Out-of-bag_error">Wikipedia</a></p></li>
+<li><p><a class="reference external" href="https://towardsdatascience.com/what-is-out-of-bag-oob-score-in-random-forest-a7fa23d710">towardsdatascience</a></p></li>
 </ul>
 </li>
-<li><p><strong>Prediction with New Data</strong>:</p>
+</ul>
+<p><strong>Multivariate Statistics for Data Science - Detailed Lecture Summary:</strong></p>
+</section>
+<section id="bagging-in-decision-trees">
+<h2><strong>1. Bagging in Decision Trees:</strong><a class="headerlink" href="#bagging-in-decision-trees" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Once the regression coefficients are estimated, they can be used to predict the value of <span class="math notranslate nohighlight">\(Z_{new}\)</span> for a new observation <span class="math notranslate nohighlight">\(X_{new}\)</span>.</p></li>
-<li><p>The formula provided shows how to make this prediction using the centered data approach.</p></li>
+<li><p><strong>Concept:</strong> Bagging (Bootstrap Aggregating) involves creating multiple bootstrap trees and aggregating their results to enhance accuracy and reduce variance.</p></li>
+<li><p><strong>Key Points:</strong></p>
+<ul>
+<li><p>The aggregated classifier isn’t a single tree but can outperform individual trees.</p></li>
+<li><p>Bagging reduces variance without increasing bias.</p></li>
+<li><p>Example: By bagging with varying values of B (number of bootstrap samples), one can observe its effect on performance, such as classification error.</p></li>
 </ul>
 </li>
-<li><p><strong>Principal Component Regression</strong>:</p>
+</ul>
+</section>
+<section id="random-forests-for-classification">
+<h2><strong>2. Random Forests for Classification:</strong><a class="headerlink" href="#random-forests-for-classification" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>The class introduces the concept of principal component regression (PCR). PCR is a method that first reduces the dimensionality of the predictors using principal component analysis (PCA) and then performs regression on the principal components.</p></li>
-<li><p>The formula provided suggests that instead of using all the original predictors <span class="math notranslate nohighlight">\(X\)</span>, one can use the first <span class="math notranslate nohighlight">\(q\)</span> principal components <span class="math notranslate nohighlight">\(Y\)</span> to make predictions. This can be especially useful when the number of predictors is large, as it can simplify the model and potentially improve its predictive performance.</p></li>
-<li><p>The class asks to prove that <span class="math notranslate nohighlight">\(X_{new} - \bar{X}\)</span> is centered, which is straightforward since subtracting the mean from any observation will always result in a centered value.</p></li>
+<li><p><strong>Concept:</strong> An enhancement over bagging, random forests aim to decorrelate individual trees to further reduce variance.</p></li>
+<li><p><strong>Key Points:</strong></p>
+<ul>
+<li><p>Trees in bagging aren’t independent; random forests address this by selecting a random subset of predictors for each split.</p></li>
+<li><p>The default number of predictors considered at each split is <span class="math notranslate nohighlight">\( m = \sqrt{p} \)</span>, but this can be tuned.</p></li>
+<li><p>The algorithm involves:</p>
+<ul>
+<li><p>Drawing bootstrap samples.</p></li>
+<li><p>Growing trees by selecting random predictors and making splits.</p></li>
+<li><p>Aggregating results for predictions, either by averaging (regression) or majority voting (classification).</p></li>
 </ul>
 </li>
-<li><p><strong>Practical Application</strong>:</p>
-<ul class="simple">
-<li><p>The class provides a dataset (<code class="docutils literal notranslate"><span class="pre">Xtrainphoneme</span></code> and <code class="docutils literal notranslate"><span class="pre">Ztrainphoneme</span></code>) and asks students to apply the concepts learned to predict values of <span class="math notranslate nohighlight">\(Z\)</span> for new observations in <code class="docutils literal notranslate"><span class="pre">Xtestphoneme</span></code>.</p></li>
-<li><p>Students are asked to use both the standard LS predictor and the PCR predictor for various values of <span class="math notranslate nohighlight">\(q\)</span>.</p></li>
-<li><p>The performance of these predictions is to be evaluated by comparing them to the true values in <code class="docutils literal notranslate"><span class="pre">Ztestphoneme</span></code> using boxplots of the log of the squared prediction errors. Additionally, scatter plots of predicted vs. true values are to be created for the LS method and the best PCR method.</p></li>
-<li><p>The goal is to see how well the standard LS method performs compared to PCR and to determine the optimal number of principal components to use in PCR.</p></li>
 </ul>
 </li>
-</ol>
-<p><strong>Conclusion</strong>:
-This practical class aims to teach students about linear regression with centered data and principal component regression. It emphasizes the importance of data preprocessing (like centering) and introduces a dimensionality reduction technique (PCR) that can be used when dealing with high-dimensional data. The practical application at the end ensures that students understand how to implement these methods and evaluate their performance in real-world scenarios.</p>
+</ul>
+</section>
+<section id="variable-importance-in-decision-trees-random-forests">
+<h2><strong>3. Variable Importance in Decision Trees &amp; Random Forests:</strong><a class="headerlink" href="#variable-importance-in-decision-trees-random-forests" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Concept:</strong> Not all predictors contribute equally to the model’s decision-making. Their importance can be quantified.</p></li>
+<li><p><strong>Key Points:</strong></p>
+<ul>
+<li><p>Trees split data based on predictors, ideally focusing on the most informative ones.</p></li>
+<li><p>Importance can be measured by:</p>
+<ul>
+<li><p>The decrease in node impurity (often using the Gini impurity).</p></li>
+<li><p>The decrease in prediction accuracy when a predictor’s values are permuted (OOB method).</p></li>
+</ul>
+</li>
+<li><p>In Random Forests, the importance of a predictor is averaged across all trees.</p></li>
+<li><p>Importance scores are often normalized, with higher values indicating more important predictors.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="implementing-random-forests-in-r">
+<h2><strong>4. Implementing Random Forests in R:</strong><a class="headerlink" href="#implementing-random-forests-in-r" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Concept:</strong> Practical steps to compute a random forest in R.</p></li>
+<li><p><strong>Key Points:</strong></p>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">randomForest</span></code> package in R is used.</p></li>
+<li><p>Data input involves specifying a formula, indicating the response variable and predictors.</p></li>
+<li><p>The response variable should be formatted as a factor for classification tasks.</p></li>
+<li><p>By default, the package uses <span class="math notranslate nohighlight">\( m = \sqrt{p} \)</span> predictors for each split in classification tasks.</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -436,22 +494,13 @@ This practical class aims to teach students about linear regression with centere
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="prac.html"
+       href="week10.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Prac</p>
+        <p class="prev-next-title">week10 lec2</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="week5.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">week5 lec2</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   
@@ -462,6 +511,24 @@ This practical class aims to teach students about linear regression with centere
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#out-of-bag">Out of Bag</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bagging-in-decision-trees"><strong>1. Bagging in Decision Trees:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forests-for-classification"><strong>2. Random Forests for Classification:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-importance-in-decision-trees-random-forests"><strong>3. Variable Importance in Decision Trees &amp; Random Forests:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-random-forests-in-r"><strong>4. Implementing Random Forests in R:</strong></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
