@@ -1,0 +1,773 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>week9 lec 1 &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'week9.1';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="week9 lec 2" href="week9.2.html" />
+    <link rel="prev" title="week9" href="week9.0.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to MAST90138
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="basics.html">basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="useful_link.html">useful link</a></li>
+<li class="toctree-l1"><a class="reference internal" href="progress.html">progress check</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week1.0.html">week1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="week1.1.html">week1 lec 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week1.2.html">week1 lec 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week1.3.html">week1 additional notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week2.0.html">week2</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="week2.1.html">week2 lec 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week2.2.html">week2 lec 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week2.3.html">week2 additional notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week3.0.html">week3</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="week3.1.html">week3 lec 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week3.2.html">week3 lec 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week3.3.html">week3 additional notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week4.0.html">week4</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="week4.1.html">week4 lec 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week4.2.html">week4 lec 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week4.3.html">week4 additional notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week5.0.html">week5</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="week5.1.html">week5 lec 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week5.2.html">week5 lec2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week5.3.html">week5 additional notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week6.0.html">week6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="week6.1.html">week6 lec1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week6.3.html">week 6 additional resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week7.0.html">week7</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="week7.1.html">week7 lec1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week7.2.html">week7 lec2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week7.3.html">week7 additional notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week8.0.html">week8</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="week8.1.html">week8 lec 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week8.2.html">week8 lec 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week8.3.html">week8 additional notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="week9.0.html">week9</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">week9 lec 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week9.2.html">week9 lec 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week9.3.html">week9 additional notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week10.0.html">week10</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="week10.1.html">week10 lec 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week10.2.html">week10 lec2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week10.3.html">week10 additional notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week11.0.html">week11</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="week11.1.html">week11. lec1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week11.2.html">week11. lec2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week11.3.html">week11 additional notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week12.0.html">week12</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="week12.1.html">CLUSTERING ALGORITHMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week12.2.html">week12 lec 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week12.3.html">week12 additional notes</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fweek9.1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/week9.1.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>week9 lec 1</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-9-lecture-1-advanced-classification-techniques"><strong>Week 9, Lecture 1: Advanced Classification Techniques</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-discriminant-analysis-lda">Linear Discriminant Analysis (LDA):</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayes-in-lda">Bayes in LDA</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-boundary">Decision Boundary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lda">LDA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-discriminant-analysis-qda">Quadratic Discriminant Analysis (QDA):</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-between-ld-qd">Comparison between LD &amp; QD</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="week9-lec-1">
+<h1>week9 lec 1<a class="headerlink" href="#week9-lec-1" title="Permalink to this heading">#</a></h1>
+<p>p.244 - p.265</p>
+<p>This note is completed with the assistance of <a class="reference external" href="https://chat.openai.com/c/9fe2dc76-5e02-416c-abdc-e6eafdfd6a6b">ChatGPT</a> and <a class="reference external" href="https://chat.openai.com/c/c5be32aa-672c-4e59-8a2c-85704a846b8a">ChatGPT</a></p>
+<section id="week-9-lecture-1-advanced-classification-techniques">
+<h2><strong>Week 9, Lecture 1: Advanced Classification Techniques</strong><a class="headerlink" href="#week-9-lecture-1-advanced-classification-techniques" title="Permalink to this heading">#</a></h2>
+<ol class="arabic">
+<li><p><strong>QD vs. LD:</strong></p>
+<ul class="simple">
+<li><p>QD often outperforms LD, but it requires estimation of <span class="math notranslate nohighlight">\(K\)</span> covariance matrices, which can be challenging especially when dimensionality, <span class="math notranslate nohighlight">\(p\)</span>, is high.</p></li>
+<li><p>LD assumes the same covariance for all groups, whereas QD allows different covariances for each group.</p></li>
+</ul>
+<p><strong>Math:</strong></p>
+<ul class="simple">
+<li><p>LD Decision Rule:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+    \delta_k(x) = x^T \Sigma^{-1} \mu_k - \frac{1}{2} \mu_k^T \Sigma^{-1} \mu_k
+    \]</div>
+<ul class="simple">
+<li><p>QD Decision Rule:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+    \delta_k(x) = -\frac{1}{2} \log|\Sigma_k| - \frac{1}{2}(x-\mu_k)^T \Sigma_k^{-1} (x-\mu_k)
+    \]</div>
+</li>
+<li><p><strong>Regularized Discriminants:</strong></p>
+<ul class="simple">
+<li><p>For high-dimensional data, standard QD and LD may be too noisy. Regularized versions can strike a balance.</p></li>
+<li><p>Regularized QD uses a combination of individual and pooled covariances.</p></li>
+</ul>
+<p><strong>Math:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+    \tilde{\Sigma}_k = \alpha \hat{\Sigma}_k + (1 - \alpha) \hat{\Sigma}
+    \]</div>
+<p>Where <span class="math notranslate nohighlight">\( \alpha \)</span> is a tuning parameter in the range [0,1].</p>
+</li>
+<li><p><strong>Cross-Validation (CV) for Classification:</strong></p>
+<ul class="simple">
+<li><p>CV evaluates the classification error rate.</p></li>
+<li><p>Leave-One-Out CV offers a refined approach by removing one observation at a time.</p></li>
+<li><p>B-fold CV partitions data into <span class="math notranslate nohighlight">\(B\)</span> blocks and then evaluates each block.</p></li>
+</ul>
+<p><strong>Math:</strong></p>
+<ul class="simple">
+<li><p>Leave-One-Out CV Error Rate:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+    CV = \frac{1}{n} \sum_{i=1}^n I(G^{\hat{}}(-i) \neq G_i)
+    \]</div>
+<ul class="simple">
+<li><p>B-fold CV:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+    CV = \frac{1}{B} \sum_{b=1}^B \sum_{i=1}^n I(G^{\hat{}}(-b) \neq G_i) \cdot I(\text{ith indiv is in block } b)
+    \]</div>
+</li>
+<li><p><strong>Regression for Multiple Classes <span class="math notranslate nohighlight">\(K &gt; 2\)</span>:</strong></p>
+<ul class="simple">
+<li><p>For multiple classes, we can recode the response into multiple binary outcomes.</p></li>
+<li><p>The probability curves or regression curves are used to estimate the probability of each class.</p></li>
+</ul>
+<p><strong>Math:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+    m_k(x) = E[Y_k|X=x] = P(G=k|X=x)
+    \]</div>
+<p>Given the constraint:</p>
+<div class="math notranslate nohighlight">
+\[
+    \sum_{k=1}^K m_k(x) = 1
+    \]</div>
+<p>We can deduce:</p>
+<div class="math notranslate nohighlight">
+\[
+    m_K(x) = 1 - \sum_{j=1}^{K-1} m_j(x)
+    \]</div>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="linear-discriminant-analysis-lda">
+<h2>Linear Discriminant Analysis (LDA):<a class="headerlink" href="#linear-discriminant-analysis-lda" title="Permalink to this heading">#</a></h2>
+<section id="bayes-in-lda">
+<h3>Bayes in LDA<a class="headerlink" href="#bayes-in-lda" title="Permalink to this heading">#</a></h3>
+<p>To derive the formula for the linear discriminant function, we can start by considering Bayes’ theorem and our assumptions about the data distribution in the context of LDA.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>We want to maximise <span class="math notranslate nohighlight">\( P(G = k|X = x) \)</span>, however, this term is hard to maximise directly.</p>
+<p>Therefore, we will use Baye’s theorem to maximise the equivalent term <span class="math notranslate nohighlight">\(\frac{P(X = x|G = k)P(G = k)}{P(X = x)} \)</span>. Since the denominator <span class="math notranslate nohighlight">\(P(X = x)\)</span> does not depend on k and we are only interested in the terms which are function of k, this term can be seen as a constant and will be eliminated through derivations.</p>
+<p>Hence we only need to focus on the log transformation on the numerator where the <span class="math notranslate nohighlight">\(P(X = x|G = k)\)</span> can be expressed with known pdf distribution and <span class="math notranslate nohighlight">\(P(G = k)\)</span> can be expressed by <span class="math notranslate nohighlight">\(\pi\)</span>.</p>
+<p>Similar approach for QA.</p>
+</div>
+<p>Given:</p>
+<div class="math notranslate nohighlight">
+\[ P(G = k|X = x) = \frac{P(X = x|G = k)P(G = k)}{P(X = x)} \]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( P(G = k|X = x) \)</span> is the posterior probability that a given observation <span class="math notranslate nohighlight">\( x \)</span> belongs to class <span class="math notranslate nohighlight">\( k \)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\( P(X = x|G = k) \)</span> is the likelihood of observing <span class="math notranslate nohighlight">\( x \)</span> given that it belongs to class <span class="math notranslate nohighlight">\( k \)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\( P(G = k) \)</span> is the prior probability of class <span class="math notranslate nohighlight">\( k \)</span> (denoted as <span class="math notranslate nohighlight">\( \pi_k \)</span>).</p></li>
+<li><p><span class="math notranslate nohighlight">\( P(X = x) \)</span> is the overall probability of observing <span class="math notranslate nohighlight">\( x \)</span>.</p></li>
+</ul>
+<p>Our goal is to decide for which <span class="math notranslate nohighlight">\( k \)</span> the posterior probability <span class="math notranslate nohighlight">\( P(G = k|X = x) \)</span> is the largest. We can ignore the denominator <span class="math notranslate nohighlight">\( P(X = x) \)</span> since it’s the same for all <span class="math notranslate nohighlight">\( k \)</span>.</p>
+<p>For LDA, we assume that <span class="math notranslate nohighlight">\( X \)</span> given <span class="math notranslate nohighlight">\( G = k \)</span> follows a multivariate normal distribution with mean <span class="math notranslate nohighlight">\( \mu_k \)</span> and common covariance matrix <span class="math notranslate nohighlight">\( \Sigma \)</span>. This gives:</p>
+<div class="math notranslate nohighlight">
+\[ P(X = x|G = k) \propto \exp(-\frac{1}{2}(x - \mu_k)^T \Sigma^{-1} (x - \mu_k)) \]</div>
+<p>Taking the logarithm to simplify calculations:</p>
+<div class="math notranslate nohighlight">
+\[ \log(P(X = x|G = k)) \propto -\frac{1}{2} x^T \Sigma^{-1} x + x^T \Sigma^{-1} \mu_k - \frac{1}{2} \mu_k^T \Sigma^{-1} \mu_k \]</div>
+<p>Combine this with the logarithm of the prior, <span class="math notranslate nohighlight">\( \log(\pi_k) \)</span>, to form the linear discriminant function:</p>
+<div class="math notranslate nohighlight">
+\[ \delta_k(x) = x^T \Sigma^{-1} \mu_k - \frac{1}{2} \mu_k^T \Sigma^{-1} \mu_k + \log(\pi_k) \]</div>
+<p>This discriminant function is linear in <span class="math notranslate nohighlight">\( x \)</span>, hence the name Linear Discriminant Analysis (LDA). Given a new observation <span class="math notranslate nohighlight">\( x \)</span>, we classify it into the class <span class="math notranslate nohighlight">\( k \)</span> that maximizes <span class="math notranslate nohighlight">\( \delta_k(x) \)</span>.</p>
+<p>The decision rules for LDA and QDA, denoted <span class="math notranslate nohighlight">\( \delta(x) \)</span> for LDA and <span class="math notranslate nohighlight">\( \delta_{QD}(x) \)</span> for QDA, stem from the discriminant functions for each class. These functions are based on the log probabilities of the data given the parameters of each class.</p>
+<p>If the above is still not clear:</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/lda5.png"><img alt="9.3" class="bg-primary mb-1 align-center" src="_images/lda5.png" style="width: 800px;" /></a>
+</section>
+</section>
+<section id="decision-boundary">
+<h2>Decision Boundary<a class="headerlink" href="#decision-boundary" title="Permalink to this heading">#</a></h2>
+<section id="lda">
+<h3>LDA<a class="headerlink" href="#lda" title="Permalink to this heading">#</a></h3>
+<p>For a two-class problem, the linear discriminant function for a class <span class="math notranslate nohighlight">\( k \)</span> can be derived from the log probabilities and is given by:</p>
+<div class="math notranslate nohighlight">
+\[ \delta_k(x) = x^T \Sigma^{-1} \mu_k - \frac{1}{2} \mu_k^T \Sigma^{-1} \mu_k + \log(\pi_k) \]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( x \)</span> is the data point we want to classify.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \Sigma \)</span> is the shared covariance matrix.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \mu_k \)</span> is the mean vector for class <span class="math notranslate nohighlight">\( k \)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \pi_k \)</span> is the prior probability for class <span class="math notranslate nohighlight">\( k \)</span>.</p></li>
+</ul>
+<p>For a new observation <span class="math notranslate nohighlight">\( x \)</span>, if <span class="math notranslate nohighlight">\( \delta_1(x) &gt; \delta_2(x) \)</span>, then <span class="math notranslate nohighlight">\( x \)</span> is classified into class 1; otherwise, it’s classified into class 2. The decision boundary is given by <span class="math notranslate nohighlight">\( \delta_1(x) = \delta_2(x) \)</span>.</p>
+<p>In practice, we are interested in the difference <span class="math notranslate nohighlight">\( \delta(x) = \delta_1(x) - \delta_2(x) \)</span>. The observation <span class="math notranslate nohighlight">\( x \)</span> is classified to class 1 if <span class="math notranslate nohighlight">\( \delta(x) &gt; 0 \)</span> and to class 2 if <span class="math notranslate nohighlight">\( \delta(x) &lt; 0 \)</span>.</p>
+</section>
+<section id="quadratic-discriminant-analysis-qda">
+<h3>Quadratic Discriminant Analysis (QDA):<a class="headerlink" href="#quadratic-discriminant-analysis-qda" title="Permalink to this heading">#</a></h3>
+<p>The quadratic discriminant function for a class <span class="math notranslate nohighlight">\( k \)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[ \delta_{QD,k}(x) = -\frac{1}{2} \log |\Sigma_k| - \frac{1}{2} (x - \mu_k)^T \Sigma_k^{-1} (x - \mu_k) + \log(\pi_k) \]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( \Sigma_k \)</span> is the covariance matrix specific to class <span class="math notranslate nohighlight">\( k \)</span>.</p></li>
+</ul>
+<p>Again, for a new observation <span class="math notranslate nohighlight">\( x \)</span>, if <span class="math notranslate nohighlight">\( \delta_{QD,1}(x) &gt; \delta_{QD,2}(x) \)</span>, then <span class="math notranslate nohighlight">\( x \)</span> is classified into class 1; otherwise, it’s classified into class 2. The decision boundary in this case is given by <span class="math notranslate nohighlight">\( \delta_{QD,1}(x) = \delta_{QD,2}(x) \)</span>.</p>
+<p>The difference is <span class="math notranslate nohighlight">\( \delta_{QD}(x) = \delta_{QD,1}(x) - \delta_{QD,2}(x) \)</span>, and the observation <span class="math notranslate nohighlight">\( x \)</span> is classified to class 1 if <span class="math notranslate nohighlight">\( \delta_{QD}(x) &gt; 0 \)</span> and to class 2 if <span class="math notranslate nohighlight">\( \delta_{QD}(x) &lt; 0 \)</span>.</p>
+<p>In summary, these discriminant functions provide a way to assign a new observation to a class based on maximizing the posterior class probability, considering the likelihoods under the multivariate normal assumption and the prior probabilities.</p>
+</section>
+</section>
+<section id="comparison-between-ld-qd">
+<h2>Comparison between LD &amp; QD<a class="headerlink" href="#comparison-between-ld-qd" title="Permalink to this heading">#</a></h2>
+<p><strong>Assumed Distributions</strong></p>
+<ul class="simple">
+<li><p>LD: <span class="math notranslate nohighlight">\(X|G=k \sim N(\mu_k, \Sigma)\)</span> (same covariance for all groups)</p></li>
+<li><p>QD: <span class="math notranslate nohighlight">\(X|G=k \sim N(\mu_k, \Sigma_k)\)</span> (different covariances for each group)</p></li>
+</ul>
+<p><strong>Density Function</strong></p>
+<ul class="simple">
+<li><p>LD: <span class="math notranslate nohighlight">\(P(X = x|G = k) \propto \exp(-0.5(x-\mu_k)^T \Sigma^{-1} (x-\mu_k))\)</span></p></li>
+<li><p>QD: <span class="math notranslate nohighlight">\(P(X = x|G = k) \propto \frac{\exp(-0.5(x-\mu_k)^T \Sigma_k^{-1} (x-\mu_k))}{|\Sigma_k|^{0.5}}\)</span></p></li>
+</ul>
+<p><strong>Log Likelihood Ratio</strong></p>
+<ul class="simple">
+<li><p>LD: <span class="math notranslate nohighlight">\(\delta_k(x) = x^T \Sigma^{-1} \mu_k - \frac{1}{2} \mu_k^T \Sigma^{-1} \mu_k + \log(\pi_k)\)</span></p></li>
+<li><p>QD: <span class="math notranslate nohighlight">\(\delta_k(x) = -\frac{1}{2} \log|\Sigma_k| - \frac{1}{2}(x-\mu_k)^T \Sigma_k^{-1} (x-\mu_k) + \log(\pi_k)\)</span></p></li>
+</ul>
+<p><strong>Decision Rule</strong></p>
+<ul class="simple">
+<li><p>LD: Classify <span class="math notranslate nohighlight">\(x\)</span> to the class <span class="math notranslate nohighlight">\(k\)</span> for which <span class="math notranslate nohighlight">\(\delta_k(x)\)</span> is the largest.</p></li>
+<li><p>QD: Classify <span class="math notranslate nohighlight">\(x\)</span> to the class <span class="math notranslate nohighlight">\(k\)</span> for which <span class="math notranslate nohighlight">\(\delta_k(x)\)</span> is the largest.</p></li>
+</ul>
+<p><strong>Nature of Decision Boundary</strong></p>
+<ul class="simple">
+<li><p>LD: Linear (since terms quadratic in <span class="math notranslate nohighlight">\(x\)</span> will cancel out)</p></li>
+<li><p>QD: Quadratic (due to the term involving <span class="math notranslate nohighlight">\(\Sigma_k^{-1}\)</span> which doesn’t cancel out as in LDA)</p></li>
+</ul>
+<p><strong>Estimation of Parameters</strong></p>
+<ul class="simple">
+<li><p>LD: Estimate <span class="math notranslate nohighlight">\(\mu_k\)</span> using sample mean of class <span class="math notranslate nohighlight">\(k\)</span>. <span class="math notranslate nohighlight">\(\Sigma\)</span> is estimated as the pooled sample covariance matrix. <span class="math notranslate nohighlight">\(\pi_k\)</span> can be the proportion of class <span class="math notranslate nohighlight">\(k\)</span> in the sample.</p></li>
+<li><p>QD: Estimate <span class="math notranslate nohighlight">\(\mu_k\)</span> using sample mean of class <span class="math notranslate nohighlight">\(k\)</span>. <span class="math notranslate nohighlight">\(\Sigma_k\)</span> is estimated separately for each group. <span class="math notranslate nohighlight">\(\pi_k\)</span> can be the proportion of class <span class="math notranslate nohighlight">\(k\)</span> in the sample.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="week9.0.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">week9</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="week9.2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">week9 lec 2</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-9-lecture-1-advanced-classification-techniques"><strong>Week 9, Lecture 1: Advanced Classification Techniques</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-discriminant-analysis-lda">Linear Discriminant Analysis (LDA):</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayes-in-lda">Bayes in LDA</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-boundary">Decision Boundary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lda">LDA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-discriminant-analysis-qda">Quadratic Discriminant Analysis (QDA):</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-between-ld-qd">Comparison between LD &amp; QD</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
