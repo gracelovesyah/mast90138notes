@@ -91,3 +91,11 @@ chapters:
   - file: week12.2
   - file: week12.3
   - file: lab12
+
+- file: review0
+  sections:
+  - file: review1.0
+  - file: review2.0
+  - file: review3.0
+  - file: review4.0
+  - file: review5.0

@@ -1,4 +1,4 @@
-# Overivew
+# Review
 ## MLE
 ### Additional Resource
 - [Maximum Likelihood For the Normal Distribution, step-by-step!!!](https://www.youtube.com/watch?v=Dn6b9fCIUpM)

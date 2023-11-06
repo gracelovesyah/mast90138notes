@@ -1,3 +1,1 @@
 # week9
-
-## 9.1 BAYES METHODS
