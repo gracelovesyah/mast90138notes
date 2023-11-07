@@ -1,4 +1,4 @@
-# basics
+# Notation
 
 ## Names and defs
 
@@ -8,9 +8,14 @@ The abbreviations and symbols you mentioned are commonly associated with statist
    PCA is a dimensionality reduction technique that's often used to reduce the number of variables in a dataset while retaining most of the original variability. It does this by projecting the original data into a new coordinate system defined by the principal components.
 
 ### **$X$**:
- This typically represents the original data matrix with rows as observations (e.g., individuals) and columns as variables (e.g., features or measurements). Each entry $X_{ij}$ represents the measurement of the $j^{th}$ variable for the $i^{th}$ observation.
+>  This typically represents the original data matrix with rows as observations (e.g., individuals) and columns as variables (e.g., features or measurements). 
+
+Each entry $X_{ij}$ represents the measurement of the $j^{th}$ variable for the $i^{th}$ observation.
   
 ### **$\Gamma$: (Gamma)**
+
+> Matrix of eigenvectors of the covariance matrix 
+
 The columns of $\Gamma$ are the eigenvectors of the covariance matrix of $X$. Each column (eigenvector) points in the direction of a principal component. These eigenvectors are also often referred to as "loadings."
 
 - In other words, $\Gamma$ provides the weights or coefficients that transform the original data $X$ into its principal components $Y$. If $X$ has $p$ predictors, then $\Gamma$ will be a $p \times p$ matrix, where the first column is the loading vector for PC1, the second column is the loading vector for PC2, and so on.
@@ -28,17 +33,23 @@ a_{p1} & a_{p2} & \dots & a_{pp} \\
 $$
 
 ### **$Y$:**
+
+> Matrix of scores on PC
+
 When you project the original data $X$ onto the principal components (or eigenvectors), you get a new data representation, $Y$. Here, $Y$ contains the scores of the observations on the principal components. The first column of $Y$ contains the scores for PC1, the second column has the scores for PC2, and so on.
 
 $$ Y = Γ^T X $$
 
 ### **$Z$**: 
-This represents the predicted outcome variable, based on the regression model. 
+
+> Predicted outcome variable, based on the regression model. 
 
 $$ Z = \beta^T X $$
 
 - In the equation $Z = \beta^T X + \epsilon$, $Z$ is the predicted value, $\beta^T$ is the transpose of the coefficient vector, and $\epsilon$ is the error term.
 ### **$\Lambda$ (Lambda)**: 
+
+> Diagonal matrix of eigenvalue
 
 This is a diagonal matrix of the variances of the principal components. In PCA, the components are ordered by the amount of variance they explain in the original data. The first principal component explains the most variance, the second explains the next highest amount, and so on. These variances are the eigenvalues of the covariance matrix of $X$.
 
@@ -55,6 +66,7 @@ $$
 
 ### $ \lambda_1 $
 
+> Eigenvalue
 
 The symbol $ \lambda_1 $ typically refers to the first (and largest) eigenvalue when discussing matrices, especially in the context of Principal Component Analysis (PCA).
 
@@ -82,11 +94,34 @@ As a note, $ \lambda_1 $ (and other eigenvalues) can be interpreted as the amoun
 
 
 ---
+### $ \Phi$ (Phi)
+
+> Cumulative variance proportion
+
+$$
+\phi = \frac{\sum_{j=1}^{q} \lambda_j}{\sum_{j=1}^{p} \lambda_j} = \frac{\sum_{j=1}^{q} \text{var}(Y_{ij})}{\sum_{j=1}^{p} \text{var}(Y_{ij})}
+$$
+
+Here, $ \lambda_j $ represents the eigenvalue (variance) of the $ j $-th principal component, $ \text{var}(Y_{ij}) $ is the variance explained by the $ j $-th principal component, $ q $ is the number of components you are summing over (the ones you want to consider), and $ p $ is the total number of components (which is equal to the number of original variables).
+
+
+The cumulative variance proportion $ \phi_q $ is calculated by summing the variances explained by each of the first $ q $ components and dividing by the total variance. In the context of PCA, this tells us how much of the information (in terms of the total variability) contained in the original data is captured by the first $ q $ principal components.
+
+Here's what the values mean in terms of $ \phi $:
+
+- $ \phi_1 = 0.668 $: The first principal component explains 66.8% of the total variance in the data.
+- $ \phi_2 = 0.876 $: The first two principal components together explain 87.6% of the total variance.
+- $ \phi_3 = 0.930 $: The first three principal components explain 93.0% of the total variance.
+- $ \phi_4 = 0.973 $: The first four principal components explain 97.3% of the total variance.
+- $ \phi_5 = 0.992 $: The first five principal components explain 99.2% of the total variance.
+- $ \phi_6 = 1.000 $: All six components together explain 100% of the total variance, which is to be expected as the number of principal components equals the number of original variables.
+
+In practical terms, this cumulative proportion of explained variance is used to decide how many principal components to keep. If a small number of components explain most of the variance, you may choose to ignore the rest, thereby reducing the dimensionality of the data while still retaining most of the information.
+
+--
 ### $ \Sigma $ (Sigma)
+> Covariance matrix
 
-Of course! Let's consider a 4x4 covariance matrix for four random variables: A, B, C, D
-
-Here's an example of such a covariance matrix:
 
 $$ 
 \Sigma = \begin{bmatrix}
@@ -141,6 +176,14 @@ The orthogonality comes into play when we discuss the eigenvectors of the covari
 
 ```
 ---
+### $\rho$ (rho)
+> Correlation
+
+$$
+\rho X,Y = \frac{\text{Cov}(X,Y)}{\sqrt{Var(X)Var(Y)}} = \frac{\gamma \lambda}{\sqrt{\sigma\lambda}}
+
+$$
+---
 
 ### **PCR (Principal Component Regression):**
 ### Z
@@ -177,7 +220,7 @@ X' =  [-2/3 1/3 5/3]
 ```
 
 **Step 2: Compute the Covariance Matrix**
-The covariance matrix \( S \) for \( X' \) is:
+The covariance matrix $ S $ for $ X' $ is:
 ```
       sum(x1i * x1i)      sum(x1i * x2i)
 S =   sum(x1i * x2i)      sum(x2i * x2i)

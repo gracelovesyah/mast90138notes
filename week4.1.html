@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'week4.1';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -157,9 +159,9 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="basics.html">basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basics.html">Notation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="useful_link.html">Resources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="progress.html">progress check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="progress.html">Progress Check</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="week1.0.html">week1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="week1.1.html">Week 1 Lecture 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week1.2.html">week1 lec 2</a></li>
@@ -463,14 +465,137 @@ k</p>
 <p>note, x1 and x bar are vectors
 In what follows I will not always use empirical notations as that can quickly become too heavy but IN PRACTICE WE ALWAYS USE EMPIRICAL VERSIONS.</p>
 <div class="admonition-example-swiss-bank-notes-data admonition">
-<p class="admonition-title">Example: Swiss bank notes data</p>
+<p class="admonition-title">Example: Swiss bank notes data 真假钞票例子💵</p>
 <p>X1: Length of bill (mm)
 X2: Width of left edge (mm)
 X3: Width of right edge (mm)
 X4: Bottom margin width (mm)
 X5: Top margin width (mm)
-X6: Length of diagonal (mm</p>
+X6: Length of diagonal (mm)
+The first 100 banknotes are genuine and the next 100 are counterfeit.</p>
+<div class="math notranslate nohighlight">
+\[
+ Y = \Gamma^T(X_i - \mu)
+\]</div>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\( \text{E}(X_j) = 0 \)</span> for <span class="math notranslate nohighlight">\( j = 1, \ldots, p \)</span>:</p>
+<ul class="simple">
+<li><p>This means that the expected value (mean) of the variables <span class="math notranslate nohighlight">\( X_j \)</span> is zero. In PCA, it’s a common practice to center the data by subtracting the mean of each variable from the dataset to ensure that the first principal component describes the direction of maximum variance.</p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\( \text{var} (Y_{ij}) = \lambda_j \)</span> for <span class="math notranslate nohighlight">\( j = 1, \ldots, p \)</span>:</p>
+<ul class="simple">
+<li><p>Here, <span class="math notranslate nohighlight">\( \text{var} (Y_{ij}) \)</span> is the variance of the <span class="math notranslate nohighlight">\( j \)</span>-th principal component, and <span class="math notranslate nohighlight">\( \lambda_j \)</span> represents its corresponding eigenvalue. The variance of each principal component is equal to its eigenvalue, and PCA aims to maximize the variance explained by each principal component.</p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\( \text{cov} (Y_{ik}, Y_{ij}) = 0 \)</span>, for <span class="math notranslate nohighlight">\( k \neq j \)</span>:</p>
+<ul class="simple">
+<li><p>The covariance between any two different principal components is zero. This implies that the principal components are orthogonal to each other, meaning they are uncorrelated and each represents a different source of variance in the data.</p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\( \text{var} (Y_{i1}) \geq \text{var} (Y_{i2}) \geq \ldots &gt; \text{var} (Y_{in}) \)</span>:</p>
+<ul class="simple">
+<li><p>The variances of the principal components are ordered in a non-increasing fashion. This property ensures that the first few principal components capture most of the variability in the data, which is why PCA is useful for reducing dimensionality.</p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\( \sum Y_{ij} = \text{tr}(\Sigma) \)</span>:</p>
+<ul class="simple">
+<li><p>This means that the sum of the eigenvalues (<span class="math notranslate nohighlight">\(Y_{ij}\)</span>) of the covariance matrix (<span class="math notranslate nohighlight">\(\Sigma\)</span>) is equal to the trace of the covariance matrix. The trace of a matrix is the sum of its diagonal elements, which, in the case of a covariance matrix, are the variances of each variable. In PCA, the total variance captured by all the principal components is equal to the sum of the variances of the original variables.</p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\( \prod Y_{ij} = |\Sigma| \)</span>:</p>
+<ul class="simple">
+<li><p>This states that the product of the eigenvalues (<span class="math notranslate nohighlight">\(Y_{ij}\)</span>) of the covariance matrix (<span class="math notranslate nohighlight">\(\Sigma\)</span>) is equal to the determinant of the covariance matrix. The determinant of the covariance matrix can be interpreted as a measure of the overall variance in the multivariate data. It is also related to the volume of the confidence ellipsoid in the multivariate normal distribution.</p></li>
+</ul>
+</li>
+</ol>
 </div>
+<hr class="docutils" />
+<div class="dropdown admonition">
+<p class="admonition-title">Proof: <span class="math notranslate nohighlight">\( \text{E}(X_j) = 0 \)</span> for <span class="math notranslate nohighlight">\( j = 1, \ldots, p \)</span></p>
+<p>The expectation operator <span class="math notranslate nohighlight">\( \text{E} \)</span> is a linear operator, which means it satisfies the following properties:</p>
+<ol class="arabic simple">
+<li><p><strong>Additivity</strong>: <span class="math notranslate nohighlight">\( \text{E}(X + Y) = \text{E}(X) + \text{E}(Y) \)</span></p></li>
+<li><p><strong>Homogeneity</strong>: <span class="math notranslate nohighlight">\( \text{E}(cX) = c\text{E}(X) \)</span></p></li>
+</ol>
+<p>Where <span class="math notranslate nohighlight">\( X \)</span> and <span class="math notranslate nohighlight">\( Y \)</span> are random variables, and <span class="math notranslate nohighlight">\( c \)</span> is a constant.</p>
+<p>Given a matrix <span class="math notranslate nohighlight">\( \Gamma \)</span> and a random vector <span class="math notranslate nohighlight">\( X \)</span>, the transformed random vector <span class="math notranslate nohighlight">\( Y \)</span> is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+Y = \Gamma^T (X - \mu)
+\]</div>
+<p>When you take the expectation of <span class="math notranslate nohighlight">\( Y \)</span>, you apply the expectation operator to the transformation:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{E}(Y) = \text{E}(\Gamma^T (X - \mu))
+\]</div>
+<p>Due to the linearity of the expectation operator, you can distribute it inside the transformation:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{E}(Y) = \Gamma^T \text{E}(X - \mu)
+\]</div>
+<p>This works because <span class="math notranslate nohighlight">\( \Gamma^T \)</span> is a matrix of constants (not random), and <span class="math notranslate nohighlight">\( \mu \)</span> is the mean vector of <span class="math notranslate nohighlight">\( X \)</span>, which is also constant (not random). Therefore, you can factor out the constant matrix <span class="math notranslate nohighlight">\( \Gamma^T \)</span> from the expectation, and since <span class="math notranslate nohighlight">\( \mu \)</span> is constant, <span class="math notranslate nohighlight">\( \text{E}(\mu) = \mu \)</span>.</p>
+<p>The expectation operator can go inside the transformation due to its linearity, and this is why you can write <span class="math notranslate nohighlight">\( \text{E}(Y) \)</span> as <span class="math notranslate nohighlight">\( \Gamma^T \text{E}(X - \mu) \)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\mu\)</span> is the expected value of X hence <span class="math notranslate nohighlight">\({E}(X - \mu) \)</span> is 0.</p>
+</div>
+<hr class="docutils" />
+<div class="dropdown admonition">
+<p class="admonition-title">Proof: <span class="math notranslate nohighlight">\(    \text{var}(Y) = \Gamma^T \Sigma \Gamma \)</span></p>
+<p>The variance of the transformed variables <span class="math notranslate nohighlight">\( Y \)</span> in PCA is related to the variance of the original variables <span class="math notranslate nohighlight">\( X \)</span> by the transformation matrix <span class="math notranslate nohighlight">\( \Gamma \)</span>, which consists of the eigenvectors of the covariance matrix of <span class="math notranslate nohighlight">\( X \)</span>.</p>
+<p>Here’s the step-by-step explanation of why the variance of <span class="math notranslate nohighlight">\( Y \)</span> is <span class="math notranslate nohighlight">\( \Gamma^T \text{var}(X - \mu) \Gamma \)</span>:</p>
+<ol class="arabic">
+<li><p><strong>Transformation to Principal Components</strong>:
+The principal components <span class="math notranslate nohighlight">\( Y \)</span> are obtained by applying the transformation matrix <span class="math notranslate nohighlight">\( \Gamma \)</span> to the centered data <span class="math notranslate nohighlight">\( X - \mu \)</span>, where <span class="math notranslate nohighlight">\( \mu \)</span> is the mean of <span class="math notranslate nohighlight">\( X \)</span>. The transformation is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+   Y = \Gamma^T (X - \mu)
+   \]</div>
+</li>
+<li><p><strong>Variance of Transformed Variables</strong>:
+By definition, the variance of the transformed variables <span class="math notranslate nohighlight">\( Y \)</span> is:</p>
+<div class="math notranslate nohighlight">
+\[
+   \text{var}(Y) = E[(Y - E(Y))(Y - E(Y))^T]
+   \]</div>
+<p>Because <span class="math notranslate nohighlight">\( E(Y) = \Gamma^T E(X - \mu) = \Gamma^T \cdot 0 = 0 \)</span> (as the data has been centered), this simplifies to:</p>
+<div class="math notranslate nohighlight">
+\[
+   \text{var}(Y) = E[YY^T]
+   \]</div>
+</li>
+<li><p><strong>Application of Transformation</strong>:
+Substituting <span class="math notranslate nohighlight">\( Y \)</span> with the transformation <span class="math notranslate nohighlight">\( \Gamma^T (X - \mu) \)</span>, we get:</p>
+<div class="math notranslate nohighlight">
+\[
+   \text{var}(Y) = E[(\Gamma^T (X - \mu))(\Gamma^T (X - \mu))^T]
+   \]</div>
+</li>
+<li><p><strong>Matrix Multiplication</strong>:
+When you multiply out the matrices, you use the property that <span class="math notranslate nohighlight">\( (AB)^T = B^T A^T \)</span> for matrix transpose:</p>
+<div class="math notranslate nohighlight">
+\[
+   \text{var}(Y) = E[\Gamma^T (X - \mu)(X - \mu)^T \Gamma]
+   \]</div>
+</li>
+<li><p><strong>Linearity of Expectation</strong>:
+Because expectation is a linear operator, you can move it inside the expression:</p>
+<div class="math notranslate nohighlight">
+\[
+   \text{var}(Y) = \Gamma^T E[(X - \mu)(X - \mu)^T] \Gamma
+   \]</div>
+</li>
+<li><p><strong>Covariance Matrix of <span class="math notranslate nohighlight">\( X \)</span></strong>:
+The term <span class="math notranslate nohighlight">\( E[(X - \mu)(X - \mu)^T] \)</span> is the covariance matrix of <span class="math notranslate nohighlight">\( X \)</span>, denoted by <span class="math notranslate nohighlight">\( \Sigma \)</span> or <span class="math notranslate nohighlight">\( \text{var}(X) \)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+   \text{var}(Y) = \Gamma^T \Sigma \Gamma
+   \]</div>
+</li>
+</ol>
+</div>
+<blockquote>
+<div><p>Remember that our goal is to project p-dimensional data on just a few dimensions so that we can visualize them more easily. Thus in practice we often take q much smaller than p if p is large.</p>
+</div></blockquote>
 </section>
 </section>
 </section>

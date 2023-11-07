@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'week4.2';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -157,23 +159,23 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="basics.html">basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basics.html">Notation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="useful_link.html">Resources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="progress.html">progress check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="progress.html">Progress Check</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="week1.0.html">week1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="week1.1.html">week1 lec 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week1.1.html">Week 1 Lecture 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week1.2.html">week1 lec 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week1.3.html">week1 additional notes</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="week2.0.html">week2</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="week2.1.html">week2 lec 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="week2.2.html">week2 lec 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week2.1.html">Week 2 Lecture 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week2.2.html">Week 2 Lecture 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week2.3.html">week2 additional notes</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="week3.0.html">week3</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="week3.1.html">week3 lec 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week3.1.html">Week 3 Lecture 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week3.2.html">week3 lec 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week3.3.html">week3 additional notes</a></li>
 </ul>
@@ -231,7 +233,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="week12.3.html">week12 additional notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="review0.html">Overivew</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="review0.html">Review</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="review1.0.html">review1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="review2.0.html">review2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="review3.0.html">review3</a></li>
@@ -409,7 +411,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -425,6 +429,21 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#r-code">R Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pcx">PCX</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#score">Score?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pcx-and-g">PCX and G</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-pcs">Interpretation of PCs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#screeplot">Screeplot</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -436,6 +455,221 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="week4-lec-2">
 <h1>week4 lec 2<a class="headerlink" href="#week4-lec-2" title="Permalink to this heading">#</a></h1>
+<section id="r-code">
+<h2>R Code<a class="headerlink" href="#r-code" title="Permalink to this heading">#</a></h2>
+<p>The R code provided demonstrates the process of principal component analysis (PCA) on the <code class="docutils literal notranslate"><span class="pre">banknote</span></code> dataset available within the <code class="docutils literal notranslate"><span class="pre">mclust</span></code> library. Here’s a step-by-step explanation of what the code is doing:</p>
+<ol class="arabic">
+<li><p><strong>Loading the <code class="docutils literal notranslate"><span class="pre">mclust</span></code> library and dataset:</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">mclust</span><span class="p">)</span>
+<span class="nf">data</span><span class="p">(</span><span class="n">banknote</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This loads the necessary <code class="docutils literal notranslate"><span class="pre">mclust</span></code> package and the <code class="docutils literal notranslate"><span class="pre">banknote</span></code> dataset into the R environment.</p>
+</li>
+<li><p><strong>Plotting the data:</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">banknote</span><span class="p">[,</span><span class="m">2</span><span class="o">:</span><span class="m">7</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>This command creates a scatterplot matrix for columns 2 to 7 of the <code class="docutils literal notranslate"><span class="pre">banknote</span></code> dataset. Each scatterplot shows the relationship between two variables.</p>
+</li>
+<li><p><strong>Extracting the <code class="docutils literal notranslate"><span class="pre">Status</span></code> variable:</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">StatusX</span><span class="o">=</span><span class="n">banknote</span><span class="o">$</span><span class="n">Status</span>
+</pre></div>
+</div>
+<p>Here, the <code class="docutils literal notranslate"><span class="pre">Status</span></code> column from the <code class="docutils literal notranslate"><span class="pre">banknote</span></code> dataset is assigned to the variable <code class="docutils literal notranslate"><span class="pre">StatusX</span></code>.</p>
+</li>
+<li><p><strong>Performing PCA using the <code class="docutils literal notranslate"><span class="pre">prcomp</span></code> function:</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">PCX</span><span class="o">=</span><span class="nf">prcomp</span><span class="p">(</span><span class="n">banknote</span><span class="p">[,</span><span class="m">2</span><span class="o">:</span><span class="m">7</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>PCA is applied to columns 2 to 7 of the <code class="docutils literal notranslate"><span class="pre">banknote</span></code> dataset using the <code class="docutils literal notranslate"><span class="pre">prcomp</span></code> function, which is a standard function in R for PCA. The default arguments are used, which means the data will be centered but not scaled, and all principal components will be returned.</p>
+</li>
+<li><p><strong>Extracting the results of PCA:</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">PCX</span>
+</pre></div>
+</div>
+<p>This line prints the summary of the PCA object <code class="docutils literal notranslate"><span class="pre">PCX</span></code> to the console, which includes the standard deviations of the principal components, the rotation matrix (loadings), and the scores.</p>
+</li>
+<li><p><strong>Extracting the rotation matrix and variances:</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">=</span><span class="n">PCX</span><span class="o">$</span><span class="n">rotation</span>
+<span class="n">ell</span><span class="o">=</span><span class="n">PCX</span><span class="o">$</span><span class="n">sdevˆ2</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">G</span></code> is assigned the rotation matrix, which contains the loadings of the principal components, and <code class="docutils literal notranslate"><span class="pre">ell</span></code> is assigned the variances (squared standard deviations) of the principal components.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">Rotation </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="m">6</span><span class="w"> </span>×<span class="w"> </span><span class="m">6</span><span class="p">)</span><span class="w"> </span><span class="o">:</span>
+<span class="w">          </span><span class="n">PC1</span><span class="w">       </span><span class="n">PC2</span><span class="w">       </span><span class="n">PC3</span><span class="w">       </span><span class="n">PC4</span><span class="w">       </span><span class="n">PC5</span><span class="w">       </span><span class="n">PC6</span>
+<span class="n">Length</span><span class="w">   </span><span class="m">0.044</span><span class="w">    </span><span class="m">-0.011</span><span class="w">    </span><span class="m">0.326</span><span class="w">   </span><span class="m">-0.562</span><span class="w">   </span><span class="m">-0.753</span><span class="w">    </span><span class="m">0.098</span>
+<span class="n">Left</span><span class="w">    </span><span class="m">-0.112</span><span class="w">    </span><span class="m">-0.071</span><span class="w">    </span><span class="m">0.259</span><span class="w">   </span><span class="m">-0.455</span><span class="w">    </span><span class="m">0.347</span><span class="w">   </span><span class="m">-0.767</span>
+<span class="n">Right</span><span class="w">   </span><span class="m">-0.139</span><span class="w">    </span><span class="m">-0.066</span><span class="w">    </span><span class="m">0.345</span><span class="w">   </span><span class="m">-0.415</span><span class="w">    </span><span class="m">0.535</span><span class="w">    </span><span class="m">0.632</span>
+<span class="n">Bottom</span><span class="w">  </span><span class="m">-0.768</span><span class="w">     </span><span class="m">0.563</span><span class="w">    </span><span class="m">0.218</span><span class="w">    </span><span class="m">0.186</span><span class="w">   </span><span class="m">-0.100</span><span class="w">   </span><span class="m">-0.022</span>
+<span class="n">Top</span><span class="w">     </span><span class="m">-0.202</span><span class="w">    </span><span class="m">-0.659</span><span class="w">    </span><span class="m">0.557</span><span class="w">    </span><span class="m">0.451</span><span class="w">   </span><span class="m">-0.102</span><span class="w">   </span><span class="m">-0.035</span>
+<span class="n">Diagonal</span><span class="w"> </span><span class="m">0.579</span><span class="w">     </span><span class="m">0.489</span><span class="w">    </span><span class="m">0.592</span><span class="w">    </span><span class="m">0.258</span><span class="w">    </span><span class="m">0.084</span><span class="w">   </span><span class="m">-0.046</span>
+</pre></div>
+</div>
+<p>The variable <code class="docutils literal notranslate"><span class="pre">ell</span></code> in the context of PCA in R is typically used to store the variances of each principal component. Since it was described as being calculated from the standard deviations (sdev) provided by <code class="docutils literal notranslate"><span class="pre">PCX$sdev</span></code> squared, it will contain the variance explained by each principal component.</p>
+<p>The variances (stored in <code class="docutils literal notranslate"><span class="pre">ell</span></code>) would be the square of <code class="docutils literal notranslate"><span class="pre">PCX$sdev</span></code></p>
+<div class="math notranslate nohighlight">
+\[
+    \ell = [3.0003, 0.9356, 0.2434, 0.1947, 0.0852, 0.0355]
+    \]</div>
+</li>
+<li><p><strong>Centering the data and plotting the scores manually:</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">XC</span><span class="o">=</span><span class="nf">scale</span><span class="p">(</span><span class="n">banknote</span><span class="p">[,</span><span class="m">2</span><span class="o">:</span><span class="m">7</span><span class="p">],</span><span class="n">scale</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span><span class="w"> </span><span class="c1">#center data for plot</span>
+<span class="n">pX</span><span class="o">=</span><span class="n">XC</span><span class="o">%*%</span><span class="n">G</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">pX</span><span class="p">[,</span><span class="m">1</span><span class="p">],</span><span class="n">pX</span><span class="p">[,</span><span class="m">2</span><span class="p">],</span><span class="n">pch</span><span class="o">=</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="n">xlab</span><span class="o">=</span><span class="s">&quot;PC1&quot;</span><span class="p">,</span><span class="n">ylab</span><span class="o">=</span><span class="s">&quot;PC 2&quot;</span><span class="p">,</span><span class="n">asp</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">XC</span></code> centers the data by subtracting the mean of each column. Then <code class="docutils literal notranslate"><span class="pre">pX</span></code> calculates the scores manually by multiplying the centered data by the rotation matrix <code class="docutils literal notranslate"><span class="pre">G</span></code>. These scores are plotted for the first two principal components.</p>
+</li>
+<li><p><strong>Plotting the PCA results using the <code class="docutils literal notranslate"><span class="pre">prcomp</span></code> object:</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">Y</span><span class="o">=</span><span class="n">PCX</span><span class="o">$</span><span class="n">x</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Y</span><span class="p">[,</span><span class="m">1</span><span class="p">],</span><span class="n">Y</span><span class="p">[,</span><span class="m">2</span><span class="p">],</span><span class="n">pch</span><span class="o">=</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="n">xlab</span><span class="o">=</span><span class="s">&quot;PC1&quot;</span><span class="p">,</span><span class="n">ylab</span><span class="o">=</span><span class="s">&quot;PC 2&quot;</span><span class="p">,</span><span class="n">asp</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Y</span></code> extracts the scores directly from the <code class="docutils literal notranslate"><span class="pre">prcomp</span></code> object <code class="docutils literal notranslate"><span class="pre">PCX</span></code>, and then plots the scores of the first two principal components. The <code class="docutils literal notranslate"><span class="pre">pch=&quot;*&quot;</span></code> argument specifies the type of point symbol to use in the plot, and <code class="docutils literal notranslate"><span class="pre">asp=1</span></code> sets the aspect ratio to 1, so that one unit on the x-axis is equal to one unit on the y-axis.</p>
+</li>
+</ol>
+<p>Note: There is a typo in the code: <code class="docutils literal notranslate"><span class="pre">ell=PCX$sdevˆ2</span></code> should be <code class="docutils literal notranslate"><span class="pre">ell=PCX$sdev^2</span></code> (using the correct exponentiation operator <code class="docutils literal notranslate"><span class="pre">^</span></code> in R).</p>
+</section>
+<section id="pcx">
+<h2>PCX<a class="headerlink" href="#pcx" title="Permalink to this heading">#</a></h2>
+<p>The output of the <code class="docutils literal notranslate"><span class="pre">prcomp</span></code> function in R, stored in the object <code class="docutils literal notranslate"><span class="pre">PCX</span></code>, contains several components, including:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sdev</span></code>: The standard deviations of the principal components.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rotation</span></code>: The matrix of variable loadings (also called the rotation matrix), which represents the correlation between the original variables and the principal components.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: The matrix of scores of the original data projected onto the principal components.</p></li>
+</ul>
+<p>Let’s break down the provided output:</p>
+<ol class="arabic">
+<li><p><strong>Standard deviations:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Standard</span> <span class="n">deviations</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">..</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="mf">1.7321388</span> <span class="mf">0.9672748</span> <span class="mf">0.4933697</span> <span class="mf">0.4412015</span> <span class="mf">0.2919107</span> <span class="mf">0.1884534</span>
+</pre></div>
+</div>
+<p>These are the standard deviations of each of the principal components (PC1 to PC6). They give you an idea of the amount of variance captured by each principal component. A higher standard deviation means that the component accounts for more variance in the data.</p>
+</li>
+<li><p><strong>Rotation:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Rotation (n x k) = (6 × 6) :
+          PC1       PC2       PC3       PC4       PC5       PC6
+Length   0.044    -0.011    0.326   -0.562   -0.753    0.098
+Left    -0.112    -0.071    0.259   -0.455    0.347   -0.767
+Right   -0.139    -0.066    0.345   -0.415    0.535    0.632
+Bottom  -0.768     0.563    0.218    0.186   -0.100   -0.022
+Top     -0.202    -0.659    0.557    0.451   -0.102   -0.035
+Diagonal 0.579     0.489    0.592    0.258    0.084   -0.046
+</pre></div>
+</div>
+<p>This matrix shows how each original variable contributes to each principal component. For example, the first number in the <code class="docutils literal notranslate"><span class="pre">Length</span></code> row (0.044) is the loading of the <code class="docutils literal notranslate"><span class="pre">Length</span></code> variable on the first principal component (PC1). Loadings close to 1 or -1 indicate a strong positive or negative correlation with the principal component, respectively.</p>
+</li>
+<li><p><strong>Scores (<code class="docutils literal notranslate"><span class="pre">PCX$x</span></code>):</strong>
+<code class="docutils literal notranslate"><span class="pre">PCX$x</span></code> is the matrix of scores, which are the coordinates of the original data projected onto the principal components space. Each row in <code class="docutils literal notranslate"><span class="pre">PCX$x</span></code> corresponds to a banknote, and each column corresponds to a principal component. The scores tell you where each observation lies in the space defined by the principal components.</p></li>
+</ol>
+<p>To interpret <code class="docutils literal notranslate"><span class="pre">PCX$x</span></code> in the context of your dataset:</p>
+<ul class="simple">
+<li><p>The first column of <code class="docutils literal notranslate"><span class="pre">PCX$x</span></code> (i.e.<code class="docutils literal notranslate"><span class="pre">PCX$x[,1]</span></code>) represents the scores on the first principal component (PC1), which captures the most variance. Observations with high scores on PC1 are those that have high values for the variables that have high positive loadings on PC1 and low values for those with high negative loadings.</p></li>
+<li><p>The second column of <code class="docutils literal notranslate"><span class="pre">PCX$x</span></code>(i.e.<code class="docutils literal notranslate"><span class="pre">PCX$x[,2]</span></code>)represents the scores on the second principal component (PC2), which captures the second most variance, and so on for the other components.</p></li>
+</ul>
+<p>The principal components provide a means of reducing the dimensionality of the dataset while retaining as much of the variability in the data as possible. The scores can be used for visualization, clustering, or as inputs to other analytical methods.</p>
+<section id="score">
+<h3>Score?<a class="headerlink" href="#score" title="Permalink to this heading">#</a></h3>
+<p>In principal component analysis (PCA), the “scores” (also referred to as “principal component scores” or “factor scores”) are the transformed coordinates of the data points in the new feature space defined by the principal components. They are the representation of each observation in the PCA-transformed space.</p>
+<p>Here’s how the scores are calculated and what they refer to:</p>
+<ol class="arabic">
+<li><p><strong>Calculation of Scores:</strong>
+The scores are calculated by projecting the original data points onto the principal components. Mathematically, this is done by centering the original variables (subtracting their means) and then multiplying the centered data by the matrix of loadings (the rotation matrix).</p>
+<p>If <span class="math notranslate nohighlight">\( X \)</span> is the original data matrix with variables in columns and observations in rows, and <span class="math notranslate nohighlight">\( G \)</span> is the matrix of loadings (where each column is a principal component), the scores <span class="math notranslate nohighlight">\( Y \)</span> are given by:</p>
+<div class="math notranslate nohighlight">
+\[
+   Y = (X - \bar{X})G
+   \]</div>
+<p>Here, <span class="math notranslate nohighlight">\( \bar{X} \)</span> represents the mean of each column of <span class="math notranslate nohighlight">\( X \)</span>, and <span class="math notranslate nohighlight">\( Y \)</span> is the matrix of scores. The ith column of <span class="math notranslate nohighlight">\( Y \)</span> contains the scores for the ith principal component.</p>
+</li>
+<li><p><strong>Interpretation of Scores:</strong>
+The scores give you the coordinates of each observation in the new space spanned by the principal components. An individual score tells you where the corresponding observation lies along a principal component.</p>
+<ul class="simple">
+<li><p>A high positive score on a principal component means that the observation is aligned with the direction of the principal component, which in turn means it has high values for the original variables that have high positive loadings and low values for those with high negative loadings on that component.</p></li>
+<li><p>A high negative score indicates the opposite – the observation is aligned in the opposite direction of the principal component.</p></li>
+<li><p>Scores near zero indicate that the observation is close to the mean of the data in the direction of that principal component.</p></li>
+</ul>
+</li>
+</ol>
+<p>The first principal component is the direction in the data that maximizes variance, so scores on the first component tell you about the primary structure of the data. The second component is orthogonal to the first and represents the next highest variance, and so on for subsequent components.</p>
+</section>
+<section id="pcx-and-g">
+<h3>PCX and G<a class="headerlink" href="#pcx-and-g" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">G=PCX$rotation</span></code> and <code class="docutils literal notranslate"><span class="pre">PCX</span></code> refer to different components of the PCA analysis in R:</p>
+<ol class="arabic simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">G=PCX$rotation</span></code>:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">G</span></code> is the matrix of loadings (also called the rotation matrix) which results from the PCA.</p></li>
+<li><p>The rotation matrix <code class="docutils literal notranslate"><span class="pre">G</span></code> contains the eigenvectors of the covariance matrix of the original data. Each column in <code class="docutils literal notranslate"><span class="pre">G</span></code> corresponds to a principal component.</p></li>
+<li><p>The elements in the matrix represent the correlation of each original variable with each principal component. High absolute values indicate that a variable has a strong correlation with the principal component.</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">PCX</span></code>:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PCX</span></code> is the entire object that is returned by the <code class="docutils literal notranslate"><span class="pre">prcomp</span></code> function when performing PCA.</p></li>
+<li><p>This object includes several components:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">sdev</span></code>: The standard deviations of the principal components, indicating the square root of the eigenvalues of the covariance matrix, which represent the amount of variance captured by each component.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rotation</span></code>: The same as <code class="docutils literal notranslate"><span class="pre">G</span></code>, this is the matrix of loadings/eigenvectors.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: The matrix of principal component scores, which are the original data points projected onto the principal components.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">center</span></code>: The means of the original variables, which were subtracted from the data during the centering step.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scale</span></code>: If scaling was performed, the scaling applied to each variable.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Other</span> <span class="pre">elements</span></code>: Such as the method used and additional information about the PCA.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>In summary, <code class="docutils literal notranslate"><span class="pre">G</span></code> is just one component of the PCA result, focusing on the relationship between the original variables and the principal components, while <code class="docutils literal notranslate"><span class="pre">PCX</span></code> is the comprehensive result object containing all the information about the PCA, including <code class="docutils literal notranslate"><span class="pre">G</span></code> as one of its parts.</p>
+</section>
+</section>
+<section id="interpretation-of-pcs">
+<h2>Interpretation of PCs<a class="headerlink" href="#interpretation-of-pcs" title="Permalink to this heading">#</a></h2>
+<p>For the first principal component (PC1):</p>
+<div class="math notranslate nohighlight">
+\[
+Yi1 = 0.044 XC_{i1} - 0.112 XC_{i2} - 0.139 XC_{i3} - 0.768 XC_{i4} - 0.202 XC_{i5} + 0.579 XC_{i6}
+\]</div>
+<p>For the second principal component (PC2):</p>
+<div class="math notranslate nohighlight">
+\[
+Yi2 = -0.011 XC_{i1} - 0.071 XC_{i2} - 0.066 XC_{i3} + 0.563 XC_{i4} - 0.659 XC_{i5} + 0.489 XC_{i6}
+\]</div>
+<p>These equations represent the linear combinations of the centered variables that make up the first two principal components’ scores for each observation <span class="math notranslate nohighlight">\( i \)</span>.</p>
+<p>The interpretation of the principal components (PCs) is based on the magnitude and sign of the loadings (coefficients) of the original variables on each PC. Let’s look at the coefficients you’ve provided for PC1 and PC2:</p>
+<p>For PC1:</p>
+<ul class="simple">
+<li><p>The coefficient for the 6th variable (length of diagonal) is 0.579.</p></li>
+<li><p>The coefficient for the 4th variable (bottom margin) is -0.768.</p></li>
+</ul>
+<p>For PC2:</p>
+<ul class="simple">
+<li><p>The coefficient for the 5th variable (top margin) is -0.659.</p></li>
+<li><p>The coefficient for the 6th variable (length of diagonal) is 0.489.</p></li>
+<li><p>The coefficient for the 4th variable (bottom margin) is 0.563.</p></li>
+</ul>
+<p>Here’s why the given interpretation makes sense:</p>
+<ol class="arabic simple">
+<li><p><strong>First PC (PC1):</strong>
+The largest magnitude coefficients in PC1 are for the 4th and 6th variables, but they have opposite signs. This means that PC1 captures the contrast between these two variables: the length of the diagonal and the bottom margin. When the length of the diagonal is larger (a positive contribution to the score), and the bottom margin is smaller (a negative contribution to the score), the score on PC1 will be higher, and vice versa. Thus, PC1 can be roughly interpreted as corresponding to the difference between the 6th and the 4th variables.</p></li>
+<li><p><strong>Second PC (PC2):</strong>
+The largest magnitude coefficients in PC2 are also associated with the 4th, 5th, and 6th variables. The 5th variable (top margin) has a negative coefficient, while the 4th and 6th variables have positive coefficients. This suggests that PC2 captures the contrast between the top margin and a combination of the length of the diagonal and the bottom margin. When the top margin is smaller (a negative contribution to the score) and the sum of the length of the diagonal and the bottom margin is larger (positive contributions to the score), the score on PC2 will be higher.</p></li>
+</ol>
+<p>The PCs are linear combinations of the original variables, and their interpretation is often subjective and based on the domain knowledge of the data. When certain variables dominate a principal component due to their large coefficients, it’s common to interpret the component as representing those variables or their contrasts, especially when the signs of the loadings are different.</p>
+</section>
+<hr class="docutils" />
+<section id="screeplot">
+<h2>Screeplot<a class="headerlink" href="#screeplot" title="Permalink to this heading">#</a></h2>
+<p>In R, we can apply screeplot to the result of a PC analysis obtained
+through prcomp: screeplot(PCX,type=”lines”)</p>
+<div class="dropdown admonition">
+<p class="admonition-title">why using screeplot?</p>
+<p>A scree plot is used to determine the number of principal components (PCs) to retain in a principal component analysis (PCA) because it provides a visual method to identify the point at which the marginal gain in explained variance decreases significantly. The plot displays the eigenvalues associated with each principal component in descending order, and typically, the eigenvalues will start large and diminish to near zero. The point where the values start to level off—often referred to as the “elbow”—indicates that subsequent principal components contribute less to the explanation of the variance in the data.</p>
+<p>By selecting the number of components before this drop-off point, one can effectively reduce the dimensionality of the data while still capturing the majority of its variability. This is essential in avoiding overfitting and in making the data more interpretable and manageable. The scree plot is a heuristic tool, and its effectiveness lies in its simplicity and the intuitive visual cue it provides for making an informed decision about the number of principal components to retain.</p>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -496,6 +730,27 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#r-code">R Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pcx">PCX</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#score">Score?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pcx-and-g">PCX and G</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation-of-pcs">Interpretation of PCs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#screeplot">Screeplot</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
