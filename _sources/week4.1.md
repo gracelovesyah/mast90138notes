@@ -148,4 +148,3 @@ Here's the step-by-step explanation of why the variance of $ Y $ is $ \Gamma^T \
 ```
 
 > Remember that our goal is to project p-dimensional data on just a few dimensions so that we can visualize them more easily. Thus in practice we often take q much smaller than p if p is large.
-

@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'week6.1';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -448,37 +450,37 @@ document.write(`
 <h1>week6 lec1<a class="headerlink" href="#week6-lec1" title="Permalink to this heading">#</a></h1>
 <section id="partial-least-squares">
 <h2>Partial least squares<a class="headerlink" href="#partial-least-squares" title="Permalink to this heading">#</a></h2>
-<p>Partial Least Squares (PLS) regression is indeed a method often compared to Principal Component Regression (PCR). Both are used for reducing the dimensionality of predictors, but while PCR only focuses on explaining the variance in the predictor variables (X), PLS also takes into account the variance in the response variable (Z).</p>
+<p>Partial Least Squares (PLS) regression is indeed a method often compared to Principal Component Regression (PCR). Both are used for reducing the dimensionality of predictors, but while PCR only focuses on explaining the variance in the predictor variables <span class="math notranslate nohighlight">\(X\)</span>, PLS also takes into account the variance in the response variable <span class="math notranslate nohighlight">\(Z\)</span>.</p>
 <p>Here’s a breakdown of how PLS works and its main idea:</p>
 <ol class="arabic simple">
-<li><p><strong>Projection of (X) and (Z)</strong>:</p>
+<li><p><strong>Projection of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Z\)</span></strong>:</p>
 <ul class="simple">
-<li><p>PLS seeks to find the linear combination of the predictors (columns of (X)) such that, when we project both (X) and (Z) onto this new axis, the covariance between the projections is maximized.</p></li>
-<li><p>This projection for (X) results in components (T_1, T_2, … , T_p).</p></li>
+<li><p>PLS seeks to find the linear combination of the predictors (columns of <span class="math notranslate nohighlight">\(X\)</span>) such that, when we project both <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Z\)</span> onto this new axis, the covariance between the projections is maximized.</p></li>
+<li><p>This projection for <span class="math notranslate nohighlight">\(X\)</span> results in components <span class="math notranslate nohighlight">\(T_1, T_2, ... , T_p\)</span>.</p></li>
 </ul>
 </li>
 <li><p><strong>Deflation</strong>:</p>
 <ul class="simple">
-<li><p>After finding the first set of projections, the variance that has been accounted for is removed or “deflated” from both (X) and (Z).</p></li>
+<li><p>After finding the first set of projections, the variance that has been accounted for is removed or “deflated” from both <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Z\)</span>.</p></li>
 <li><p>This deflation ensures that subsequent components are orthogonal to previous ones, similar to the process in PCA.</p></li>
 </ul>
 </li>
 <li><p><strong>Iterative Process</strong>:</p>
 <ul class="simple">
-<li><p>Steps 1 and 2 are repeated iteratively to find subsequent components, each of which aims to maximize the covariance between the projections of (X) and (Z).</p></li>
+<li><p>Steps 1 and 2 are repeated iteratively to find subsequent components, each of which aims to maximize the covariance between the projections of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Z\)</span>.</p></li>
 </ul>
 </li>
 <li><p><strong>Regression</strong>:</p>
 <ul class="simple">
-<li><p>Once a desired number of components are obtained (usually far fewer than the original number of predictors), a regression model is fitted using these components as predictors to predict (Z).</p></li>
+<li><p>Once a desired number of components are obtained (usually far fewer than the original number of predictors), a regression model is fitted using these components as predictors to predict <span class="math notranslate nohighlight">\(Z\)</span>.</p></li>
 </ul>
 </li>
 </ol>
 <p><strong>Benefits of PLS</strong>:</p>
 <ul class="simple">
-<li><p>By focusing on both the variance in (X) and the covariance between (X) and (Z), PLS often results in components that are more relevant for predicting the response variable than PCR.</p></li>
+<li><p>By focusing on both the variance in <span class="math notranslate nohighlight">\(X\)</span> and the covariance between <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Z\)</span>, PLS often results in components that are more relevant for predicting the response variable than PCR.</p></li>
 <li><p>Like PCR, PLS can handle multicollinearity by reducing the predictor variables to a smaller set of uncorrelated components.</p></li>
-<li><p>Useful for situations where the number of predictors (p) is greater than the number of observations (n) (i.e., (p &gt; n)).</p></li>
+<li><p>Useful for situations where the number of predictors <span class="math notranslate nohighlight">\(p\)</span> is greater than the number of observations <span class="math notranslate nohighlight">\(n\)</span> (i.e., <span class="math notranslate nohighlight">\(p &gt; n\)</span>).</p></li>
 </ul>
 <p><strong>Drawbacks of PLS</strong>:</p>
 <ul class="simple">

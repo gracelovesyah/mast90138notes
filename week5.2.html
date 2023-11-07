@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'week5.2';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -434,6 +436,10 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-component-regression-pcr">Principal Component Regression (PCR)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-resource">Useful Resource</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#revision-notes">11.7 Revision Notes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">Notation</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -495,6 +501,29 @@ document.write(`
 <ul class="simple">
 <li><p>Youtube Video: <a class="reference external" href="https://www.youtube.com/watch?v=SWfucxnOF8c">Principal component regression (PCR) - explained</a></p></li>
 </ul>
+</section>
+<hr class="docutils" />
+<section id="revision-notes">
+<h2>11.7 Revision Notes<a class="headerlink" href="#revision-notes" title="Permalink to this heading">#</a></h2>
+<section id="notation">
+<h3>Notation<a class="headerlink" href="#notation" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+Z = m(x) + \epsilon
+\]</div>
+<p>where
+<span class="math notranslate nohighlight">\(m(x)=E(Z|X =x)=\beta^Tx\)</span>
+and our goal is to find the <span class="math notranslate nohighlight">\(\beta\)</span> s.t.</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\beta} = argmin \sum(Z_i - b^TX_i)^2 = (X^TX)^{-1}X^TZ
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Why is dimension reduction useful?</p>
+</div>
+<p><span class="math notranslate nohighlight">\(X^TX\)</span> is not invertible when p &gt; n (i.e. number of feature bigger than number of observed data). Hence we need to perform dimension reduction to guarantee that we can find the best estimator of <span class="math notranslate nohighlight">\(\beta\)</span>. However this may not be accurate:  if <span class="math notranslate nohighlight">\(\hat{\beta}\)</span> is far from <span class="math notranslate nohighlight">\(\beta\)</span> then all it does is bring us some misleading information about the relationship between X and Z. Hence a solution is PCR.</p>
+</section>
 </section>
 </section>
 
@@ -567,6 +596,10 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-component-regression-pcr">Principal Component Regression (PCR)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-resource">Useful Resource</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#revision-notes">11.7 Revision Notes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">Notation</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

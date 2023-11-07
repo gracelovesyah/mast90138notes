@@ -2,7 +2,7 @@
 
 ## PCA Cont
 
-```{image} ./images/pca1.png
+```{image} ./images/pca1.jpg
 :alt: pca
 :class: bg-primary mb-1
 :width: 800px
@@ -29,27 +29,27 @@ Let's go step by step to understand how the eigenvalue decomposition of a covari
 
 ### Covariance Matrix
 
-Firstly, the covariance matrix is a square matrix that summarizes the covariance (a measure of how much two variables change together) between each pair of elements in a data set. If you have a data set with \( n \) dimensions, the covariance matrix will be \( n \times n \).
+Firstly, the covariance matrix is a square matrix that summarizes the covariance (a measure of how much two variables change together) between each pair of elements in a data set. If you have a data set with $ n $ dimensions, the covariance matrix will be $ n \times n $.
 
 ### Eigenvalues and Eigenvectors
 
-An eigenvector of a square matrix \( A \) is a non-zero vector \( v \) such that when \( A \) is multiplied by \( v \), the product is a scalar multiple of \( v \). That scalar is known as an eigenvalue. Mathematically, this is represented as:
+An eigenvector of a square matrix $ A $ is a non-zero vector $ v $ such that when $ A $ is multiplied by $ v $, the product is a scalar multiple of $ v $. That scalar is known as an eigenvalue. Mathematically, this is represented as:
 
-\[
+$$
 A v = \lambda v
-\]
+$$
 
-where \( A \) is the matrix, \( v \) is the eigenvector, and \( \lambda \) is the eigenvalue.
+where $ A $ is the matrix, $ v $ is the eigenvector, and $ \lambda $ is the eigenvalue.
 
 ### Decomposition of a Covariance Matrix
 
-When you decompose a covariance matrix \( \Sigma \), you find its eigenvalues and eigenvectors. This decomposition has the form:
+When you decompose a covariance matrix $ \Sigma $, you find its eigenvalues and eigenvectors. This decomposition has the form:
 
-\[
+$$
 \Sigma = Q \Lambda Q^{-1}
-\]
+$$
 
-where \( \Sigma \) is the covariance matrix, \( Q \) is the matrix composed of the eigenvectors of \( \Sigma \), \( \Lambda \) is the diagonal matrix with the eigenvalues of \( \Sigma \) on the diagonal, and \( Q^{-1} \) is the inverse of the matrix \( Q \).
+where $ \Sigma $ is the covariance matrix, $ Q $ is the matrix composed of the eigenvectors of $ \Sigma $, $ \Lambda $ is the diagonal matrix with the eigenvalues of $ \Sigma $ on the diagonal, and $ Q^{-1} $ is the inverse of the matrix $ Q $.
 
 ### Why Decompose a Covariance Matrix?
 

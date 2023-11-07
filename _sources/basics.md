@@ -14,7 +14,10 @@ Each entry $X_{ij}$ represents the measurement of the $j^{th}$ variable for the 
   
 ### **$\Gamma$: (Gamma)**
 
-> Matrix of eigenvectors of the covariance matrix 
+> Matrix of eigenvectors of the covariance matrix. 
+Note: $\Gamma$ is orthogonal ($\Gamma^T = \Gamma^{-1}$). 
+
+
 
 The columns of $\Gamma$ are the eigenvectors of the covariance matrix of $X$. Each column (eigenvector) points in the direction of a principal component. These eigenvectors are also often referred to as "loadings."
 
@@ -22,6 +25,22 @@ The columns of $\Gamma$ are the eigenvectors of the covariance matrix of $X$. Ea
 
 The matrix of eigenvectors, denoted as $\Gamma$, contains the principal directions of the dataset. Each column of $\Gamma$ represents an eigenvector, ordered by the corresponding eigenvalue in descending order.
 
+```{admonition} Why orthogonal?
+:class: dropdown
+
+1. **Symmetric Matrix**: A covariance matrix is always symmetric since $ \text{Cov}(X, Y) = \text{Cov}(Y, X) $. The covariance between any two variables $ X $ and $ Y $ is the same, regardless of the order.
+
+2. **Real Eigenvalues**: For any symmetric matrix, the eigenvalues are always real numbers (not complex). This is a property of symmetric matrices that stems from the fact that a symmetric matrix equals its own transpose.
+
+3. **Orthogonal Eigenvectors**: When a matrix is symmetric, its eigenvectors corresponding to different eigenvalues are orthogonal to each other. This means that if you take any two eigenvectors from a symmetric matrix, their dot product will be zero, indicating that they are perpendicular in the space spanned by the data.
+
+4. **Spectral Theorem**: The spectral theorem for symmetric matrices states that a real symmetric matrix can be diagonalized by an orthogonal matrix. In other words, if $ A $ is a symmetric matrix, there exists an orthogonal matrix $ Q $ such that $ Q^T A Q = D $, where $ D $ is a diagonal matrix containing the eigenvalues of $ A $ and $ Q $ contains the eigenvectors of $ A $.
+
+5. **Eigendecomposition**: The eigendecomposition of a covariance matrix $ \Sigma $ is given by $ \Sigma = \Gamma \Lambda \Gamma^T $, where $ \Lambda $ is a diagonal matrix whose diagonal elements are the eigenvalues, and $ \Gamma $ is the orthogonal matrix whose columns are the eigenvectors. The transpose of an orthogonal matrix is also its inverse, which means $ \Gamma^T \Gamma = I $, where $ I $ is the identity matrix.
+
+The orthogonality of eigenvectors is a crucial property in principal component analysis (PCA) and other multivariate techniques because it ensures that the new axes (principal components) are uncorrelated with each other, which is one of the goals of these methods—to transform correlated variables into a set of uncorrelated variables.
+
+```
 
 $$
 \Gamma = \begin{bmatrix}
@@ -40,6 +59,9 @@ When you project the original data $X$ onto the principal components (or eigenve
 
 $$ Y = Γ^T X $$
 
+Similarly, as Γ is orthogonal:
+
+$$ X = ΓY $$
 ### **$Z$**: 
 
 > Predicted outcome variable, based on the regression model. 
@@ -66,7 +88,7 @@ $$
 
 ### $ \lambda_1 $
 
-> Eigenvalue
+> Eigenvalue (variance of PC)
 
 The symbol $ \lambda_1 $ typically refers to the first (and largest) eigenvalue when discussing matrices, especially in the context of Principal Component Analysis (PCA).
 
@@ -120,7 +142,16 @@ In practical terms, this cumulative proportion of explained variance is used to 
 
 --
 ### $ \Sigma $ (Sigma)
-> Covariance matrix
+> Covariance matrix 
+
+```{tip}
+
+$$Tr( \Sigma ) = \sum \lambda_i$$
+
+$$Det(\Sigma) = \lambda $$
+
+where $var(Y) = \lambda$
+```
 
 
 $$ 
@@ -176,13 +207,24 @@ The orthogonality comes into play when we discuss the eigenvectors of the covari
 
 ```
 ---
+(content:references:label-corr)=
 ### $\rho$ (rho)
+
 > Correlation
 
 $$
-\rho X,Y = \frac{\text{Cov}(X,Y)}{\sqrt{Var(X)Var(Y)}} = \frac{\gamma \lambda}{\sqrt{\sigma\lambda}}
+\rho(X,Y)= \frac{\text{Cov}(X,Y)}{\sqrt{Var(X)Var(Y)}} = \frac{\gamma \lambda}{\sqrt{\sigma\lambda}} 
 
 $$
+
+### $R^2$
+
+> Correlation (squared, more interpretable)
+
+$$
+R^2 = \frac{\gamma^2 \lambda}{\sigma} 
+$$
+
 ---
 
 ### **PCR (Principal Component Regression):**

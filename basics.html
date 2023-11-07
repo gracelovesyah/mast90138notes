@@ -445,6 +445,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phi-phi"><span class="math notranslate nohighlight">\( \Phi\)</span> (Phi)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sigma-sigma"><span class="math notranslate nohighlight">\( \Sigma \)</span> (Sigma)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rho-rho"><span class="math notranslate nohighlight">\(\rho\)</span> (rho)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#r-2"><span class="math notranslate nohighlight">\(R^2\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pcr-principal-component-regression"><strong>PCR (Principal Component Regression):</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Z</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
@@ -481,13 +482,25 @@ document.write(`
 <section id="gamma-gamma">
 <h3><strong><span class="math notranslate nohighlight">\(\Gamma\)</span>: (Gamma)</strong><a class="headerlink" href="#gamma-gamma" title="Permalink to this heading">#</a></h3>
 <blockquote>
-<div><p>Matrix of eigenvectors of the covariance matrix</p>
+<div><p>Matrix of eigenvectors of the covariance matrix.
+Note: <span class="math notranslate nohighlight">\(\Gamma\)</span> is orthogonal (<span class="math notranslate nohighlight">\(\Gamma^T = \Gamma^{-1}\)</span>).</p>
 </div></blockquote>
 <p>The columns of <span class="math notranslate nohighlight">\(\Gamma\)</span> are the eigenvectors of the covariance matrix of <span class="math notranslate nohighlight">\(X\)</span>. Each column (eigenvector) points in the direction of a principal component. These eigenvectors are also often referred to as “loadings.”</p>
 <ul class="simple">
 <li><p>In other words, <span class="math notranslate nohighlight">\(\Gamma\)</span> provides the weights or coefficients that transform the original data <span class="math notranslate nohighlight">\(X\)</span> into its principal components <span class="math notranslate nohighlight">\(Y\)</span>. If <span class="math notranslate nohighlight">\(X\)</span> has <span class="math notranslate nohighlight">\(p\)</span> predictors, then <span class="math notranslate nohighlight">\(\Gamma\)</span> will be a <span class="math notranslate nohighlight">\(p \times p\)</span> matrix, where the first column is the loading vector for PC1, the second column is the loading vector for PC2, and so on.</p></li>
 </ul>
 <p>The matrix of eigenvectors, denoted as <span class="math notranslate nohighlight">\(\Gamma\)</span>, contains the principal directions of the dataset. Each column of <span class="math notranslate nohighlight">\(\Gamma\)</span> represents an eigenvector, ordered by the corresponding eigenvalue in descending order.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Why orthogonal?</p>
+<ol class="arabic simple">
+<li><p><strong>Symmetric Matrix</strong>: A covariance matrix is always symmetric since <span class="math notranslate nohighlight">\( \text{Cov}(X, Y) = \text{Cov}(Y, X) \)</span>. The covariance between any two variables <span class="math notranslate nohighlight">\( X \)</span> and <span class="math notranslate nohighlight">\( Y \)</span> is the same, regardless of the order.</p></li>
+<li><p><strong>Real Eigenvalues</strong>: For any symmetric matrix, the eigenvalues are always real numbers (not complex). This is a property of symmetric matrices that stems from the fact that a symmetric matrix equals its own transpose.</p></li>
+<li><p><strong>Orthogonal Eigenvectors</strong>: When a matrix is symmetric, its eigenvectors corresponding to different eigenvalues are orthogonal to each other. This means that if you take any two eigenvectors from a symmetric matrix, their dot product will be zero, indicating that they are perpendicular in the space spanned by the data.</p></li>
+<li><p><strong>Spectral Theorem</strong>: The spectral theorem for symmetric matrices states that a real symmetric matrix can be diagonalized by an orthogonal matrix. In other words, if <span class="math notranslate nohighlight">\( A \)</span> is a symmetric matrix, there exists an orthogonal matrix <span class="math notranslate nohighlight">\( Q \)</span> such that <span class="math notranslate nohighlight">\( Q^T A Q = D \)</span>, where <span class="math notranslate nohighlight">\( D \)</span> is a diagonal matrix containing the eigenvalues of <span class="math notranslate nohighlight">\( A \)</span> and <span class="math notranslate nohighlight">\( Q \)</span> contains the eigenvectors of <span class="math notranslate nohighlight">\( A \)</span>.</p></li>
+<li><p><strong>Eigendecomposition</strong>: The eigendecomposition of a covariance matrix <span class="math notranslate nohighlight">\( \Sigma \)</span> is given by <span class="math notranslate nohighlight">\( \Sigma = \Gamma \Lambda \Gamma^T \)</span>, where <span class="math notranslate nohighlight">\( \Lambda \)</span> is a diagonal matrix whose diagonal elements are the eigenvalues, and <span class="math notranslate nohighlight">\( \Gamma \)</span> is the orthogonal matrix whose columns are the eigenvectors. The transpose of an orthogonal matrix is also its inverse, which means <span class="math notranslate nohighlight">\( \Gamma^T \Gamma = I \)</span>, where <span class="math notranslate nohighlight">\( I \)</span> is the identity matrix.</p></li>
+</ol>
+<p>The orthogonality of eigenvectors is a crucial property in principal component analysis (PCA) and other multivariate techniques because it ensures that the new axes (principal components) are uncorrelated with each other, which is one of the goals of these methods—to transform correlated variables into a set of uncorrelated variables.</p>
+</div>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \Gamma = \begin{bmatrix}
@@ -506,6 +519,9 @@ a_{p1} &amp; a_{p2} &amp; \dots &amp; a_{pp} \\
 <p>When you project the original data <span class="math notranslate nohighlight">\(X\)</span> onto the principal components (or eigenvectors), you get a new data representation, <span class="math notranslate nohighlight">\(Y\)</span>. Here, <span class="math notranslate nohighlight">\(Y\)</span> contains the scores of the observations on the principal components. The first column of <span class="math notranslate nohighlight">\(Y\)</span> contains the scores for PC1, the second column has the scores for PC2, and so on.</p>
 <div class="math notranslate nohighlight">
 \[ Y = Γ^T X \]</div>
+<p>Similarly, as Γ is orthogonal:</p>
+<div class="math notranslate nohighlight">
+\[ X = ΓY \]</div>
 </section>
 <section id="z">
 <h3><strong><span class="math notranslate nohighlight">\(Z\)</span></strong>:<a class="headerlink" href="#z" title="Permalink to this heading">#</a></h3>
@@ -537,7 +553,7 @@ a_{p1} &amp; a_{p2} &amp; \dots &amp; a_{pp} \\
 <section id="lambda-1">
 <h3><span class="math notranslate nohighlight">\( \lambda_1 \)</span><a class="headerlink" href="#lambda-1" title="Permalink to this heading">#</a></h3>
 <blockquote>
-<div><p>Eigenvalue</p>
+<div><p>Eigenvalue (variance of PC)</p>
 </div></blockquote>
 <p>The symbol <span class="math notranslate nohighlight">\( \lambda_1 \)</span> typically refers to the first (and largest) eigenvalue when discussing matrices, especially in the context of Principal Component Analysis (PCA).</p>
 <p>In PCA, <span class="math notranslate nohighlight">\( \lambda_1 \)</span> represents the amount of variance explained by the first principal component. The eigenvalues (like <span class="math notranslate nohighlight">\( \lambda_1 \)</span>) are obtained from the covariance (or sometimes correlation) matrix of the dataset.</p>
@@ -587,6 +603,14 @@ a_{p1} &amp; a_{p2} &amp; \dots &amp; a_{pp} \\
 <blockquote>
 <div><p>Covariance matrix</p>
 </div></blockquote>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<div class="math notranslate nohighlight">
+\[Tr( \Sigma ) = \sum \lambda_i\]</div>
+<div class="math notranslate nohighlight">
+\[Det(\Sigma) = \lambda \]</div>
+<p>where <span class="math notranslate nohighlight">\(var(Y) = \lambda\)</span></p>
+</div>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
 \Sigma = \begin{bmatrix}
@@ -632,16 +656,26 @@ a_{p1} &amp; a_{p2} &amp; \dots &amp; a_{pp} \\
 </ol>
 <p>The orthogonality comes into play when we discuss the eigenvectors of the covariance matrix. If you’ve heard of Principal Component Analysis (PCA), it leverages this property. PCA finds the eigenvectors (principal components) of the data’s covariance matrix, and these eigenvectors are orthogonal to each other.</p>
 </div>
-</section>
 <hr class="docutils" />
+</section>
 <section id="rho-rho">
-<h3><span class="math notranslate nohighlight">\(\rho\)</span> (rho)<a class="headerlink" href="#rho-rho" title="Permalink to this heading">#</a></h3>
+<span id="content-references-label-corr"></span><h3><span class="math notranslate nohighlight">\(\rho\)</span> (rho)<a class="headerlink" href="#rho-rho" title="Permalink to this heading">#</a></h3>
 <blockquote>
 <div><p>Correlation</p>
 </div></blockquote>
 <div class="math notranslate nohighlight">
 \[
-\rho X,Y = \frac{\text{Cov}(X,Y)}{\sqrt{Var(X)Var(Y)}} = \frac{\gamma \lambda}{\sqrt{\sigma\lambda}}\]</div>
+\rho(X,Y)= \frac{\text{Cov}(X,Y)}{\sqrt{Var(X)Var(Y)}} = \frac{\gamma \lambda}{\sqrt{\sigma\lambda}} \]</div>
+</section>
+<section id="r-2">
+<h3><span class="math notranslate nohighlight">\(R^2\)</span><a class="headerlink" href="#r-2" title="Permalink to this heading">#</a></h3>
+<blockquote>
+<div><p>Correlation (squared, more interpretable)</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[
+R^2 = \frac{\gamma^2 \lambda}{\sigma} 
+\]</div>
 </section>
 <hr class="docutils" />
 <section id="pcr-principal-component-regression">
@@ -808,6 +842,7 @@ To get the projection of the data onto the principal components, you multiply th
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phi-phi"><span class="math notranslate nohighlight">\( \Phi\)</span> (Phi)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sigma-sigma"><span class="math notranslate nohighlight">\( \Sigma \)</span> (Sigma)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rho-rho"><span class="math notranslate nohighlight">\(\rho\)</span> (rho)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#r-2"><span class="math notranslate nohighlight">\(R^2\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pcr-principal-component-regression"><strong>PCR (Principal Component Regression):</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Z</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>

@@ -408,7 +408,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -424,6 +426,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Welcome to MAST90138</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -437,6 +449,87 @@ document.write(`
 <h1>Welcome to MAST90138<a class="headerlink" href="#welcome-to-mast90138" title="Permalink to this heading">#</a></h1>
 <p>This is a small notebook to MAST90138 Multivariate Stats for Data Science &#64; Unimelb</p>
 <p>This note is composed by Jiahe (Grace) Liu (<a class="reference external" href="mailto:jiahe3&#37;&#52;&#48;student&#46;unimelb&#46;edu&#46;au">jiahe3<span>&#64;</span>student<span>&#46;</span>unimelb<span>&#46;</span>edu<span>&#46;</span>au</a>) with assistance of ChatGPT.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="table-of-contents">
+<h1>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h1>
+<ol class="arabic">
+<li><p>INTRODUCTION</p></li>
+<li><p>REVIEW OF MATRIX PROPERTIES</p>
+<p>2.1. Elementary Operations</p>
+<p>2.2. Spectral Decompositions</p>
+<p>2.3. Quadratic Forms</p>
+<p>2.4. Geometrical Aspects</p>
+</li>
+<li><p>MEAN, COVARIANCE, CORRELATION</p>
+<p>3.1. Mean</p>
+<p>3.2. Covariance Matrix</p>
+<p>3.3. Correlation Matrix</p>
+<p>3.4. Linear Transformations</p>
+</li>
+<li><p>MULTIVARIATE DISTRIBUTIONS</p>
+<p>4.1. Distribution and Density Function</p>
+<p>4.2. Multinormal Distribution</p>
+<p>4.3. Wishart Distribution</p>
+<p>4.4. Hotelling’s T-squared Distribution</p>
+</li>
+<li><p>PRINCIPAL COMPONENT ANALYSIS</p>
+<p>5.1. Introduction</p>
+<p>5.2. PCA: More Formally</p>
+<p>5.3. In Practice</p>
+<p>5.4. Interpretation of the PCs</p>
+<p>5.5. Normalised PCA</p>
+<p>5.6. Example</p>
+<p>5.7. PCA with Regression</p>
+<p>5.8. Partial Least Squares</p>
+<p>5.9. Discussion</p>
+</li>
+<li><p>FACTOR ANALYSIS</p>
+<p>6.1. Orthogonal Factor Model</p>
+<p>6.2. Interpreting the Factors</p>
+<p>6.3. Scaling the Data</p>
+<p>6.4. Non Unicity of the Matrix Q</p>
+<p>6.5. Likelihood Methods under Normal Assumption</p>
+<p>6.6. Rotation</p>
+<p>6.7. Factor Scores</p>
+</li>
+<li><p>LINEAR AND QUADRATIC CLASSIFICATION</p>
+<p>7.1. Introduction to Classification</p>
+<p>7.2. Main Ideas of Classification Techniques</p>
+<p>7.3. Simple Regression Approaches for K = 2 Classes</p>
+<p>7.3.1. Linear Regression Classifier</p>
+<p>7.3.2. Logistic Regression Classifier</p>
+<p>7.4. Bayes Methods for K = 2 Classes: Linear and Quadratic Discriminant</p>
+<p>7.4.1. Linear Discriminant (LD)</p>
+<p>7.4.2. Quadratic Discriminant (QD)</p>
+<p>7.5. Simple Regression Approaches for K &gt; 2 Classes</p>
+<p>7.5.1. Linear Regression for K &gt; 2 Classes</p>
+<p>7.5.2. Logistic Regression for K &gt; 2 Classes</p>
+<p>7.5.3. LD and QD Methods for K &gt; 2 Groups</p>
+</li>
+<li><p>CLASSIFICATION AND REGRESSION TREES AND RELATED METHODS</p>
+<p>8.1. Classification and Regression Trees (CART)</p>
+<p>8.1.1. Introduction</p>
+<p>8.1.2. Regression Trees</p>
+<p>8.1.3. Classification Trees</p>
+<p>8.1.4. Example: Spam Data</p>
+<p>8.2. Bagging Classification Trees</p>
+<p>8.3. Random Forests for Classification</p>
+<p>8.3.1. Out of Bag Data</p>
+<p>8.3.2. Variable Importance</p>
+<p>8.3.3. A Few Remarks on the Performance of RF</p>
+</li>
+<li><p>CLUSTER ANALYSIS</p>
+<p>9.1. Introduction</p>
+<p>9.2. Dissimilarity Matrices</p>
+<p>9.3. Dissimilarities Based on Attributes</p>
+<p>9.4. Object Dissimilarity</p>
+<p>9.5. Clustering Algorithms</p>
+<p>9.6. Combinatorial Algorithms</p>
+<p>9.7. K-means Algorithm</p>
+<p>9.8. K-medoids Algorithm</p>
+<p>9.9. How to Choose K in a Clustering Method?</p>
+</li>
+</ol>
 <p>Check out the content pages bundled with this sample book to see more.</p>
 <div class="toctree-wrapper compound">
 <ul>
@@ -509,6 +602,22 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Welcome to MAST90138</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>
