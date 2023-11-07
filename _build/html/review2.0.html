@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'review2.0';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -157,9 +159,9 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="basics.html">basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basics.html">Notation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="useful_link.html">Resources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="progress.html">progress check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="progress.html">Progress Check</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="week1.0.html">week1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="week1.1.html">Week 1 Lecture 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week1.2.html">week1 lec 2</a></li>
@@ -433,6 +435,13 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-cont">PCA Cont</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenvalue-decomposition">Eigenvalue decomposition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#covariance-matrix">Covariance Matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenvalues-and-eigenvectors">Eigenvalues and Eigenvectors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decomposition-of-a-covariance-matrix">Decomposition of a Covariance Matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-decompose-a-covariance-matrix">Why Decompose a Covariance Matrix?</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -448,12 +457,49 @@ document.write(`
 <h1>review2<a class="headerlink" href="#review2" title="Permalink to this heading">#</a></h1>
 <section id="pca-cont">
 <h2>PCA Cont<a class="headerlink" href="#pca-cont" title="Permalink to this heading">#</a></h2>
-<a class="bg-primary mb-1 reference internal image-reference" href="images/pca1.png"><img alt="pca" class="bg-primary mb-1 align-center" src="images/pca1.png" style="width: 800px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/pca1.jpg"><img alt="pca" class="bg-primary mb-1 align-center" src="_images/pca1.jpg" style="width: 800px;" /></a>
 <ul class="simple">
 <li><p>the reason we centralise data: so that calculating the variance of projected dots on pc is equivalent to calculating the sum of the distance of each dot to the center (0,0) =&gt; more interpretable and simplify calculation process.</p></li>
 </ul>
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/pca2.png"><img alt="pca" class="bg-primary mb-1 align-center" src="_images/pca2.png" style="width: 800px;" /></a>
 <p>singular value decomposition (SVD): to “recover” the point we draw.</p>
+</section>
+<section id="eigenvalue-decomposition">
+<h2>Eigenvalue decomposition<a class="headerlink" href="#eigenvalue-decomposition" title="Permalink to this heading">#</a></h2>
+<p>Eigenvalue decomposition is a technique in linear algebra where a matrix is broken down into its constituent parts to make certain operations on the matrix easier to perform. This decomposition is especially useful in the context of covariance matrices when analyzing data.</p>
+<p>Let’s go step by step to understand how the eigenvalue decomposition of a covariance matrix works and why it’s useful.</p>
+<section id="covariance-matrix">
+<h3>Covariance Matrix<a class="headerlink" href="#covariance-matrix" title="Permalink to this heading">#</a></h3>
+<p>Firstly, the covariance matrix is a square matrix that summarizes the covariance (a measure of how much two variables change together) between each pair of elements in a data set. If you have a data set with <span class="math notranslate nohighlight">\( n \)</span> dimensions, the covariance matrix will be <span class="math notranslate nohighlight">\( n \times n \)</span>.</p>
+</section>
+<section id="eigenvalues-and-eigenvectors">
+<h3>Eigenvalues and Eigenvectors<a class="headerlink" href="#eigenvalues-and-eigenvectors" title="Permalink to this heading">#</a></h3>
+<p>An eigenvector of a square matrix <span class="math notranslate nohighlight">\( A \)</span> is a non-zero vector <span class="math notranslate nohighlight">\( v \)</span> such that when <span class="math notranslate nohighlight">\( A \)</span> is multiplied by <span class="math notranslate nohighlight">\( v \)</span>, the product is a scalar multiple of <span class="math notranslate nohighlight">\( v \)</span>. That scalar is known as an eigenvalue. Mathematically, this is represented as:</p>
+<div class="math notranslate nohighlight">
+\[
+A v = \lambda v
+\]</div>
+<p>where <span class="math notranslate nohighlight">\( A \)</span> is the matrix, <span class="math notranslate nohighlight">\( v \)</span> is the eigenvector, and <span class="math notranslate nohighlight">\( \lambda \)</span> is the eigenvalue.</p>
+</section>
+<section id="decomposition-of-a-covariance-matrix">
+<h3>Decomposition of a Covariance Matrix<a class="headerlink" href="#decomposition-of-a-covariance-matrix" title="Permalink to this heading">#</a></h3>
+<p>When you decompose a covariance matrix <span class="math notranslate nohighlight">\( \Sigma \)</span>, you find its eigenvalues and eigenvectors. This decomposition has the form:</p>
+<div class="math notranslate nohighlight">
+\[
+\Sigma = Q \Lambda Q^{-1}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\( \Sigma \)</span> is the covariance matrix, <span class="math notranslate nohighlight">\( Q \)</span> is the matrix composed of the eigenvectors of <span class="math notranslate nohighlight">\( \Sigma \)</span>, <span class="math notranslate nohighlight">\( \Lambda \)</span> is the diagonal matrix with the eigenvalues of <span class="math notranslate nohighlight">\( \Sigma \)</span> on the diagonal, and <span class="math notranslate nohighlight">\( Q^{-1} \)</span> is the inverse of the matrix <span class="math notranslate nohighlight">\( Q \)</span>.</p>
+</section>
+<section id="why-decompose-a-covariance-matrix">
+<h3>Why Decompose a Covariance Matrix?<a class="headerlink" href="#why-decompose-a-covariance-matrix" title="Permalink to this heading">#</a></h3>
+<p>Decomposing a covariance matrix is useful for several reasons:</p>
+<ol class="arabic simple">
+<li><p><strong>Principal Component Analysis (PCA):</strong> PCA is a technique to reduce the dimensionality of data. It identifies the directions (principal components) in which the data varies the most. In PCA, the eigenvectors (principal components) of the covariance matrix provide the directions of maximum variance, and the eigenvalues indicate the magnitude of that variance.</p></li>
+<li><p><strong>Efficiency:</strong> Once decomposed, certain operations such as matrix inversion or determining the matrix rank become much easier and more computationally efficient.</p></li>
+<li><p><strong>Understanding Data:</strong> By examining the eigenvalues and eigenvectors, one can understand the shape and distribution of the data. Large eigenvalues correspond to dimensions with large variance, indicating that the data spreads out widely in the direction of the corresponding eigenvector.</p></li>
+</ol>
+<p>Would you like to see a numerical example of how to perform eigenvalue decomposition on a covariance matrix?</p>
+</section>
 </section>
 </section>
 
@@ -525,6 +571,13 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-cont">PCA Cont</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenvalue-decomposition">Eigenvalue decomposition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#covariance-matrix">Covariance Matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenvalues-and-eigenvectors">Eigenvalues and Eigenvectors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decomposition-of-a-covariance-matrix">Decomposition of a Covariance Matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-decompose-a-covariance-matrix">Why Decompose a Covariance Matrix?</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

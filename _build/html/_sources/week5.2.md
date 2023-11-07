@@ -34,3 +34,28 @@ For problems where prediction accuracy is of utmost importance, techniques like 
 
 ## Useful Resource
 - Youtube Video: [Principal component regression (PCR) - explained](https://www.youtube.com/watch?v=SWfucxnOF8c)
+
+
+---
+
+## 11.7 Revision Notes
+
+### Notation
+
+$$
+Z = m(x) + \epsilon
+$$
+
+where
+$m(x)=E(Z|X =x)=\beta^Tx$
+and our goal is to find the $\beta$ s.t.
+
+$$
+\hat{\beta} = argmin \sum(Z_i - b^TX_i)^2 = (X^TX)^{-1}X^TZ
+$$
+
+```{note}
+Why is dimension reduction useful?
+```
+
+$X^TX$ is not invertible when p > n (i.e. number of feature bigger than number of observed data). Hence we need to perform dimension reduction to guarantee that we can find the best estimator of $\beta$. However this may not be accurate:  if $\hat{\beta}$ is far from $\beta$ then all it does is bring us some misleading information about the relationship between X and Z. Hence a solution is PCR.

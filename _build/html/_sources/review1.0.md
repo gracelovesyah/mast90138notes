@@ -221,46 +221,37 @@ This process can be done by hand for small matrices but is typically performed u
 
 ---
 
-## $X,Y, \gamma, \lambda$
+## $X,Y, \Gamma, \Lambda$
 
- $$ \text{Cov}(X_{in}, Y_{ik}) = \gamma_{ik}\lambda_k $$
+ $$ \text{Cov}(X_{in}, Y_{ik}) = \Gamma_{ik}\Lambda_k $$
 
 Given:
 
 - $ X_i $: The $ i $-th original variable.
-- $ Y_k $: The $ k $-th principal component, which is a linear combination of all the original variables $ X $ weighted by the elements of the $ k $-th eigenvector $ \gamma $.
-- $ \gamma_{jk} $: The $ j $-th element of the $ k $-th eigenvector.
-- $ \lambda_k $: The $ k $-th eigenvalue, which represents the variance of the $ k $-th principal component $ Y_k $.
+- $ Y_k $: The $ k $-th principal component, which is a linear combination of all the original variables $ X $ weighted by the elements of the $ k $-th eigenvector $ \Gamma $.
+- $ \Gamma_{jk} $: The $ j $-th element of the $ k $-th eigenvector.
+- $ \Lambda_k $: The $ k $-th eigenvalue, which represents the variance of the $ k $-th principal component $ Y_k $.
 
 The $ k $-th principal component $ Y_k $ is defined by:
 
 $$
-Y_k = \sum_{j=1}^{n} \gamma_{jk} X_j
+Y_k = \sum_{j=1}^{n} \Gamma_{jk} (X_j -\mu)
 $$
 
 The covariance between $ X_i $ and $ Y_k $ is given by:
 
 $$
-\text{Cov}(X_i, Y_k) = \text{Cov}\left(X_i, \sum_{j=1}^{n} \gamma_{jk} X_j\right)
+\text{Cov}(X_i, Y_i) = \text{Cov}\left(X_i, \Gamma^T(X_i -\mu) \right) = \text{Cov}(X_i, X_i) \Gamma
 $$
 
-Expanding the right-hand side using the linearity property of covariance:
+By substituting the [eigendecomposition formular](https://www.seas.ucla.edu/~vandenbe/133B/lectures/symm.pdf):
 
 $$
-\text{Cov}\left(X_i, \sum_{j=1}^{n} \gamma_{jk} X_j\right) = \sum_{j=1}^{n} \gamma_{jk} \text{Cov}(X_i, X_j)
+\text{Cov}(X_i, X_i) = \Gamma \Lambda \Gamma^T
 $$
 
-Because the covariance of $ X_i $ with itself (when $ i = j $) is the variance of $ X_i $ ($ \text{Var}(X_i) $), and the covariance of $ X_i $ with any $ X_j $ (when $ i \neq j $) is zero after PCA transformation (since the principal components are orthogonal and hence uncorrelated), the only non-zero term in the summation is when $ j = i $. Therefore:
+We can get:
 
 $$
-\text{Cov}(X_i, Y_k) = \gamma_{ik} \text{Var}(X_i)
+\text{Cov}(X_i, Y_i) = \Gamma \Lambda \Gamma^T\Gamma = \Gamma \Lambda
 $$
-
-This equation indicates that the covariance between the original variable $ X_i $ and the principal component $ Y_k $ is proportional to the $ i $-th element of the $ k $-th eigenvector and the variance of $ X_i $. If the data has been standardized to have unit variance before PCA (which is common practice), $ \text{Var}(X_i) $ would be 1, and the equation would simplify to:
-
-$$
-\text{Cov}(X_i, Y_k) = \gamma_{ik}
-$$
-
-This is assuming that the covariance between different original variables $ X_i $ and $ X_j $ is zero, which is true in the transformed PCA space where each principal component is uncorrelated with the others. If the original variables are not uncorrelated, the covariance $ \text{Cov}(X_i, X_j) $ would not necessarily be zero and the equation would be more complex.
-

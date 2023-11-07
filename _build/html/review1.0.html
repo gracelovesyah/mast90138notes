@@ -159,9 +159,9 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="basics.html">basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basics.html">Notation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="useful_link.html">Resources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="progress.html">progress check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="progress.html">Progress Check</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="week1.0.html">week1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="week1.1.html">Week 1 Lecture 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week1.2.html">week1 lec 2</a></li>
@@ -169,13 +169,13 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="week2.0.html">week2</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="week2.1.html">week2 lec 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="week2.2.html">week2 lec 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week2.1.html">Week 2 Lecture 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week2.2.html">Week 2 Lecture 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week2.3.html">week2 additional notes</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="week3.0.html">week3</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="week3.1.html">week3 lec 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week3.1.html">Week 3 Lecture 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week3.2.html">week3 lec 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week3.3.html">week3 additional notes</a></li>
 </ul>
@@ -447,7 +447,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Calculation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#x-y-gamma-lambda"><span class="math notranslate nohighlight">\(X,Y, \gamma, \lambda\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#x-y-gamma-lambda"><span class="math notranslate nohighlight">\(X,Y, \Gamma, \Lambda\)</span></a></li>
 </ul>
             </nav>
         </div>
@@ -631,42 +631,36 @@ square it!</p>
 </section>
 <hr class="docutils" />
 <section id="x-y-gamma-lambda">
-<h2><span class="math notranslate nohighlight">\(X,Y, \gamma, \lambda\)</span><a class="headerlink" href="#x-y-gamma-lambda" title="Permalink to this heading">#</a></h2>
+<h2><span class="math notranslate nohighlight">\(X,Y, \Gamma, \Lambda\)</span><a class="headerlink" href="#x-y-gamma-lambda" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
-\[ \text{Cov}(X_{in}, Y_{ik}) = \gamma_{ik}\lambda_k \]</div>
+\[ \text{Cov}(X_{in}, Y_{ik}) = \Gamma_{ik}\Lambda_k \]</div>
 <p>Given:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\( X_i \)</span>: The <span class="math notranslate nohighlight">\( i \)</span>-th original variable.</p></li>
-<li><p><span class="math notranslate nohighlight">\( Y_k \)</span>: The <span class="math notranslate nohighlight">\( k \)</span>-th principal component, which is a linear combination of all the original variables <span class="math notranslate nohighlight">\( X \)</span> weighted by the elements of the <span class="math notranslate nohighlight">\( k \)</span>-th eigenvector <span class="math notranslate nohighlight">\( \gamma \)</span>.</p></li>
-<li><p><span class="math notranslate nohighlight">\( \gamma_{jk} \)</span>: The <span class="math notranslate nohighlight">\( j \)</span>-th element of the <span class="math notranslate nohighlight">\( k \)</span>-th eigenvector.</p></li>
-<li><p><span class="math notranslate nohighlight">\( \lambda_k \)</span>: The <span class="math notranslate nohighlight">\( k \)</span>-th eigenvalue, which represents the variance of the <span class="math notranslate nohighlight">\( k \)</span>-th principal component <span class="math notranslate nohighlight">\( Y_k \)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\( Y_k \)</span>: The <span class="math notranslate nohighlight">\( k \)</span>-th principal component, which is a linear combination of all the original variables <span class="math notranslate nohighlight">\( X \)</span> weighted by the elements of the <span class="math notranslate nohighlight">\( k \)</span>-th eigenvector <span class="math notranslate nohighlight">\( \Gamma \)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \Gamma_{jk} \)</span>: The <span class="math notranslate nohighlight">\( j \)</span>-th element of the <span class="math notranslate nohighlight">\( k \)</span>-th eigenvector.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \Lambda_k \)</span>: The <span class="math notranslate nohighlight">\( k \)</span>-th eigenvalue, which represents the variance of the <span class="math notranslate nohighlight">\( k \)</span>-th principal component <span class="math notranslate nohighlight">\( Y_k \)</span>.</p></li>
 </ul>
 <p>The <span class="math notranslate nohighlight">\( k \)</span>-th principal component <span class="math notranslate nohighlight">\( Y_k \)</span> is defined by:</p>
 <div class="math notranslate nohighlight">
 \[
-Y_k = \sum_{j=1}^{n} \gamma_{jk} X_j
+Y_k = \sum_{j=1}^{n} \Gamma_{jk} (X_j -\mu)
 \]</div>
 <p>The covariance between <span class="math notranslate nohighlight">\( X_i \)</span> and <span class="math notranslate nohighlight">\( Y_k \)</span> is given by:</p>
 <div class="math notranslate nohighlight">
 \[
-\text{Cov}(X_i, Y_k) = \text{Cov}\left(X_i, \sum_{j=1}^{n} \gamma_{jk} X_j\right)
+\text{Cov}(X_i, Y_i) = \text{Cov}\left(X_i, \Gamma^T(X_i -\mu) \right) = \text{Cov}(X_i, X_i) \Gamma
 \]</div>
-<p>Expanding the right-hand side using the linearity property of covariance:</p>
+<p>By substituting the <a class="reference external" href="https://www.seas.ucla.edu/~vandenbe/133B/lectures/symm.pdf">eigendecomposition formular</a>:</p>
 <div class="math notranslate nohighlight">
 \[
-\text{Cov}\left(X_i, \sum_{j=1}^{n} \gamma_{jk} X_j\right) = \sum_{j=1}^{n} \gamma_{jk} \text{Cov}(X_i, X_j)
+\text{Cov}(X_i, X_i) = \Gamma \Lambda \Gamma^T
 \]</div>
-<p>Because the covariance of <span class="math notranslate nohighlight">\( X_i \)</span> with itself (when <span class="math notranslate nohighlight">\( i = j \)</span>) is the variance of <span class="math notranslate nohighlight">\( X_i \)</span> (<span class="math notranslate nohighlight">\( \text{Var}(X_i) \)</span>), and the covariance of <span class="math notranslate nohighlight">\( X_i \)</span> with any <span class="math notranslate nohighlight">\( X_j \)</span> (when <span class="math notranslate nohighlight">\( i \neq j \)</span>) is zero after PCA transformation (since the principal components are orthogonal and hence uncorrelated), the only non-zero term in the summation is when <span class="math notranslate nohighlight">\( j = i \)</span>. Therefore:</p>
+<p>We can get:</p>
 <div class="math notranslate nohighlight">
 \[
-\text{Cov}(X_i, Y_k) = \gamma_{ik} \text{Var}(X_i)
+\text{Cov}(X_i, Y_i) = \Gamma \Lambda \Gamma^T\Gamma = \Gamma \Lambda
 \]</div>
-<p>This equation indicates that the covariance between the original variable <span class="math notranslate nohighlight">\( X_i \)</span> and the principal component <span class="math notranslate nohighlight">\( Y_k \)</span> is proportional to the <span class="math notranslate nohighlight">\( i \)</span>-th element of the <span class="math notranslate nohighlight">\( k \)</span>-th eigenvector and the variance of <span class="math notranslate nohighlight">\( X_i \)</span>. If the data has been standardized to have unit variance before PCA (which is common practice), <span class="math notranslate nohighlight">\( \text{Var}(X_i) \)</span> would be 1, and the equation would simplify to:</p>
-<div class="math notranslate nohighlight">
-\[
-\text{Cov}(X_i, Y_k) = \gamma_{ik}
-\]</div>
-<p>This is assuming that the covariance between different original variables <span class="math notranslate nohighlight">\( X_i \)</span> and <span class="math notranslate nohighlight">\( X_j \)</span> is zero, which is true in the transformed PCA space where each principal component is uncorrelated with the others. If the original variables are not uncorrelated, the covariance <span class="math notranslate nohighlight">\( \text{Cov}(X_i, X_j) \)</span> would not necessarily be zero and the equation would be more complex.</p>
 </section>
 </section>
 
@@ -750,7 +744,7 @@ Y_k = \sum_{j=1}^{n} \gamma_{jk} X_j
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Calculation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#x-y-gamma-lambda"><span class="math notranslate nohighlight">\(X,Y, \gamma, \lambda\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#x-y-gamma-lambda"><span class="math notranslate nohighlight">\(X,Y, \Gamma, \Lambda\)</span></a></li>
 </ul>
   </nav></div>
 

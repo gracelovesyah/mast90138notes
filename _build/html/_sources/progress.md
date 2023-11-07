@@ -1,4 +1,4 @@
-# progress check
+# Progress Check
 
 ## lecture and Lab
 | Week | Lecture 1 | Lecture 2 | Lab |
