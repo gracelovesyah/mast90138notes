@@ -3,8 +3,14 @@
 This is a small notebook to MAST90138 Multivariate Stats for Data Science @ Unimelb
 
 This note is composed by Jiahe (Grace) Liu (jiahe3@student.unimelb.edu.au) with assistance of ChatGPT.
-# Table of Contents
 
+
+Check out the content pages bundled with this sample book to see more.
+
+```{tableofcontents}
+```
+
+## Table of Contents
 1. INTRODUCTION
 
 2. REVIEW OF MATRIX PROPERTIES
@@ -141,7 +147,3 @@ This note is composed by Jiahe (Grace) Liu (jiahe3@student.unimelb.edu.au) with 
 
    9.9. How to Choose K in a Clustering Method?
 
-Check out the content pages bundled with this sample book to see more.
-
-```{tableofcontents}
-```

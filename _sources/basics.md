@@ -15,9 +15,14 @@ Each entry $X_{ij}$ represents the measurement of the $j^{th}$ variable for the 
 ### **$\Gamma$: (Gamma)**
 
 > Matrix of eigenvectors of the covariance matrix. 
-Note: $\Gamma$ is orthogonal ($\Gamma^T = \Gamma^{-1}$). 
 
+- Note: $\Gamma$ is orthogonal ($\Gamma^T = \Gamma^{-1}$). 
 
+```r
+vector =PCX$rotation
+```
+
+- [Why are principal components in PCA (eigenvectors of the covariance matrix) mutually orthogonal?](https://stats.stackexchange.com/questions/130882/why-are-principal-components-in-pca-eigenvectors-of-the-covariance-matrix-mutu#:~:text=The%20covariance%20matrix%20is%20symmetric.,and%20Av%3D%CE%BCv.&text=Since%20these%20are%20equal%20we,the%20two%20eigenvalues%20are%20equal.)
 
 The columns of $\Gamma$ are the eigenvectors of the covariance matrix of $X$. Each column (eigenvector) points in the direction of a principal component. These eigenvectors are also often referred to as "loadings."
 
@@ -53,7 +58,14 @@ $$
 
 ### **$Y$:**
 
-> Matrix of scores on PC
+> Matrix of scores on PC / Data after PCA 
+
+```r
+Y=PCX$X
+Y[,1] # first PC
+Y[,2] # second PC
+```
+
 
 When you project the original data $X$ onto the principal components (or eigenvectors), you get a new data representation, $Y$. Here, $Y$ contains the scores of the observations on the principal components. The first column of $Y$ contains the scores for PC1, the second column has the scores for PC2, and so on.
 
