@@ -442,6 +442,23 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-decompose-a-covariance-matrix">Why Decompose a Covariance Matrix?</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-ols-changed">How OLS changed</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ordinary-least-squares-ols">Ordinary Least Squares (OLS)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-component-regression-pcr">Principal Component Regression (PCR)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation-of-pcr">Limitation of PCR</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bias-variance-trade-off">Bias-Variance Trade-off</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-of-pcr">Limitations of PCR</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-variance-is-traded-off-against-bias">Why Variance is Traded Off Against Bias</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-between-pcr-and-pls">Difference Between PCR and PLS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Principal Component Regression (PCR):</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-least-squares-pls-regression">Partial Least Squares (PLS) Regression:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-cases">Use Cases:</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -499,6 +516,111 @@ A v = \lambda v
 <li><p><strong>Understanding Data:</strong> By examining the eigenvalues and eigenvectors, one can understand the shape and distribution of the data. Large eigenvalues correspond to dimensions with large variance, indicating that the data spreads out widely in the direction of the corresponding eigenvector.</p></li>
 </ol>
 <p>Would you like to see a numerical example of how to perform eigenvalue decomposition on a covariance matrix?</p>
+</section>
+</section>
+<section id="how-ols-changed">
+<h2>How OLS changed<a class="headerlink" href="#how-ols-changed" title="Permalink to this heading">#</a></h2>
+<p>In the context of regression analysis, the ordinary least squares (OLS) estimator for the regression coefficients, often denoted as <span class="math notranslate nohighlight">\( \beta \)</span>, is calculated to minimize the sum of the squared differences between the observed responses and the responses predicted by the linear model. This is applicable in both standard linear regression and Principal Component Regression (PCR), but with a key difference in how the variables are treated.</p>
+<section id="ordinary-least-squares-ols">
+<h3>Ordinary Least Squares (OLS)<a class="headerlink" href="#ordinary-least-squares-ols" title="Permalink to this heading">#</a></h3>
+<p>For standard linear regression, the least squares estimate of <span class="math notranslate nohighlight">\( \beta \)</span> is given by the formula:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\beta}_{OLS} = (X^\top X)^{-1}X^\top Y
+\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( X \)</span> is the matrix of input features,</p></li>
+<li><p><span class="math notranslate nohighlight">\( Y \)</span> is the vector of observed responses,</p></li>
+<li><p><span class="math notranslate nohighlight">\( X^\top \)</span> is the transpose of <span class="math notranslate nohighlight">\( X \)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\( (X^\top X)^{-1} \)</span> is the inverse of <span class="math notranslate nohighlight">\( X^\top X \)</span> (assuming it is invertible),</p></li>
+<li><p><span class="math notranslate nohighlight">\( \hat{\beta}_{OLS} \)</span> is the estimated vector of coefficients.</p></li>
+</ul>
+<p>This estimator minimizes the sum of squared residuals:</p>
+<div class="math notranslate nohighlight">
+\[
+\min_\beta \sum_{i=1}^n (y_i - x_i^\top \beta)^2
+\]</div>
+</section>
+<section id="principal-component-regression-pcr">
+<h3>Principal Component Regression (PCR)<a class="headerlink" href="#principal-component-regression-pcr" title="Permalink to this heading">#</a></h3>
+<p>In PCR, before you perform regression, you first reduce the dimensionality of <span class="math notranslate nohighlight">\( X \)</span> by selecting a few principal components. Let’s denote the matrix of selected principal components as <span class="math notranslate nohighlight">\( P \)</span>. Then the PCR estimate of <span class="math notranslate nohighlight">\( \beta \)</span> is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\beta}_{PCR} = (P^\top P)^{-1}P^\top Y
+\]</div>
+<p>Here, the principal component scores matrix <span class="math notranslate nohighlight">\( P \)</span> replaces the original feature matrix <span class="math notranslate nohighlight">\( X \)</span>. After estimating the coefficients <span class="math notranslate nohighlight">\( \hat{\beta}_{PCR} \)</span>, you can transform them back to the original space of <span class="math notranslate nohighlight">\( X \)</span> if needed.</p>
+<p>So, while the form of the least squares estimation equation remains similar (it’s always about finding the coefficients that minimize the sum of squared residuals), in PCR, the equation is applied to the principal components of <span class="math notranslate nohighlight">\( X \)</span>, not <span class="math notranslate nohighlight">\( X \)</span> itself. This can lead to a more stable estimate in cases where the original predictors are highly collinear.</p>
+</section>
+</section>
+<section id="limitation-of-pcr">
+<h2>Limitation of PCR<a class="headerlink" href="#limitation-of-pcr" title="Permalink to this heading">#</a></h2>
+<p>Principal Component Regression (PCR) involves a trade-off between bias and variance, which is a fundamental concept in statistical learning. The limitation of PCR comes from this trade-off, and understanding it requires a look at the underlying concepts:</p>
+<section id="bias-variance-trade-off">
+<h3>Bias-Variance Trade-off<a class="headerlink" href="#bias-variance-trade-off" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Bias</strong> refers to the error introduced by approximating a real-world problem, which may be complex, by a much simpler model. In the context of PCR, using a limited number of principal components means that you are ignoring some information contained in the data, which introduces bias.</p></li>
+<li><p><strong>Variance</strong> refers to the error due to the variability of the model prediction if we use different subsets of the data. A model with high variance pays a lot of attention to training data and does not generalize well on unseen data.</p></li>
+</ul>
+</section>
+<section id="limitations-of-pcr">
+<h3>Limitations of PCR<a class="headerlink" href="#limitations-of-pcr" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Information Loss</strong>: PCR reduces the dimensionality of the feature space by using a subset of all the principal components, which means it may discard components that contain useful information about the response variable.</p></li>
+<li><p><strong>Selection of Components</strong>: Choosing the number of principal components to keep in the model is not always straightforward. Keeping too many components may not sufficiently reduce variance, while keeping too few may introduce significant bias.</p></li>
+<li><p><strong>Interpretability</strong>: The principal components are linear combinations of the original variables and may not have a meaningful interpretation. This can make it difficult to understand the model, especially in fields where interpretability is crucial.</p></li>
+<li><p><strong>Assumption of Linearity</strong>: PCR assumes that the relationship between the principal components and the response variable is linear. If the true relationship is non-linear, PCR may not provide an adequate model.</p></li>
+<li><p><strong>Sensitive to Scaling</strong>: PCR is sensitive to the scaling of the variables. If the variables are on different scales, the principal components may be dominated by the variables with larger scales.</p></li>
+</ol>
+</section>
+</section>
+<section id="why-variance-is-traded-off-against-bias">
+<h2>Why Variance is Traded Off Against Bias<a class="headerlink" href="#why-variance-is-traded-off-against-bias" title="Permalink to this heading">#</a></h2>
+<p>PCR trades variance for bias to create a more robust model that generalizes better to new data. By reducing the dimensionality:</p>
+<ul class="simple">
+<li><p>It may reduce overfitting: A high-dimensional dataset can lead to a model that fits the noise in the training set rather than the underlying relationship, which is high variance.</p></li>
+<li><p>It can improve model performance: By reducing the number of predictors, you often reduce the complexity of the model, which can lead to better performance on new, unseen data, despite introducing some bias.</p></li>
+</ul>
+<p>In summary, the limitation of PCR is that while it can lead to a model with lower variance, it may introduce bias into the estimation process. The trade-off is beneficial when the reduction in variance leads to improved model performance on unseen data, despite the loss of some information due to bias.</p>
+</section>
+<section id="difference-between-pcr-and-pls">
+<h2>Difference Between PCR and PLS<a class="headerlink" href="#difference-between-pcr-and-pls" title="Permalink to this heading">#</a></h2>
+<p>Partial Least Squares (PLS) regression and Principal Component Regression (PCR) are both methods that combine features of principal component analysis (PCA) with regression. They are typically used when the predictor variables are highly collinear or when there are more predictor variables than observations. Despite their similarities, PLS and PCR have distinct differences in terms of methodology and objectives.</p>
+<section id="id1">
+<h3>Principal Component Regression (PCR):<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Dimensionality Reduction</strong>: PCR is a two-step process where PCA is first performed on the predictor variables to reduce the dimensionality of the problem and to identify a few orthogonal principal components (PCs).</p></li>
+<li><p><strong>Regression</strong>: The second step involves performing linear regression on these selected principal components rather than the original predictor variables.</p></li>
+<li><p><strong>Variance</strong>: PCR focuses on capturing the variance in the predictor variables without considering the response variable. This might lead to selecting components that explain a lot of the variance in the predictors but have little to do with the response variable.</p></li>
+<li><p><strong>Indirect Maximization of Covariance</strong>: Although PCR uses principal components that maximize the variance in the predictors, it does not directly maximize the covariance between the predictors and the response.</p></li>
+</ol>
+</section>
+<section id="partial-least-squares-pls-regression">
+<h3>Partial Least Squares (PLS) Regression:<a class="headerlink" href="#partial-least-squares-pls-regression" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Covariance-based Dimensionality Reduction</strong>: PLS, like PCR, is also about reducing the dimensionality of the predictor variables. However, PLS does this by identifying new features (latent variables) that perform a simultaneous decomposition of the predictors and the response variable, with the goal of maximizing the covariance between the response and predictors.</p></li>
+<li><p><strong>Integrated Approach</strong>: PLS integrates the dimensionality reduction and the regression steps into a single model, which means that it considers the response variable while identifying the new latent variables.</p></li>
+<li><p><strong>Response Variance</strong>: PLS specifically tries to identify components that are relevant for predicting the response variable. This makes PLS more suitable for predictive modeling when the goal is to improve prediction accuracy.</p></li>
+<li><p><strong>Direct Maximization of Covariance</strong>: PLS components are chosen to maximize the covariance between the predictors and the response, which often leads to models that are better at prediction.</p></li>
+</ol>
+</section>
+<section id="use-cases">
+<h3>Use Cases:<a class="headerlink" href="#use-cases" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>PCR</strong> is often preferred when the primary interest is in understanding the underlying structure of the data or when the components that capture the most variance in the predictors are also expected to be related to the response.</p></li>
+<li><p><strong>PLS</strong> is typically used when the goal is predictive modeling, and there’s a need to find the latent structures that most affect the response variable, especially when the predictor variables are numerous and highly collinear.</p></li>
+</ul>
+<p>In summary, the choice between PCR and PLS depends on the goals of the analysis. If the main interest is in prediction and the predictors are highly collinear, PLS is usually the preferred method. If the goal is dimensionality reduction or if the principal components that capture the most variance are believed to be the most relevant for the response, PCR may be used.</p>
+<hr class="docutils" />
+<p>Yes, in the context of Partial Least Squares (PLS) regression, the goal is to find components that explain the maximum possible variance in the predictors while also having the highest possible covariance with the response variable. This is distinct from methods like Principal Component Analysis (PCA) and Principal Component Regression (PCR), where the components are chosen solely based on the variance within the predictor variables, without considering the relationship between predictors and the response.</p>
+<p>Here’s a bit more detail on how PLS works with respect to maximizing covariance:</p>
+<ol class="arabic simple">
+<li><p><strong>Projection</strong>: PLS projects both the predictor variables (X) and the response variable (Y) onto a new space. The projections are chosen such that the covariance between the projected X (scores) and projected Y is maximized.</p></li>
+<li><p><strong>Covariance</strong>: In statistics, covariance is a measure of the joint variability of two random variables. If you have a set of predictors <span class="math notranslate nohighlight">\( X \)</span> and a response <span class="math notranslate nohighlight">\( Y \)</span>, their covariance is a measure of how much the variables change together. PLS tries to find the linear combinations of the predictor variables that covary the most with the response.</p></li>
+<li><p><strong>Latent Variables</strong>: The new components (latent variables) in PLS are constructed as linear combinations of the original predictors. These latent variables are chosen iteratively, where each new latent variable is chosen to maximize the residual covariance between <span class="math notranslate nohighlight">\( X \)</span> and <span class="math notranslate nohighlight">\( Y \)</span> that is not explained by the previous latent variables.</p></li>
+<li><p><strong>Regression</strong>: After finding these new components, PLS performs regression on them to predict the response variable. Since these components are designed to have a high covariance with the response, the resulting regression model is often more predictive than one that does not consider the relationship between <span class="math notranslate nohighlight">\( X \)</span> and <span class="math notranslate nohighlight">\( Y \)</span> when reducing dimensionality, like PCR.</p></li>
+</ol>
+<p>The advantage of maximizing covariance is that PLS tends to find features that are not just explanatory for <span class="math notranslate nohighlight">\( X \)</span> but also predictive of <span class="math notranslate nohighlight">\( Y \)</span>, which makes it particularly useful in situations where prediction is the goal and the predictor variables have multicollinearity. This is in contrast to PCR, where the components are selected only based on how well they capture the variance in <span class="math notranslate nohighlight">\( X \)</span>, which may not always lead to the best predictive performance when it comes to <span class="math notranslate nohighlight">\( Y \)</span>.</p>
 </section>
 </section>
 </section>
@@ -576,6 +698,23 @@ A v = \lambda v
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenvalues-and-eigenvectors">Eigenvalues and Eigenvectors</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decomposition-of-a-covariance-matrix">Decomposition of a Covariance Matrix</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-decompose-a-covariance-matrix">Why Decompose a Covariance Matrix?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-ols-changed">How OLS changed</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ordinary-least-squares-ols">Ordinary Least Squares (OLS)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-component-regression-pcr">Principal Component Regression (PCR)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation-of-pcr">Limitation of PCR</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bias-variance-trade-off">Bias-Variance Trade-off</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-of-pcr">Limitations of PCR</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-variance-is-traded-off-against-bias">Why Variance is Traded Off Against Bias</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-between-pcr-and-pls">Difference Between PCR and PLS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Principal Component Regression (PCR):</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-least-squares-pls-regression">Partial Least Squares (PLS) Regression:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-cases">Use Cases:</a></li>
 </ul>
 </li>
 </ul>

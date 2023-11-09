@@ -482,9 +482,17 @@ document.write(`
 <section id="gamma-gamma">
 <h3><strong><span class="math notranslate nohighlight">\(\Gamma\)</span>: (Gamma)</strong><a class="headerlink" href="#gamma-gamma" title="Permalink to this heading">#</a></h3>
 <blockquote>
-<div><p>Matrix of eigenvectors of the covariance matrix.
-Note: <span class="math notranslate nohighlight">\(\Gamma\)</span> is orthogonal (<span class="math notranslate nohighlight">\(\Gamma^T = \Gamma^{-1}\)</span>).</p>
+<div><p>Matrix of eigenvectors of the covariance matrix.</p>
 </div></blockquote>
+<ul class="simple">
+<li><p>Note: <span class="math notranslate nohighlight">\(\Gamma\)</span> is orthogonal (<span class="math notranslate nohighlight">\(\Gamma^T = \Gamma^{-1}\)</span>).</p></li>
+</ul>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span><span class="w"> </span><span class="o">=</span><span class="n">PCX</span><span class="o">$</span><span class="n">rotation</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://stats.stackexchange.com/questions/130882/why-are-principal-components-in-pca-eigenvectors-of-the-covariance-matrix-mutu#:~:text=The%20covariance%20matrix%20is%20symmetric.,and%20Av%3D%CE%BCv.&amp;text=Since%20these%20are%20equal%20we,the%20two%20eigenvalues%20are%20equal.">Why are principal components in PCA (eigenvectors of the covariance matrix) mutually orthogonal?</a></p></li>
+</ul>
 <p>The columns of <span class="math notranslate nohighlight">\(\Gamma\)</span> are the eigenvectors of the covariance matrix of <span class="math notranslate nohighlight">\(X\)</span>. Each column (eigenvector) points in the direction of a principal component. These eigenvectors are also often referred to as “loadings.”</p>
 <ul class="simple">
 <li><p>In other words, <span class="math notranslate nohighlight">\(\Gamma\)</span> provides the weights or coefficients that transform the original data <span class="math notranslate nohighlight">\(X\)</span> into its principal components <span class="math notranslate nohighlight">\(Y\)</span>. If <span class="math notranslate nohighlight">\(X\)</span> has <span class="math notranslate nohighlight">\(p\)</span> predictors, then <span class="math notranslate nohighlight">\(\Gamma\)</span> will be a <span class="math notranslate nohighlight">\(p \times p\)</span> matrix, where the first column is the loading vector for PC1, the second column is the loading vector for PC2, and so on.</p></li>
@@ -514,8 +522,13 @@ a_{p1} &amp; a_{p2} &amp; \dots &amp; a_{pp} \\
 <section id="y">
 <h3><strong><span class="math notranslate nohighlight">\(Y\)</span>:</strong><a class="headerlink" href="#y" title="Permalink to this heading">#</a></h3>
 <blockquote>
-<div><p>Matrix of scores on PC</p>
+<div><p>Matrix of scores on PC / Data after PCA</p>
 </div></blockquote>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">Y</span><span class="o">=</span><span class="n">PCX</span><span class="o">$</span><span class="n">X</span>
+<span class="n">Y</span><span class="p">[,</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="c1"># first PC</span>
+<span class="n">Y</span><span class="p">[,</span><span class="m">2</span><span class="p">]</span><span class="w"> </span><span class="c1"># second PC</span>
+</pre></div>
+</div>
 <p>When you project the original data <span class="math notranslate nohighlight">\(X\)</span> onto the principal components (or eigenvectors), you get a new data representation, <span class="math notranslate nohighlight">\(Y\)</span>. Here, <span class="math notranslate nohighlight">\(Y\)</span> contains the scores of the observations on the principal components. The first column of <span class="math notranslate nohighlight">\(Y\)</span> contains the scores for PC1, the second column has the scores for PC2, and so on.</p>
 <div class="math notranslate nohighlight">
 \[ Y = Γ^T X \]</div>
