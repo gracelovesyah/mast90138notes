@@ -447,7 +447,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Calculation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#x-y-gamma-lambda"><span class="math notranslate nohighlight">\(X,Y, \Gamma, \Lambda\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#x-y-gamma-lambda"><span class="math notranslate nohighlight">\(X,Y, \Gamma, \Lambda\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-detailed-proof-on-cov">More detailed proof on cov</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#covariance-properties">Covariance Properties</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -661,6 +665,47 @@ Y_k = \sum_{j=1}^{n} \Gamma_{jk} (X_j -\mu)
 \[
 \text{Cov}(X_i, Y_i) = \Gamma \Lambda \Gamma^T\Gamma = \Gamma \Lambda
 \]</div>
+<hr class="docutils" />
+<section id="more-detailed-proof-on-cov">
+<h3>More detailed proof on cov<a class="headerlink" href="#more-detailed-proof-on-cov" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[ \text{cov}(X_i, \Gamma^T (X_i - \mu)) = \text{cov}(X_i, \Gamma^T X_i) - \text{cov}(X_i, \Gamma^T \mu) \]</div>
+<p>Since <span class="math notranslate nohighlight">\( \Gamma^T \mu \)</span> is constant with respect to <span class="math notranslate nohighlight">\( X_i \)</span>, <span class="math notranslate nohighlight">\( \text{cov}(X_i, \Gamma^T \mu) \)</span> equals zero, which simplifies to:</p>
+<div class="math notranslate nohighlight">
+\[ \text{cov}(X_i, Y_i) = \text{cov}(X_i, \Gamma^T X_i) \]</div>
+<p>This is why the mean <span class="math notranslate nohighlight">\( \mu \)</span> is not present in the final part of the equation.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Why <span class="math notranslate nohighlight">\(\text{cov}(x, \Gamma^Tx) = \text{cov}(x, x)\Gamma\)</span></p>
+<p>The equation you’re referring to involves the covariance of a random vector <span class="math notranslate nohighlight">\( x \)</span> and a transformed version of <span class="math notranslate nohighlight">\( x \)</span> by a matrix <span class="math notranslate nohighlight">\( \Gamma \)</span>. Let’s break down why <span class="math notranslate nohighlight">\( \text{cov}(x, \Gamma^Tx) = \text{cov}(x, x) \Gamma \)</span>:</p>
+<ol class="arabic simple">
+<li><p><strong>Definition of Covariance</strong>: For random vectors <span class="math notranslate nohighlight">\( x \)</span> and <span class="math notranslate nohighlight">\( y \)</span>, the covariance is defined as <span class="math notranslate nohighlight">\( \text{cov}(x, y) = E[(x - E[x])(y - E[y])^T] \)</span>, where <span class="math notranslate nohighlight">\( E[x] \)</span> is the expectation of <span class="math notranslate nohighlight">\( x \)</span>.</p></li>
+<li><p><strong>Transformation of <span class="math notranslate nohighlight">\( x \)</span> by <span class="math notranslate nohighlight">\( \Gamma \)</span></strong>: When you multiply <span class="math notranslate nohighlight">\( x \)</span> by <span class="math notranslate nohighlight">\( \Gamma^T \)</span>, you’re transforming <span class="math notranslate nohighlight">\( x \)</span> into a new vector space. The operation <span class="math notranslate nohighlight">\( \Gamma^Tx \)</span> can be seen as a linear combination of the columns of <span class="math notranslate nohighlight">\( \Gamma \)</span> weighted by the elements of <span class="math notranslate nohighlight">\( x \)</span>.</p></li>
+<li><p><strong>Covariance of Transformed Variables</strong>: The covariance of <span class="math notranslate nohighlight">\( x \)</span> with <span class="math notranslate nohighlight">\( \Gamma^Tx \)</span> can be expressed as <span class="math notranslate nohighlight">\( \text{cov}(x, \Gamma^Tx) = E[(x - E[x])(\Gamma^Tx - E[\Gamma^Tx])^T] \)</span>.</p></li>
+<li><p><strong>Expectation of Transformed Variables</strong>: Since <span class="math notranslate nohighlight">\( \Gamma \)</span> is a constant matrix, the expectation <span class="math notranslate nohighlight">\( E[\Gamma^Tx] \)</span> simplifies to <span class="math notranslate nohighlight">\( \Gamma^TE[x] \)</span>, because the expectation operator is linear.</p></li>
+<li><p><strong>Covariance of <span class="math notranslate nohighlight">\( x \)</span> with Itself</strong>: The covariance of <span class="math notranslate nohighlight">\( x \)</span> with itself is <span class="math notranslate nohighlight">\( \text{cov}(x, x) \)</span>, which is a matrix.</p></li>
+<li><p><strong>Covariance Equation</strong>: By substituting <span class="math notranslate nohighlight">\( E[\Gamma^Tx] \)</span> into the covariance of transformed variables, we get:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\text{cov}(x, \Gamma^Tx) = E[(x - E[x])(\Gamma^Tx - \Gamma^TE[x])^T]
+\]</div>
+<p>Simplifying further by distributing the transpose and the expectation:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{cov}(x, \Gamma^Tx) = E[(x - E[x])(x - E[x])^T]\Gamma
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\( E[(x - E[x])(x - E[x])^T] \)</span> is the covariance matrix of <span class="math notranslate nohighlight">\( x \)</span> with itself, we can replace it with <span class="math notranslate nohighlight">\( \text{cov}(x, x) \)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{cov}(x, \Gamma^Tx) = \text{cov}(x, x)\Gamma
+\]</div>
+<p>So, the equation states that the covariance of the random vector <span class="math notranslate nohighlight">\( x \)</span> with its transformed self by <span class="math notranslate nohighlight">\( \Gamma^T \)</span> is equal to the covariance matrix of <span class="math notranslate nohighlight">\( x \)</span> with itself, post-multiplied by <span class="math notranslate nohighlight">\( \Gamma \)</span>. This relationship holds due to the properties of the expectation operator and the definition of the covariance matrix.</p>
+</div>
+</section>
+<section id="covariance-properties">
+<h3>Covariance Properties<a class="headerlink" href="#covariance-properties" title="Permalink to this heading">#</a></h3>
+<p>-<a class="reference external" href="http://prob140.org/textbook/content/Chapter_13/01_Covariance.html">Data 140 Textbook 13.1. Covariance</a></p>
+</section>
 </section>
 </section>
 
@@ -744,7 +789,11 @@ Y_k = \sum_{j=1}^{n} \Gamma_{jk} (X_j -\mu)
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Calculation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#x-y-gamma-lambda"><span class="math notranslate nohighlight">\(X,Y, \Gamma, \Lambda\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#x-y-gamma-lambda"><span class="math notranslate nohighlight">\(X,Y, \Gamma, \Lambda\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-detailed-proof-on-cov">More detailed proof on cov</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#covariance-properties">Covariance Properties</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

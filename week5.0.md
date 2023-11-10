@@ -1,4 +1,1 @@
 # week5
-p. 125 - p.162 
-
-5.7 PCA WITH REGRESSION

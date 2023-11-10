@@ -559,6 +559,58 @@ document.write(`
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Define the loadings</span>
+<span class="n">loadings</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;manu&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.69</span><span class="p">,</span>
+    <span class="s1">&#39;popu&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.7172</span>
+<span class="p">}</span>
+
+<span class="c1"># Define the correlations</span>
+<span class="n">correlations</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;manu&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.98</span><span class="p">,</span>
+    <span class="s1">&#39;popu&#39;</span><span class="p">:</span> <span class="mf">0.15</span>
+<span class="p">}</span>
+
+<span class="c1"># Set up the figure and axis</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Draw a unit circle</span>
+<span class="n">circle</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Circle</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">circle</span><span class="p">)</span>
+
+<span class="c1"># Plot the vectors</span>
+<span class="k">for</span> <span class="n">var</span><span class="p">,</span> <span class="n">loading</span> <span class="ow">in</span> <span class="n">loadings</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">rho</span> <span class="o">=</span> <span class="n">correlations</span><span class="p">[</span><span class="n">var</span><span class="p">]</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">loading</span><span class="p">,</span> <span class="n">rho</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;red&#39;</span> <span class="k">if</span> <span class="n">loading</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span>
+                                <span class="n">shrink</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+                                <span class="n">width</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
+
+    <span class="c1"># Add variable names</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">loading</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">var</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Add labels to the axes (if this were a true biplot with multiple components)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;PC1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Correlation (rho)&#39;</span><span class="p">)</span>
+
+<span class="c1"># Show the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/02cdfa5eca6c29f6c3d368aa40d36d952772491bfc464b943156cb3325e5fc74.png" src="_images/02cdfa5eca6c29f6c3d368aa40d36d952772491bfc464b943156cb3325e5fc74.png" />
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
