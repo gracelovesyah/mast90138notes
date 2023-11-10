@@ -1,8 +1,9 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: My sample book
-author: The Jupyter Book Community
+title: MAST90139 Multivariate Statistics for Data Science
+author: Jiahe Liu (jiahe3@student.unimelb.edu.au)
+copyright: 2023
 logo: logo.png
 
 # Force re-execution of notebooks on each build.
@@ -30,6 +31,7 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+
 
 sphinx:
   config:

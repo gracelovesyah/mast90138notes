@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>review3 &#8212; My sample book</title>
+    <title>review3 &#8212; MAST90139 Multivariate Statistics for Data Science</title>
   
   
   
@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'review3.0';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -409,7 +411,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -425,6 +429,24 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-models-binary">Classification Models (Binary)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression-for-binary-classification">Linear Regression (for Binary Classification)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-for-binary-classification">Logistic Regression (for Binary Classification)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariate-normal-gaussian">Multivariate Normal (Gaussian)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-discriminant-analysis-for-binary-classification">Linear Discriminant Analysis (for Binary Classification)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-discriminant-analysis-for-binary-classification">Quadratic Discriminant Analysis (for Binary Classification)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regularization">Regularization</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -436,6 +458,163 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="review3">
 <h1>review3<a class="headerlink" href="#review3" title="Permalink to this heading">#</a></h1>
+<section id="classification-models-binary">
+<h2>Classification Models (Binary)<a class="headerlink" href="#classification-models-binary" title="Permalink to this heading">#</a></h2>
+<p>Understood, here’s a simplified and correctly aligned version of the classification models:</p>
+<section id="linear-regression-for-binary-classification">
+<h3>Linear Regression (for Binary Classification)<a class="headerlink" href="#linear-regression-for-binary-classification" title="Permalink to this heading">#</a></h3>
+<p>The probability model for class <span class="math notranslate nohighlight">\( G = 1 \)</span> is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+m(x_1) = P(G = 1|X=x) = \beta_0 + \beta^T X
+\]</div>
+<p>For class <span class="math notranslate nohighlight">\( G = 2 \)</span>, the probability model is the complement of <span class="math notranslate nohighlight">\( m(x_1) \)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+m(x_2) = 1 - m(x_1) = 1 - (\beta_0 + \beta^T X)
+\]</div>
+<p>The decision boundary where we classify <span class="math notranslate nohighlight">\( X \)</span> to <span class="math notranslate nohighlight">\( G = 1 \)</span> if:</p>
+<div class="math notranslate nohighlight">
+\[
+\beta_0 + \beta^T X &gt; 1/2
+\]</div>
+</section>
+<section id="logistic-regression-for-binary-classification">
+<h3>Logistic Regression (for Binary Classification)<a class="headerlink" href="#logistic-regression-for-binary-classification" title="Permalink to this heading">#</a></h3>
+<p>The probability model for class <span class="math notranslate nohighlight">\( G = 1 \)</span> is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+m(x_1) = P(G = 1|X=x) = \frac{e^{\beta_0 + \beta^T X}}{1+e^{\beta_0 + \beta^T X}}
+\]</div>
+<p>For class <span class="math notranslate nohighlight">\( G = 2 \)</span>, the probability model is the complement of <span class="math notranslate nohighlight">\( m(x_1) \)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+m(x_2) = 1 - m(x_1) = \frac{1}{1+e^{\beta_0 + \beta^T X}}
+\]</div>
+<p>The decision boundary where we classify <span class="math notranslate nohighlight">\( X \)</span> to <span class="math notranslate nohighlight">\( G = 1 \)</span> if:</p>
+<div class="math notranslate nohighlight">
+\[
+\beta_0 + \beta^T X &gt; 0
+\]</div>
+<p>The last inequality comes from the fact that the logistic function yields a probability greater than 0.5 when <span class="math notranslate nohighlight">\( \beta_0 + \beta^T X &gt; 0 \)</span>, which is the condition for classifying <span class="math notranslate nohighlight">\( X \)</span> into <span class="math notranslate nohighlight">\( G = 1 \)</span> for logistic regression.</p>
+</section>
+</section>
+<section id="multivariate-normal-gaussian">
+<h2>Multivariate Normal (Gaussian)<a class="headerlink" href="#multivariate-normal-gaussian" title="Permalink to this heading">#</a></h2>
+<p>For a univariate normal distribution, the probability density function (pdf) is given by:</p>
+<div class="math notranslate nohighlight">
+\[ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right) \]</div>
+<p>where <span class="math notranslate nohighlight">\( \mu \)</span> is the mean and <span class="math notranslate nohighlight">\( \sigma^2 \)</span> is the variance of the distribution.</p>
+<p>For a multivariate normal distribution, the pdf becomes:</p>
+<div class="math notranslate nohighlight">
+\[ f(\mathbf{x}) = \frac{1}{\sqrt{(2\pi)^k|\Sigma|}} \exp\left(-\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu})^T\Sigma^{-1}(\mathbf{x}-\boldsymbol{\mu})\right) \]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( \mathbf{x} \)</span> is a k-dimensional random vector.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \boldsymbol{\mu} \)</span> is the mean vector.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \Sigma \)</span> is the covariance matrix, which is a <span class="math notranslate nohighlight">\( k \times k \)</span> matrix.</p></li>
+<li><p><span class="math notranslate nohighlight">\( |\Sigma| \)</span> is the determinant of the covariance matrix.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \Sigma^{-1} \)</span> is the inverse of the covariance matrix.</p></li>
+</ul>
+<p>The term <span class="math notranslate nohighlight">\( (\mathbf{x}-\boldsymbol{\mu})^T\Sigma^{-1}(\mathbf{x}-\boldsymbol{\mu}) \)</span> is a quadratic form which generalizes the squared difference term <span class="math notranslate nohighlight">\( (x-\mu)^2 \)</span> from the univariate case. Here’s why the matrix form is used:</p>
+<ol class="arabic simple">
+<li><p><strong>Covariance</strong>: In multiple dimensions, not only do we have variances along each dimension (akin to <span class="math notranslate nohighlight">\( \sigma^2 \)</span> in the univariate case), but we also have covariances between each pair of dimensions. The covariance matrix <span class="math notranslate nohighlight">\( \Sigma \)</span> encapsulates all this information.</p></li>
+<li><p><strong>Quadratic Form</strong>: The quadratic form <span class="math notranslate nohighlight">\( (\mathbf{x}-\boldsymbol{\mu})^T\Sigma^{-1}(\mathbf{x}-\boldsymbol{\mu}) \)</span> measures the squared distance of <span class="math notranslate nohighlight">\( \mathbf{x} \)</span> from the mean <span class="math notranslate nohighlight">\( \boldsymbol{\mu} \)</span>, weighted by the covariance structure. The transpose <span class="math notranslate nohighlight">\( (\mathbf{x}-\boldsymbol{\mu})^T \)</span> and the inverse covariance matrix <span class="math notranslate nohighlight">\( \Sigma^{-1} \)</span> are used to properly account for the orientation and scaling dictated by the covariance between the variables.</p></li>
+<li><p><strong>Determinant and Inverse</strong>: The determinant <span class="math notranslate nohighlight">\( |\Sigma| \)</span> serves to normalize the distribution so that the total probability integrates to 1. The inverse <span class="math notranslate nohighlight">\( \Sigma^{-1} \)</span> is used in the quadratic form to account for the correlation structure between the variables.</p></li>
+</ol>
+<div class="admonition-assumption admonition">
+<p class="admonition-title">Assumption</p>
+<ol class="arabic simple">
+<li><p>LDA assumes that both classes share the same covariance matrix, which results in a linear decision boundary.</p></li>
+<li><p>Normal distribution.</p></li>
+</ol>
+</div>
+<section id="linear-discriminant-analysis-for-binary-classification">
+<h3>Linear Discriminant Analysis (for Binary Classification)<a class="headerlink" href="#linear-discriminant-analysis-for-binary-classification" title="Permalink to this heading">#</a></h3>
+<p><strong>Bayes</strong></p>
+<div class="math notranslate nohighlight">
+\[P(G = k |X = x) = \frac{P(X = x|G = k )\pi_k}{P(X=x)}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\pi_k = P(G = k)\)</span>.</p>
+<p>The probability model for class <span class="math notranslate nohighlight">\( G = 1 \)</span> is given by a Gaussian distribution with mean <span class="math notranslate nohighlight">\( \mu_1 \)</span> and common covariance matrix <span class="math notranslate nohighlight">\( \Sigma \)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+m(x_1) = P(G = 1|X=x) \propto \exp\left(-\frac{1}{2}(x - \mu_1)^T \Sigma^{-1}(x - \mu_1)\right)
+\]</div>
+<p>Similarly, for class <span class="math notranslate nohighlight">\( G = 2 \)</span>, the probability model is a Gaussian distribution with mean <span class="math notranslate nohighlight">\( \mu_2 \)</span> and the same common covariance matrix <span class="math notranslate nohighlight">\( \Sigma \)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+m(x_2) = P(G = 2|X=x) \propto \exp\left(-\frac{1}{2}(x - \mu_2)^T \Sigma^{-1}(x - \mu_2)\right)
+\]</div>
+<p>The decision boundary for LDA is derived by setting the log of the ratio of these probabilities equal to zero, which simplifies to a linear function in <span class="math notranslate nohighlight">\( x \)</span> due to the common covariance matrix:</p>
+<div class="math notranslate nohighlight">
+\[
+\log\left(\frac{m(x_1)}{m(x_2)}\right) = 0
+\]</div>
+<p>This simplifies further to the linear equation:</p>
+<div class="math notranslate nohighlight">
+\[
+(x - \mu_1)^T \Sigma^{-1}(x - \mu_1) - (x - \mu_2)^T \Sigma^{-1}(x - \mu_2) = 0
+\]</div>
+<p>Which can be simplified to:</p>
+<div class="math notranslate nohighlight">
+\[
+x^T \Sigma^{-1}(\mu_1 - \mu_2) - \frac{1}{2}(\mu_1 + \mu_2)^T \Sigma^{-1}(\mu_1 - \mu_2) + \log\left(\frac{\pi_1}{\pi_2}\right) = 0
+\]</div>
+<p>Here, <span class="math notranslate nohighlight">\( \mu_1 \)</span> and <span class="math notranslate nohighlight">\( \mu_2 \)</span> are the mean vectors for each class, <span class="math notranslate nohighlight">\( \Sigma \)</span> is the shared covariance matrix, and <span class="math notranslate nohighlight">\( \pi_1 \)</span> and <span class="math notranslate nohighlight">\( \pi_2 \)</span> are the prior probabilities of each class.</p>
+<p>The resulting decision boundary is a hyperplane in the feature space, and the side of the hyperplane an observation falls on determines the predicted class for that observation. The term <span class="math notranslate nohighlight">\( x^T \Sigma^{-1}(\mu_1 - \mu_2) \)</span> represents the projection of the difference in class means onto the data, and it is this projection that is used for classification.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>What if data is non-linearly separable?
+Use QD (instead of LD)!</p>
+</div>
+</section>
+<section id="quadratic-discriminant-analysis-for-binary-classification">
+<h3>Quadratic Discriminant Analysis (for Binary Classification)<a class="headerlink" href="#quadratic-discriminant-analysis-for-binary-classification" title="Permalink to this heading">#</a></h3>
+<p>In QDA, each class <span class="math notranslate nohighlight">\( G = 1 \)</span> and <span class="math notranslate nohighlight">\( G = 2 \)</span> has its own covariance matrix, which allows for the modeling of more complex decision boundaries.</p>
+<p>The probability model for class <span class="math notranslate nohighlight">\( G = 1 \)</span> is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+m(x_1) = P(G = 1|X=x) \propto \exp\left(-\frac{1}{2}(x - \mu_1)^T \Sigma_1^{-1}(x - \mu_1)\right)
+\]</div>
+<p>For class <span class="math notranslate nohighlight">\( G = 2 \)</span>, the probability model is:</p>
+<div class="math notranslate nohighlight">
+\[
+m(x_2) = P(G = 2|X=x) \propto \exp\left(-\frac{1}{2}(x - \mu_2)^T \Sigma_2^{-1}(x - \mu_2)\right)
+\]</div>
+<p>The decision boundary is found by setting <span class="math notranslate nohighlight">\( m(x_1) = m(x_2) \)</span> and solving for <span class="math notranslate nohighlight">\( x \)</span>. In practice, this means finding the <span class="math notranslate nohighlight">\( x \)</span> such that:</p>
+<div class="math notranslate nohighlight">
+\[
+-\frac{1}{2}(x - \mu_1)^T \Sigma_1^{-1}(x - \mu_1) + \log(\pi_1) = -\frac{1}{2}(x - \mu_2)^T \Sigma_2^{-1}(x - \mu_2) + \log(\pi_2)
+\]</div>
+</section>
+<section id="regularization">
+<h3>Regularization<a class="headerlink" href="#regularization" title="Permalink to this heading">#</a></h3>
+<p>Regularized Quadratic Discriminant Analysis (QDA) is an extension of QDA that addresses the potential problem of overfitting, especially in situations where the number of features is large compared to the number of observations, or when the class covariance matrices are nearly singular.</p>
+<p>In regular QDA, you estimate the covariance matrices for each class separately, which can lead to models that are very flexible but also prone to overfitting the data. Regularization introduces a shrinkage parameter, which essentially pulls the class-specific covariance matrices towards a common covariance matrix or towards the identity matrix (which would imply independence of the features).</p>
+<p>Here’s a bit more detail on how it works:</p>
+<ol class="arabic">
+<li><p><strong>Covariance Estimation</strong>: In standard QDA, the covariance matrix for each class <span class="math notranslate nohighlight">\( \Sigma_k \)</span> is estimated directly from the data corresponding to that class.</p></li>
+<li><p><strong>Regularization</strong>: In regularized QDA, you adjust each <span class="math notranslate nohighlight">\( \Sigma_k \)</span> by pulling it towards a central estimate <span class="math notranslate nohighlight">\( \Sigma \)</span> or towards the identity matrix <span class="math notranslate nohighlight">\( I \)</span>. The extent to which you do this is controlled by a regularization parameter <span class="math notranslate nohighlight">\( \lambda \)</span> (which can be between 0 and 1).</p></li>
+<li><p><strong>Regularized Covariance Matrix</strong>: The regularized covariance matrix for each class <span class="math notranslate nohighlight">\( k \)</span> can be calculated as:</p>
+<div class="math notranslate nohighlight">
+\[
+   \hat{\Sigma}_k = (1 - \lambda) \Sigma_k + \lambda \Sigma
+   \]</div>
+<p>where <span class="math notranslate nohighlight">\( \Sigma \)</span> could be the average of all the <span class="math notranslate nohighlight">\( \Sigma_k \)</span> (the pooled covariance matrix), or it could be the identity matrix if you’re regularizing towards independence.</p>
+</li>
+<li><p><strong>Logarithmic Loss with Regularization</strong>: The regularization modifies the discriminant function by changing the covariance matrices used in the function. The regularized discriminant function incorporates the regularized covariance matrices to compute the probability that an observation belongs to each class.</p></li>
+<li><p><strong>Choosing <span class="math notranslate nohighlight">\( \lambda \)</span></strong>: The regularization parameter <span class="math notranslate nohighlight">\( \lambda \)</span> is typically chosen through cross-validation to optimize the model’s predictive performance on unseen data.</p></li>
+</ol>
+<p>Regularization helps to improve the model’s generalizability and robustness by preventing it from being overly complex relative to the amount of training data. It is particularly useful when the data contains redundant features or when there is collinearity among the features.</p>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=SWfucxnOF8c">Partial least squares regression (PLSR) - explained</a></p></li>
+<li><p>Similar to principal component regression, the method of partial least squares, also called projection to latent structures, is a technique that reduces the number of explanatory variables to a smaller set of uncorrelated variables.</p></li>
+<li><p>Both methods are used to overcome the problem with collinearity in linear regression and in cases where we have more explanatory variables than observations. Watch the lecture about principal component regression for more information.</p></li>
+</ul>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -497,6 +676,30 @@ document.write(`
             
             
               
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-models-binary">Classification Models (Binary)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression-for-binary-classification">Linear Regression (for Binary Classification)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-for-binary-classification">Logistic Regression (for Binary Classification)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariate-normal-gaussian">Multivariate Normal (Gaussian)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-discriminant-analysis-for-binary-classification">Linear Discriminant Analysis (for Binary Classification)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-discriminant-analysis-for-binary-classification">Quadratic Discriminant Analysis (for Binary Classification)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regularization">Regularization</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -506,7 +709,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Jiahe Liu (jiahe3@student.unimelb.edu.au)
 </p>
 
   </div>
@@ -515,7 +718,7 @@ By The Jupyter Book Community
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
