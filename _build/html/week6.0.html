@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'week6.0';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -436,6 +438,20 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="week6">
 <h1>week6<a class="headerlink" href="#week6" title="Permalink to this heading">#</a></h1>
+<p>p.163 - p.193</p>
+<div class="math notranslate nohighlight">
+\[
+Z = \alpha + \beta^Tx + \epsilon
+\]</div>
+<div class="math notranslate nohighlight">
+\[ 
+\hat{\beta} = argmin \sum(Z_i - \beta^Tx_i)^2 = (X^TX)^{-1}X^{T}Z
+\]</div>
+<p>Since <span class="math notranslate nohighlight">\(X = \GammaY\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\beta_{PC}} = (Y^TY)^{-1}Y^{T}Z
+\]</div>
 <div class="toctree-wrapper compound">
 </div>
 </section>

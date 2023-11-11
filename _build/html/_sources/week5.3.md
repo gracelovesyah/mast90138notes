@@ -36,3 +36,4 @@ $$
 Z_i =  \beta^T \Gamma  Y + \epsilon_i = m_PC (Y)\Gamma + \epsilon_i
 $$
 
+## Boston housing data Example

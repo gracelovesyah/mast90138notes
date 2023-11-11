@@ -42,7 +42,19 @@ If you are interested in which variables are most significant in explaining vari
 
 Note: for variables near the center of the biplot, the length and angle of their vectors are not as meaningful as for those near the periphery. The biplot is most informative for variables with vectors that reach out towards the periphery of the plot, indicating they are well explained by the principal components being plotted.
 
+```{admonition} Question
+What decides the length? What decides the angle? What decides the pointing direction?
+```
 
+```{admonition} Answer
+:class: dropdown
+length: absolute value of coeff
+angle: correlation value ($\rho$)
+pointing direction: sign of correlation value ($\rho$)
+```
 
+---
 
-
+$$
+\rho = \frac{\gamma \lambda^{1/2}}{\sigma^{1/2}}
+$$
