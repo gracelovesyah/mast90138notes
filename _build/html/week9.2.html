@@ -190,8 +190,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="week5.3.html">week5 additional notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="week6.0.html">week6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week6.0.html">Week 6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="week6.1.html">week6 lec1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week6.2.html">week6 lec2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week6.3.html">week 6 additional resources</a></li>
 </ul>
 </li>
@@ -409,7 +410,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -425,6 +428,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-tree">Decision Tree</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-tree">Regression Tree</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -436,8 +449,20 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="week9-lec-2">
 <h1>week9 lec 2<a class="headerlink" href="#week9-lec-2" title="Permalink to this heading">#</a></h1>
-<p>p.265 - p.xx</p>
-<p>This note is completed with the assistance of <span class="xref myst">ChatGPT</span></p>
+<section id="decision-tree">
+<h2>Decision Tree<a class="headerlink" href="#decision-tree" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="random-forest">
+<h2>Random Forest<a class="headerlink" href="#random-forest" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="regression-tree">
+<h2>Regression Tree<a class="headerlink" href="#regression-tree" title="Permalink to this heading">#</a></h2>
+<p>When to use RT - data’s distribution is wired.</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/rt1.png"><img alt="rt" class="bg-primary mb-1 align-center" src="_images/rt1.png" style="width: 800px;" /></a>
+<p>How to build RT - use mean value on node, evaluate with RSS
+i.e. We decide the splitting criteria based when RSS is minimum.</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/rt2.png"><img alt="rt" class="bg-primary mb-1 align-center" src="_images/rt2.png" style="width: 800px;" /></a>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -498,6 +523,22 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-tree">Decision Tree</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-tree">Regression Tree</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

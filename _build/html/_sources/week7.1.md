@@ -47,9 +47,3 @@ It is important to note that the expectation of $ U $ is zero, $ E(U) = 0 $, and
 ## 6.2 INTERPRETING THE FACTORS
 
 ## 6.3 SCALING THE DATA
-
-## 6.4 NON UNICITY OF THE MATRIX Q
-
-## 6.5 LIKELIHOOD METHODS UNDER NORMAL ASSUMPTION
-
-## 6.6 ROTATION

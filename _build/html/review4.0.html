@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'review4.0';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -190,8 +192,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="week5.3.html">week5 additional notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="week6.0.html">week6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week6.0.html">Week 6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="week6.1.html">week6 lec1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week6.2.html">week6 lec2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week6.3.html">week 6 additional resources</a></li>
 </ul>
 </li>
@@ -409,7 +412,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -425,6 +430,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qda-cont">QDA cont.</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -436,6 +449,76 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="review4">
 <h1>review4<a class="headerlink" href="#review4" title="Permalink to this heading">#</a></h1>
+<section id="qda-cont">
+<h2>QDA cont.<a class="headerlink" href="#qda-cont" title="Permalink to this heading">#</a></h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Describe the underlying model of quadratic discriminant analysis (QDA) for a general K-class problem (K &gt; 2), and write down its decision rules (7)</p>
+<p>Quadratic Discriminant Analysis (QDA) is a statistical method used for classification, and it is an extension of Linear Discriminant Analysis (LDA). While LDA assumes that different classes share the same covariance matrix, QDA allows each class to have its own covariance matrix. This makes QDA more flexible than LDA, particularly when classes have different shapes in the feature space.</p>
+<p class="rubric">Underlying Model for K-Class Problem</p>
+<p>In a K-class problem, we have <span class="math notranslate nohighlight">\( K \)</span> different classes. The underlying model for QDA assumes the following:</p>
+<ol class="arabic simple">
+<li><p><strong>Probability Distributions</strong>: Each class <span class="math notranslate nohighlight">\( k \)</span> is modeled as a multivariate normal distribution with its own mean vector <span class="math notranslate nohighlight">\( \mu_k \)</span> and covariance matrix <span class="math notranslate nohighlight">\( \Sigma_k \)</span>.</p></li>
+<li><p><strong>Prior Probabilities</strong>: Each class has a prior probability <span class="math notranslate nohighlight">\( \pi_k \)</span> which represents the probability of a randomly chosen observation belonging to class <span class="math notranslate nohighlight">\( k \)</span>.</p></li>
+<li><p><strong>Decision Boundary</strong>: The decision boundaries between classes are quadratic, which is where QDA gets its name. This is due to the fact that each class has its own covariance matrix.</p></li>
+</ol>
+<p class="rubric">Decision Rules</p>
+<p>The decision rule in QDA is to assign an observation <span class="math notranslate nohighlight">\( x \)</span> to the class for which the quadratic discriminant function has the highest value. The quadratic discriminant function for class <span class="math notranslate nohighlight">\( k \)</span> is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+\delta_k(x) = -\frac{1}{2} \ln|\Sigma_k| - \frac{1}{2} (x - \mu_k)^T \Sigma_k^{-1} (x - \mu_k) + \ln \pi_k
+\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( |\Sigma_k| \)</span> is the determinant of the covariance matrix for class <span class="math notranslate nohighlight">\( k \)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \Sigma_k^{-1} \)</span> is the inverse of the covariance matrix for class <span class="math notranslate nohighlight">\( k \)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \mu_k \)</span> is the mean vector for class <span class="math notranslate nohighlight">\( k \)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \pi_k \)</span> is the prior probability of class <span class="math notranslate nohighlight">\( k \)</span>.</p></li>
+</ul>
+<p>The observation <span class="math notranslate nohighlight">\( x \)</span> is assigned to the class <span class="math notranslate nohighlight">\( k \)</span> that maximizes <span class="math notranslate nohighlight">\( \delta_k(x) \)</span>.</p>
+<p class="rubric">Summary</p>
+<p>In summary, QDA is used in situations where the assumption of equal covariance matrices for all classes (as in LDA) is not tenable. By allowing each class to have its own covariance matrix, QDA can model more complex class distributions, at the cost of needing more parameters to be estimated, which can lead to overfitting if the sample size is not large enough.</p>
+<hr class="docutils" />
+<p>The quadratic discriminant function <span class="math notranslate nohighlight">\(\delta_k(x)\)</span> in Quadratic Discriminant Analysis (QDA) is derived from the likelihood of the data given a particular class, under the assumption that the data in each class follow a multivariate normal (Gaussian) distribution. Here’s a step-by-step explanation of how <span class="math notranslate nohighlight">\(\delta_k(x)\)</span> is obtained:</p>
+<p class="rubric">Starting Point: Multivariate Normal Distribution</p>
+<p>For a K-class problem, each class <span class="math notranslate nohighlight">\( k \)</span> is assumed to follow a multivariate normal distribution with its own mean vector <span class="math notranslate nohighlight">\( \mu_k \)</span> and covariance matrix <span class="math notranslate nohighlight">\( \Sigma_k \)</span>. The probability density function of a multivariate normal distribution is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x | \mu_k, \Sigma_k) = \frac{1}{(2\pi)^{n/2} |\Sigma_k|^{1/2}} \exp \left( -\frac{1}{2} (x - \mu_k)^T \Sigma_k^{-1} (x - \mu_k) \right)
+\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( x \)</span> is the data point.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \mu_k \)</span> is the mean vector for class <span class="math notranslate nohighlight">\( k \)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \Sigma_k \)</span> is the covariance matrix for class <span class="math notranslate nohighlight">\( k \)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\( |\Sigma_k| \)</span> is the determinant of <span class="math notranslate nohighlight">\( \Sigma_k \)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \Sigma_k^{-1} \)</span> is the inverse of <span class="math notranslate nohighlight">\( \Sigma_k \)</span>.</p></li>
+</ul>
+<p class="rubric">Incorporating Prior Probabilities</p>
+<p>In QDA, we also consider the prior probabilities of each class <span class="math notranslate nohighlight">\( \pi_k \)</span>. The overall likelihood of a data point <span class="math notranslate nohighlight">\( x \)</span> belonging to class <span class="math notranslate nohighlight">\( k \)</span> is the product of its class-conditional density and the class prior probability:</p>
+<div class="math notranslate nohighlight">
+\[
+P(k | x) \propto \pi_k f(x | \mu_k, \Sigma_k)
+\]</div>
+<p class="rubric">Taking the Logarithm</p>
+<p>To simplify calculations and avoid numerical underflow, we take the logarithm of this expression, leading to the log-likelihood:</p>
+<div class="math notranslate nohighlight">
+\[
+\ln P(k | x) = \ln \pi_k + \ln f(x | \mu_k, \Sigma_k)
+\]</div>
+<p>Plugging in the expression for <span class="math notranslate nohighlight">\( f(x | \mu_k, \Sigma_k) \)</span> and simplifying, we get:</p>
+<div class="math notranslate nohighlight">
+\[
+\ln P(k | x) = \ln \pi_k - \frac{1}{2} \ln |\Sigma_k| - \frac{1}{2} (x - \mu_k)^T \Sigma_k^{-1} (x - \mu_k) - \text{constant}
+\]</div>
+<p>Since the constant term (involving <span class="math notranslate nohighlight">\((2\pi)^{n/2}\)</span>) is the same for all classes and does not affect the classification decision, it can be omitted. This gives us the quadratic discriminant function for class <span class="math notranslate nohighlight">\( k \)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\delta_k(x) = \ln \pi_k - \frac{1}{2} \ln |\Sigma_k| - \frac{1}{2} (x - \mu_k)^T \Sigma_k^{-1} (x - \mu_k)
+\]</div>
+<p class="rubric">Decision Rule</p>
+<p>Finally, the decision rule in QDA is to assign the observation <span class="math notranslate nohighlight">\( x \)</span> to the class that maximizes <span class="math notranslate nohighlight">\(\delta_k(x)\)</span>, which is equivalent to maximizing the log-likelihood <span class="math notranslate nohighlight">\( \ln P(k | x) \)</span>. This accounts for both the shape of the class distribution (through the covariance matrix) and the prior probability of each class.</p>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -496,6 +579,20 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qda-cont">QDA cont.</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

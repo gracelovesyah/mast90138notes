@@ -10,6 +10,13 @@
 ### TileStats:
 - [Multivariate statistics - a full course](https://www.youtube.com/watch?v=QtAZsWseIKk&list=PLLTSM0eKjC2fZqeVFWBBBr8KSqnBIPMQD)
 
+
+### Tree Model
+
+- [Decision and Classification Trees, Clearly Explained!!!](https://www.youtube.com/watch?v=_L39rN6gz7Y)
+- [StatQuest: Random Forests Part 1 - Building, Using and Evaluating](https://www.youtube.com/watch?v=J4Wdy0Wc_xQ)
+
+
 ## Textbook and Notes
 
 - [Probability for Data Science at UC Berkeley](http://prob140.org/textbook/content/README.html)
