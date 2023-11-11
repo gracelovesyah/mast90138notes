@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'week7.1';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -158,7 +160,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="basics.html">Notation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="useful_link.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="progress.html">Progress Check</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="week1.0.html">week1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="week1.1.html">Week 1 Lecture 1</a></li>
@@ -190,8 +192,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="week5.3.html">week5 additional notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="week6.0.html">week6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week6.0.html">Week 6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="week6.1.html">week6 lec1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week6.2.html">week6 lec2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week6.3.html">week 6 additional resources</a></li>
 </ul>
 </li>
@@ -433,6 +436,13 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-vs-pls">PCA vs PLS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factor-analysis">6 Factor Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orthogonal-factor-model">6.1 ORTHOGONAL FACTOR MODEL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-factors">6.2 INTERPRETING THE FACTORS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scaling-the-data">6.3 SCALING THE DATA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-unicity-of-the-matrix-q">6.4 NON UNICITY OF THE MATRIX Q</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#likelihood-methods-under-normal-assumption">6.5 LIKELIHOOD METHODS UNDER NORMAL ASSUMPTION</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rotation">6.6 ROTATION</a></li>
 </ul>
             </nav>
         </div>
@@ -491,7 +501,43 @@ document.write(`
 </tr>
 </tbody>
 </table>
-<p>Remember, this table provides a concise view. For a more comprehensive understanding, you’d want to dive deeper into the individual properties and behaviors of each method.</p>
+</section>
+<hr class="docutils" />
+<section id="factor-analysis">
+<h2>6 Factor Analysis<a class="headerlink" href="#factor-analysis" title="Permalink to this heading">#</a></h2>
+<p>Factor Analysis (FA) is a statistical method that seeks to uncover hidden factors or latent structures behind observed data. In essence, it aims to identify the underlying reasons for the correlations present among data points.</p>
+<p>The Factor Analysis model can be expressed as:</p>
+<div class="math notranslate nohighlight">
+\[ X = \Gamma Y + \mu = QF + \mu \]</div>
+<p>In this model, <span class="math notranslate nohighlight">\( Q \)</span> is the Loading Matrix, which contains the loadings of observed variables on the factors, and <span class="math notranslate nohighlight">\( F \)</span> is the Factor Scores Matrix, representing the scores of each observation on the latent factors.</p>
+<p>The Loading Matrix <span class="math notranslate nohighlight">\( Q \)</span> is derived from:</p>
+<div class="math notranslate nohighlight">
+\[ Q = \Gamma \Lambda^{1/2} \]</div>
+<p>And the Factor Scores Matrix <span class="math notranslate nohighlight">\( F \)</span> is obtained by:</p>
+<div class="math notranslate nohighlight">
+\[ F = \Lambda^{1/2} Y \]</div>
+<p>The goal of FA is to explain <span class="math notranslate nohighlight">\( p \)</span> variables using <span class="math notranslate nohighlight">\( q \)</span> factors, where <span class="math notranslate nohighlight">\( q &lt; p \)</span>.</p>
+<p>However, FA cannot always be directly represented as <span class="math notranslate nohighlight">\( X = QF + \mu \)</span>. We often need to consider a specific factor, <span class="math notranslate nohighlight">\( U \)</span> (unique factors), which is an error term matrix. This matrix accounts for the random errors that cannot be explained by the relationship between latent factors and observed variables. It includes the random noise in the data and the variability not captured by the factor analysis model.</p>
+<p>It is important to note that the expectation of <span class="math notranslate nohighlight">\( U \)</span> is zero, <span class="math notranslate nohighlight">\( E(U) = 0 \)</span>, and that the covariance between any two specific factors <span class="math notranslate nohighlight">\( U_i \)</span> and <span class="math notranslate nohighlight">\( U_j \)</span> is zero, <span class="math notranslate nohighlight">\( \text{COV}(U_i, U_j) = 0 \)</span>, as well as the covariance between the factor scores <span class="math notranslate nohighlight">\( F \)</span> and specific factors <span class="math notranslate nohighlight">\( U \)</span>, <span class="math notranslate nohighlight">\( \text{COV}(F, U) = 0 \)</span>. This means that the errors <span class="math notranslate nohighlight">\( U \)</span> are uncorrelated with each other, and also uncorrelated with the factor scores <span class="math notranslate nohighlight">\( F \)</span>.</p>
+</section>
+<hr class="docutils" />
+<section id="orthogonal-factor-model">
+<h2>6.1 ORTHOGONAL FACTOR MODEL<a class="headerlink" href="#orthogonal-factor-model" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="interpreting-the-factors">
+<h2>6.2 INTERPRETING THE FACTORS<a class="headerlink" href="#interpreting-the-factors" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="scaling-the-data">
+<h2>6.3 SCALING THE DATA<a class="headerlink" href="#scaling-the-data" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="non-unicity-of-the-matrix-q">
+<h2>6.4 NON UNICITY OF THE MATRIX Q<a class="headerlink" href="#non-unicity-of-the-matrix-q" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="likelihood-methods-under-normal-assumption">
+<h2>6.5 LIKELIHOOD METHODS UNDER NORMAL ASSUMPTION<a class="headerlink" href="#likelihood-methods-under-normal-assumption" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="rotation">
+<h2>6.6 ROTATION<a class="headerlink" href="#rotation" title="Permalink to this heading">#</a></h2>
 </section>
 </section>
 
@@ -563,6 +609,13 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-vs-pls">PCA vs PLS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#factor-analysis">6 Factor Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orthogonal-factor-model">6.1 ORTHOGONAL FACTOR MODEL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-factors">6.2 INTERPRETING THE FACTORS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scaling-the-data">6.3 SCALING THE DATA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-unicity-of-the-matrix-q">6.4 NON UNICITY OF THE MATRIX Q</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#likelihood-methods-under-normal-assumption">6.5 LIKELIHOOD METHODS UNDER NORMAL ASSUMPTION</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rotation">6.6 ROTATION</a></li>
 </ul>
   </nav></div>
 

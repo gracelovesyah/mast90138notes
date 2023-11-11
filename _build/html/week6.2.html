@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>&lt;no title&gt; &#8212; MAST90139 Multivariate Statistics for Data Science</title>
+    <title>week6 lec2 &#8212; MAST90139 Multivariate Statistics for Data Science</title>
   
   
   
@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'week6.2';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -156,9 +158,9 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="basics.html">Notation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="useful_link.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="progress.html">Progress Check</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="week1.0.html">week1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="week1.1.html">Week 1 Lecture 1</a></li>
@@ -190,8 +192,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="week5.3.html">week5 additional notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="week6.0.html">week6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="week6.0.html">Week 6</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="week6.1.html">week6 lec1</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">week6 lec2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week6.3.html">week 6 additional resources</a></li>
 </ul>
 </li>
@@ -422,7 +425,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>week6 lec2</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -431,9 +434,9 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-least-squares-cont">Partial least squares cont.</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -444,7 +447,25 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  
+  <section class="tex2jax_ignore mathjax_ignore" id="week6-lec2">
+<h1>week6 lec2<a class="headerlink" href="#week6-lec2" title="Permalink to this heading">#</a></h1>
+<section id="partial-least-squares-cont">
+<h2>Partial least squares cont.<a class="headerlink" href="#partial-least-squares-cont" title="Permalink to this heading">#</a></h2>
+<p>In Partial Least Squares (PLS), the first component <span class="math notranslate nohighlight">\( T_1 \)</span> is constructed by the equation:</p>
+<div class="math notranslate nohighlight">
+\[ T_k = \Phi_k X \]</div>
+<p>Where <span class="math notranslate nohighlight">\( \Phi_k = 1\)</span> and <span class="math notranslate nohighlight">\(|Cov(Z, T_1)|\)</span> is as large as possible.</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\phi}_1 = argmax_{\|\phi_1\|=1} \text{cov}(Z, \phi_1^T X)
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The reason why we want to maximize the covariance is because we then combine the variables in a way that explains both the dependent variable and the explanatory variables.</p>
+</div>
+</section>
+</section>
+
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
@@ -511,9 +532,9 @@ document.write(`
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-least-squares-cont">Partial least squares cont.</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>

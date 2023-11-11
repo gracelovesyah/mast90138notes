@@ -375,6 +375,9 @@ Remember, this is just an arbitrary example. In real scenarios, the covariance m
 The orthogonality comes into play when we discuss the eigenvectors of the covariance matrix. If you've heard of Principal Component Analysis (PCA), it leverages this property. PCA finds the eigenvectors (principal components) of the data's covariance matrix, and these eigenvectors are orthogonal to each other.
 
 ```
+
+- [Proof of spectral decomposition](https://math.mit.edu/~dav/spectral.pdf)
+
 ---
 (content:references:label-corr)=
 ### $\rho$ (rho)
@@ -382,15 +385,15 @@ The orthogonality comes into play when we discuss the eigenvectors of the covari
 > Correlation
 
 $$
-\rho(X,Y)= \frac{\text{Cov}(X,Y)}{\sqrt{Var(X)Var(Y)}} = \frac{\gamma \lambda}{\sqrt{\sigma\lambda}} = \gamma  \frac{\lambda ^{\frac{1}{2}}}{\sigma^{\frac{1}{2}}}
+\rho(X,Y)= \frac{\text{Cov}(X,Y)}{\sqrt{Var(X)Var(Y)}} = \frac{\gamma \lambda}{\sqrt{\sigma^2\lambda}} = \gamma  \frac{\lambda ^{\frac{1}{2}}}{\sigma}
 $$
 
 $$
-\sigma = \sum  \lambda \gamma^2
+\sigma^2 = \sum  \lambda \gamma^2
 $$
 
 Note: 
-- $\sigma$ ($s_{ii}$)is the sample variance.
+- $\sigma^2 $ ($s_{ii}$)is the sample variance.
 - The length in the circular graph corresponds to $\rho$. 
 - $\lambda ^{\frac{1}{2}}$ corresponds to the std of PC as $\lambda$ is the variance of PC.
 
@@ -501,4 +504,19 @@ When you conduct factor analysis, you're essentially trying to find underlying f
 :width: 800px
 :align: center
 ```
+
+### Matrix Determinant
+
+To calculate the determinant of a \(3 \times 3\) matrix with elements \(a, b, c; d, e, f; g, h, i\), we can use the following formula:
+
+$$ \text{Determinant} = a(ei - fh) - b(di - fg) + c(dh - eg) $$
+
+
+$$
+\begin{pmatrix}
+a & b & c \\
+d & e & f \\
+g & h & i
+\end{pmatrix}
+$$
 

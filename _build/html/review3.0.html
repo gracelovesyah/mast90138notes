@@ -160,7 +160,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="basics.html">Notation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="useful_link.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="progress.html">Progress Check</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="week1.0.html">week1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="week1.1.html">Week 1 Lecture 1</a></li>
@@ -192,8 +192,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="week5.3.html">week5 additional notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="week6.0.html">week6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week6.0.html">Week 6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="week6.1.html">week6 lec1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week6.2.html">week6 lec2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week6.3.html">week 6 additional resources</a></li>
 </ul>
 </li>
@@ -442,6 +443,13 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariate-normal-gaussian">Multivariate Normal (Gaussian)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-discriminant-analysis-for-binary-classification">Linear Discriminant Analysis (for Binary Classification)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-discriminant-analysis-for-binary-classification">Quadratic Discriminant Analysis (for Binary Classification)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-rule-for-qa">Decision Rule for QA</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#starting-point-multivariate-normal-distribution">Starting Point: Multivariate Normal Distribution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#incorporating-prior-probabilities">Incorporating Prior Probabilities</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#taking-the-logarithm">Taking the Logarithm</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-rule">Decision Rule</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regularization">Regularization</a></li>
 </ul>
 </li>
@@ -588,6 +596,57 @@ m(x_2) = P(G = 2|X=x) \propto \exp\left(-\frac{1}{2}(x - \mu_2)^T \Sigma_2^{-1}(
 -\frac{1}{2}(x - \mu_1)^T \Sigma_1^{-1}(x - \mu_1) + \log(\pi_1) = -\frac{1}{2}(x - \mu_2)^T \Sigma_2^{-1}(x - \mu_2) + \log(\pi_2)
 \]</div>
 </section>
+<section id="decision-rule-for-qa">
+<h3>Decision Rule for QA<a class="headerlink" href="#decision-rule-for-qa" title="Permalink to this heading">#</a></h3>
+<p>The quadratic discriminant function <span class="math notranslate nohighlight">\(\delta_k(x)\)</span> in Quadratic Discriminant Analysis (QDA) is derived from the likelihood of the data given a particular class, under the assumption that the data in each class follow a multivariate normal (Gaussian) distribution. Here’s a step-by-step explanation of how <span class="math notranslate nohighlight">\(\delta_k(x)\)</span> is obtained:</p>
+<section id="starting-point-multivariate-normal-distribution">
+<h4>Starting Point: Multivariate Normal Distribution<a class="headerlink" href="#starting-point-multivariate-normal-distribution" title="Permalink to this heading">#</a></h4>
+<p>For a K-class problem, each class <span class="math notranslate nohighlight">\( k \)</span> is assumed to follow a multivariate normal distribution with its own mean vector <span class="math notranslate nohighlight">\( \mu_k \)</span> and covariance matrix <span class="math notranslate nohighlight">\( \Sigma_k \)</span>. The probability density function of a multivariate normal distribution is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x | \mu_k, \Sigma_k) = \frac{1}{(2\pi)^{n/2} |\Sigma_k|^{1/2}} \exp \left( -\frac{1}{2} (x - \mu_k)^T \Sigma_k^{-1} (x - \mu_k) \right)
+\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( x \)</span> is the data point.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \mu_k \)</span> is the mean vector for class <span class="math notranslate nohighlight">\( k \)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \Sigma_k \)</span> is the covariance matrix for class <span class="math notranslate nohighlight">\( k \)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\( |\Sigma_k| \)</span> is the determinant of <span class="math notranslate nohighlight">\( \Sigma_k \)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \Sigma_k^{-1} \)</span> is the inverse of <span class="math notranslate nohighlight">\( \Sigma_k \)</span>.</p></li>
+</ul>
+</section>
+<section id="incorporating-prior-probabilities">
+<h4>Incorporating Prior Probabilities<a class="headerlink" href="#incorporating-prior-probabilities" title="Permalink to this heading">#</a></h4>
+<p>In QDA, we also consider the prior probabilities of each class <span class="math notranslate nohighlight">\( \pi_k \)</span>. The overall likelihood of a data point <span class="math notranslate nohighlight">\( x \)</span> belonging to class <span class="math notranslate nohighlight">\( k \)</span> is the product of its class-conditional density and the class prior probability:</p>
+<p>Since <span class="math notranslate nohighlight">\(lnP(x)\)</span> is the same for all classes, it does not influence which class maximizes <span class="math notranslate nohighlight">\(lnP(k∣x)\)</span>. Therefore, it can be ignored in the decision rule, which leads to the simplified formula (with application of Bayes):</p>
+<div class="math notranslate nohighlight">
+\[
+P(k | x) \propto \pi_k f(x | \mu_k, \Sigma_k)
+\]</div>
+</section>
+<section id="taking-the-logarithm">
+<h4>Taking the Logarithm<a class="headerlink" href="#taking-the-logarithm" title="Permalink to this heading">#</a></h4>
+<p>To simplify calculations and avoid numerical underflow, we take the logarithm of this expression, leading to the log-likelihood:</p>
+<div class="math notranslate nohighlight">
+\[
+\ln P(k | x) = \ln \pi_k + \ln f(x | \mu_k, \Sigma_k)
+\]</div>
+<p>Plugging in the expression for <span class="math notranslate nohighlight">\( f(x | \mu_k, \Sigma_k) \)</span> and simplifying, we get:</p>
+<div class="math notranslate nohighlight">
+\[
+\ln P(k | x) = \ln \pi_k - \frac{1}{2} \ln |\Sigma_k| - \frac{1}{2} (x - \mu_k)^T \Sigma_k^{-1} (x - \mu_k) - \text{constant}
+\]</div>
+<p>Since the constant term (involving <span class="math notranslate nohighlight">\((2\pi)^{n/2}\)</span>) is the same for all classes and does not affect the classification decision, it can be omitted. This gives us the quadratic discriminant function for class <span class="math notranslate nohighlight">\( k \)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\delta_k(x) = \ln \pi_k - \frac{1}{2} \ln |\Sigma_k| - \frac{1}{2} (x - \mu_k)^T \Sigma_k^{-1} (x - \mu_k)
+\]</div>
+</section>
+<section id="decision-rule">
+<h4>Decision Rule<a class="headerlink" href="#decision-rule" title="Permalink to this heading">#</a></h4>
+<p>Finally, the decision rule in QDA is to assign the observation <span class="math notranslate nohighlight">\( x \)</span> to the class that maximizes <span class="math notranslate nohighlight">\(\delta_k(x)\)</span>, which is equivalent to maximizing the log-likelihood <span class="math notranslate nohighlight">\( \ln P(k | x) \)</span>. This accounts for both the shape of the class distribution (through the covariance matrix) and the prior probability of each class.</p>
+</section>
+</section>
 <section id="regularization">
 <h3>Regularization<a class="headerlink" href="#regularization" title="Permalink to this heading">#</a></h3>
 <p>Regularized Quadratic Discriminant Analysis (QDA) is an extension of QDA that addresses the potential problem of overfitting, especially in situations where the number of features is large compared to the number of observations, or when the class covariance matrices are nearly singular.</p>
@@ -692,6 +751,13 @@ m(x_2) = P(G = 2|X=x) \propto \exp\left(-\frac{1}{2}(x - \mu_2)^T \Sigma_2^{-1}(
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multivariate-normal-gaussian">Multivariate Normal (Gaussian)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-discriminant-analysis-for-binary-classification">Linear Discriminant Analysis (for Binary Classification)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-discriminant-analysis-for-binary-classification">Quadratic Discriminant Analysis (for Binary Classification)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-rule-for-qa">Decision Rule for QA</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#starting-point-multivariate-normal-distribution">Starting Point: Multivariate Normal Distribution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#incorporating-prior-probabilities">Incorporating Prior Probabilities</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#taking-the-logarithm">Taking the Logarithm</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-rule">Decision Rule</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regularization">Regularization</a></li>
 </ul>
 </li>

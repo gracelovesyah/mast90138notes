@@ -61,11 +61,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'week6.3';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="week7" href="week7.0.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="week6.2.html" />
+    <link rel="prev" title="week6 lec2" href="week6.2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -158,7 +160,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="basics.html">Notation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="useful_link.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="progress.html">Progress Check</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="week1.0.html">week1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="week1.1.html">Week 1 Lecture 1</a></li>
@@ -190,8 +192,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="week5.3.html">week5 additional notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="week6.0.html">week6</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="week6.0.html">Week 6</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="week6.1.html">week6 lec1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week6.2.html">week6 lec2</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">week 6 additional resources</a></li>
 </ul>
 </li>
@@ -433,6 +436,21 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ols-and-least-squares-estimates">OLS and least-squares estimates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pls">PLS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pls-algorithm">PLS Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantage-of-pls">Advantage of PLS</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pcr-and-pls">PCR and PLS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pcr">PCR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">PLS</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-partial">Why ‘Partial’</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"></a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -451,6 +469,118 @@ document.write(`
 <p><a href="https://web.stanford.edu/~mrosenfe/soc_meth_proj3/matrix_OLS_NYU_notes.pdf" target="_blank">OLS in Matrix Form</a></p>
 <p><a href="https://www.le.ac.uk/users/dsgp1/COURSES/THIRDMET/MYLECTURES/2MULTIREG.pdf" target="_blank">Regression Analysis</a></p>
 <p><a href="https://www.biostat.jhsph.edu/~iruczins/teaching/140.752/notes/ch6.pdf" target="_blank">Properties of Least Squares Estimates</a></p>
+</section>
+<section id="pls">
+<h2>PLS<a class="headerlink" href="#pls" title="Permalink to this heading">#</a></h2>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/pls2.png"><img alt="pls" class="bg-primary mb-1 align-center" src="_images/pls2.png" style="width: 800px;" /></a>
+<section id="pls-algorithm">
+<h3>PLS Algorithm<a class="headerlink" href="#pls-algorithm" title="Permalink to this heading">#</a></h3>
+<p>In Partial Least Squares (PLS) regression, the general procedure involves two main steps:</p>
+<ol class="arabic">
+<li><p><strong>Identifying the Projection <span class="math notranslate nohighlight">\( \phi \)</span></strong>:</p>
+<p>The first step is to find the projection vectors (or loadings) <span class="math notranslate nohighlight">\( \phi \)</span> that maximize the covariance between the predictors <span class="math notranslate nohighlight">\( X \)</span> and the response <span class="math notranslate nohighlight">\( Z \)</span>. These projection vectors define the PLS components.</p>
+<p>Specifically, the algorithm seeks to find a matrix <span class="math notranslate nohighlight">\( \Phi \)</span> such that when you project <span class="math notranslate nohighlight">\( X \)</span> onto <span class="math notranslate nohighlight">\( \Phi \)</span>, you get new components <span class="math notranslate nohighlight">\( T = X\Phi \)</span> that have maximum covariance with the response <span class="math notranslate nohighlight">\( Z \)</span>. This is typically done through an iterative process that maximizes the covariance between <span class="math notranslate nohighlight">\( X \)</span> and <span class="math notranslate nohighlight">\( Z \)</span> while also considering the explained variance in <span class="math notranslate nohighlight">\( X \)</span>.</p>
+</li>
+<li><p><strong>Estimating the Coefficients <span class="math notranslate nohighlight">\( \beta \)</span></strong>:</p>
+<p>Once you have the PLS components <span class="math notranslate nohighlight">\( T \)</span>, the next step is to use these components to estimate the regression coefficients <span class="math notranslate nohighlight">\( \beta \)</span>. This is typically done through a simple linear regression of <span class="math notranslate nohighlight">\( Z \)</span> on <span class="math notranslate nohighlight">\( T \)</span>, since the components are chosen to be good predictors of <span class="math notranslate nohighlight">\( Z \)</span>.</p>
+<p>The final regression model in PLS is usually of the form <span class="math notranslate nohighlight">\( Z \approx T\beta \)</span>, where <span class="math notranslate nohighlight">\( T \)</span> is the matrix of PLS components. Because these components are linear combinations of the original predictors <span class="math notranslate nohighlight">\( X \)</span>, the model can also be expressed in terms of the original predictors, resulting in an equation like <span class="math notranslate nohighlight">\( Z \approx X\Phi\beta \)</span>.</p>
+</li>
+</ol>
+<p>The power of PLS comes from the fact that the components <span class="math notranslate nohighlight">\( T \)</span> are constructed specifically to capture the information in <span class="math notranslate nohighlight">\( X \)</span> that is most relevant for predicting <span class="math notranslate nohighlight">\( Z \)</span>, which often allows PLS to perform well even when there are many predictors, and they are highly collinear.</p>
+</section>
+<section id="advantage-of-pls">
+<h3>Advantage of PLS<a class="headerlink" href="#advantage-of-pls" title="Permalink to this heading">#</a></h3>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/pls3.png"><img alt="pls" class="bg-primary mb-1 align-center" src="_images/pls3.png" style="width: 800px;" /></a>
+</section>
+</section>
+<hr class="docutils" />
+<section id="pcr-and-pls">
+<h2>PCR and PLS<a class="headerlink" href="#pcr-and-pls" title="Permalink to this heading">#</a></h2>
+<p>Below are notes for <a class="reference external" href="https://www.youtube.com/watch?v=Vf7doatc2rA">Partial least squares regression (PLSR) - explained</a></p>
+<section id="pcr">
+<h3>PCR<a class="headerlink" href="#pcr" title="Permalink to this heading">#</a></h3>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/pcr4.png"><img alt="pcr" class="bg-primary mb-1 align-center" src="_images/pcr4.png" style="width: 800px;" /></a>
+<p>These particular weights have been optimized to achieve maximum variance of the first principal component.</p>
+<p>We see that the variable age has a higher weight, which means that more weight is put on this variable when combining the two variables to get as much variance as possible in the combined variable.</p>
+<p>However, this does not necessarily mean that this variable is better to predict the systolic blood pressure.</p>
+</section>
+<section id="id1">
+<h3>PLS<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>T he combined variable both explain the dependent variable as good as possible, but also explain the explanatory variables in a good way.</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/pls4.png"><img alt="pls" class="bg-primary mb-1 align-center" src="_images/pls4.png" style="width: 800px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/pls5.png"><img alt="pls" class="bg-primary mb-1 align-center" src="_images/pls5.png" style="width: 800px;" /></a>
+<p>Algorithm to find the best parameter?</p>
+<ul class="simple">
+<li><p>SIMPLS</p></li>
+</ul>
+<p>We find the best alpha (phi) in an iterative way.</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/pls6.png"><img alt="pls" class="bg-primary mb-1 align-center" src="_images/pls6.png" style="width: 800px;" /></a>
+<p>With best alpha, we will use LS method to find the best parameters.</p>
+<hr class="docutils" />
+<section id="comparison">
+<h4>Comparison<a class="headerlink" href="#comparison" title="Permalink to this heading">#</a></h4>
+<p>Comparison between PCR (Principal Component Regression) and PLS (Partial Least Squares) in a tabular format:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Aspect</p></th>
+<th class="head"><p>PCR (Principal Component Regression)</p></th>
+<th class="head"><p>PLS (Partial Least Squares)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Objective</strong></p></td>
+<td><p>Reduce dimensionality before regression.</p></td>
+<td><p>Maximize the covariance between responses and predictors.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Method</strong></p></td>
+<td><p>Decomposes predictors into principal components and regresses on these.</p></td>
+<td><p>Finds new components by projecting predictors and responses together.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Components</strong></p></td>
+<td><p>Principal components are orthogonal.</p></td>
+<td><p>PLS components are not strictly orthogonal (but can be in some methods).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Variable Selection</strong></p></td>
+<td><p>All variables are kept, but some principal components may be excluded.</p></td>
+<td><p>Variables are selected based on their relevance to the response.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Response Variables</strong></p></td>
+<td><p>Typically one response variable.</p></td>
+<td><p>Can handle multiple response variables simultaneously.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Predictor Collinearity</strong></p></td>
+<td><p>Effective in dealing with multicollinearity.</p></td>
+<td><p>Specifically designed to handle multicollinearity.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Dimensionality</strong></p></td>
+<td><p>Can handle high-dimensional data but does not consider response variable.</p></td>
+<td><p>Reduces dimensionality while considering the response variable.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Interpretability</strong></p></td>
+<td><p>Less interpretable due to transformation into principal components.</p></td>
+<td><p>More directly interpretable in terms of original variables.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Model Complexity</strong></p></td>
+<td><p>Can be simpler as it does not consider the response in component creation.</p></td>
+<td><p>Generally more complex due to simultaneous projection of predictors and response.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Application</strong></p></td>
+<td><p>Used when the focus is on explaining the variance in the predictors.</p></td>
+<td><p>Used when the focus is on prediction and explaining the covariance.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Both PCR and PLS are used for regression in high-dimensional spaces where traditional regression would fail due to multicollinearity. PCR focuses on explaining the variance within the predictors, while PLS focuses on the covariance between predictors and responses. This makes PLS typically more suited for predictive models where the goal is to predict the response variable(s).</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="why-partial">
+<h3>Why ‘Partial’<a class="headerlink" href="#why-partial" title="Permalink to this heading">#</a></h3>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/pls7.png"><img alt="pls" class="bg-primary mb-1 align-center" src="_images/pls7.png" style="width: 800px;" /></a>
+</section>
+<section id="id2">
+<h3><a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+</section>
 </section>
 </section>
 
@@ -491,7 +621,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">week6 lec2</p>
       </div>
     </a>
     <a class="right-next"
@@ -522,6 +652,21 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ols-and-least-squares-estimates">OLS and least-squares estimates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pls">PLS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pls-algorithm">PLS Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantage-of-pls">Advantage of PLS</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pcr-and-pls">PCR and PLS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pcr">PCR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">PLS</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-partial">Why ‘Partial’</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"></a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

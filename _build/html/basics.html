@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'basics';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Resources" href="useful_link.html" />
+    <link rel="next" title="Resources" href="resources.html" />
     <link rel="prev" title="Welcome to MAST90138" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -160,7 +160,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Notation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="useful_link.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="progress.html">Progress Check</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="week1.0.html">week1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="week1.1.html">Week 1 Lecture 1</a></li>
@@ -192,8 +192,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="week5.3.html">week5 additional notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="week6.0.html">week6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week6.0.html">Week 6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="week6.1.html">week6 lec1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week6.2.html">week6 lec2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week6.3.html">week 6 additional resources</a></li>
 </ul>
 </li>
@@ -453,6 +454,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Z</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#communality">Communality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-determinant">Matrix Determinant</a></li>
 </ul>
 </li>
 </ul>
@@ -792,6 +794,9 @@ The determinant of a diagonal matrix like <span class="math notranslate nohighli
 </ol>
 <p>The orthogonality comes into play when we discuss the eigenvectors of the covariance matrix. If you’ve heard of Principal Component Analysis (PCA), it leverages this property. PCA finds the eigenvectors (principal components) of the data’s covariance matrix, and these eigenvectors are orthogonal to each other.</p>
 </div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://math.mit.edu/~dav/spectral.pdf">Proof of spectral decomposition</a></p></li>
+</ul>
 <hr class="docutils" />
 </section>
 <section id="rho-rho">
@@ -801,15 +806,15 @@ The determinant of a diagonal matrix like <span class="math notranslate nohighli
 </div></blockquote>
 <div class="math notranslate nohighlight">
 \[
-\rho(X,Y)= \frac{\text{Cov}(X,Y)}{\sqrt{Var(X)Var(Y)}} = \frac{\gamma \lambda}{\sqrt{\sigma\lambda}} = \gamma  \frac{\lambda ^{\frac{1}{2}}}{\sigma^{\frac{1}{2}}}
+\rho(X,Y)= \frac{\text{Cov}(X,Y)}{\sqrt{Var(X)Var(Y)}} = \frac{\gamma \lambda}{\sqrt{\sigma^2\lambda}} = \gamma  \frac{\lambda ^{\frac{1}{2}}}{\sigma}
 \]</div>
 <div class="math notranslate nohighlight">
 \[
-\sigma = \sum  \lambda \gamma^2
+\sigma^2 = \sum  \lambda \gamma^2
 \]</div>
 <p>Note:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\sigma\)</span> (<span class="math notranslate nohighlight">\(s_{ii}\)</span>)is the sample variance.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma^2 \)</span> (<span class="math notranslate nohighlight">\(s_{ii}\)</span>)is the sample variance.</p></li>
 <li><p>The length in the circular graph corresponds to <span class="math notranslate nohighlight">\(\rho\)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\lambda ^{\frac{1}{2}}\)</span> corresponds to the std of PC as <span class="math notranslate nohighlight">\(\lambda\)</span> is the variance of PC.</p></li>
 </ul>
@@ -909,6 +914,20 @@ To get the projection of the data onto the principal components, you multiply th
 <p>When you conduct factor analysis, you’re essentially trying to find underlying factors that account for the communalities among variables, which helps in reducing dimensionality and in understanding the underlying structure of the data.</p>
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/communality.png"><img alt="communality" class="bg-primary mb-1 align-center" src="_images/communality.png" style="width: 800px;" /></a>
 </section>
+<section id="matrix-determinant">
+<h3>Matrix Determinant<a class="headerlink" href="#matrix-determinant" title="Permalink to this heading">#</a></h3>
+<p>To calculate the determinant of a (3 \times 3) matrix with elements (a, b, c; d, e, f; g, h, i), we can use the following formula:</p>
+<div class="math notranslate nohighlight">
+\[ \text{Determinant} = a(ei - fh) - b(di - fg) + c(dh - eg) \]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+a &amp; b &amp; c \\
+d &amp; e &amp; f \\
+g &amp; h &amp; i
+\end{pmatrix}
+\end{split}\]</div>
+</section>
 </section>
 </section>
 
@@ -953,7 +972,7 @@ To get the projection of the data onto the principal components, you multiply th
       </div>
     </a>
     <a class="right-next"
-       href="useful_link.html"
+       href="resources.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
@@ -998,6 +1017,7 @@ To get the projection of the data onto the principal components, you multiply th
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Z</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#communality">Communality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-determinant">Matrix Determinant</a></li>
 </ul>
 </li>
 </ul>
