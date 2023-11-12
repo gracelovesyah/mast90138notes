@@ -1,12 +1,6 @@
 # week11. lec1
 This note is completed with the assistance of [ChatGPT](https://chat.openai.com/c/7579ad2e-6406-4ef1-b07d-a24466c1f587)
 
-### Out of Bag 
-- Additional Resource
-    - [Wikipedia](https://en.wikipedia.org/wiki/Out-of-bag_error)
-    - [towardsdatascience](https://towardsdatascience.com/what-is-out-of-bag-oob-score-in-random-forest-a7fa23d710)
-
-
 
 **Multivariate Statistics for Data Science - Detailed Lecture Summary:**
 

@@ -192,8 +192,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="week5.3.html">week5 additional notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="week6.0.html">week6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week6.0.html">Week 6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="week6.1.html">week6 lec1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week6.2.html">week6 lec2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week6.3.html">week 6 additional resources</a></li>
 </ul>
 </li>
@@ -435,6 +436,14 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab">Lab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#out-of-bag">Out of Bag</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oob-mse-example">OOB MSE Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-building-the-trees-with-bootstrapped-samples">Step 1: Building the Trees with Bootstrapped Samples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-making-predictions-for-oob-samples">Step 2: Making Predictions for OOB Samples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-calculating-mse-for-each-oob-prediction">Step 3: Calculating MSE for Each OOB Prediction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-calculating-the-oob-mse">Step 4: Calculating the OOB MSE</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -487,6 +496,111 @@ document.write(`
 </li>
 </ol>
 <p>In practice, decision tree algorithms use these impurity measures at each node to determine how to split the dataset in a way that reduces impurity the most (e.g., maximizing the information gain or reduction in impurity). The chosen measure depends on the algorithm and specific use case, but all three are common ways to assess the “goodness” of a split in a decision tree.</p>
+</section>
+<section id="out-of-bag">
+<h2>Out of Bag<a class="headerlink" href="#out-of-bag" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Additional Resource</p>
+<ul>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Out-of-bag_error">Wikipedia</a></p></li>
+<li><p><a class="reference external" href="https://towardsdatascience.com/what-is-out-of-bag-oob-score-in-random-forest-a7fa23d710">towardsdatascience</a></p></li>
+</ul>
+</li>
+</ul>
+<section id="oob-mse-example">
+<h3>OOB MSE Example<a class="headerlink" href="#oob-mse-example" title="Permalink to this heading">#</a></h3>
+<p>To illustrate the calculation of the Out-Of-Bag (OOB) Mean Squared Error (MSE) in a Random Forest with a simple example, let’s assume we have four data points (labeled A, B, C, D) and four variables (or features). We will walk through a hypothetical scenario with a small Random Forest consisting of three trees.</p>
+</section>
+<section id="step-1-building-the-trees-with-bootstrapped-samples">
+<h3>Step 1: Building the Trees with Bootstrapped Samples<a class="headerlink" href="#step-1-building-the-trees-with-bootstrapped-samples" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Tree 1</strong>: Uses data points A, B, and C. (D is out-of-bag)</p></li>
+<li><p><strong>Tree 2</strong>: Uses data points B, C, and D. (A is out-of-bag)</p></li>
+<li><p><strong>Tree 3</strong>: Uses data points A, C, and D. (B is out-of-bag)</p></li>
+</ul>
+</section>
+<section id="step-2-making-predictions-for-oob-samples">
+<h3>Step 2: Making Predictions for OOB Samples<a class="headerlink" href="#step-2-making-predictions-for-oob-samples" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Tree 1</strong> makes a prediction for D.</p></li>
+<li><p><strong>Tree 2</strong> makes a prediction for A.</p></li>
+<li><p><strong>Tree 3</strong> makes a prediction for B.</p></li>
+</ul>
+</section>
+<section id="step-3-calculating-mse-for-each-oob-prediction">
+<h3>Step 3: Calculating MSE for Each OOB Prediction<a class="headerlink" href="#step-3-calculating-mse-for-each-oob-prediction" title="Permalink to this heading">#</a></h3>
+<p>Let’s assume we have the actual values for A, B, and D, and the predictions made by the trees are as follows (just hypothetical numbers):</p>
+<ul class="simple">
+<li><p>Actual value for A = 5, Tree 2’s prediction for A = 4</p></li>
+<li><p>Actual value for B = 7, Tree 3’s prediction for B = 9</p></li>
+<li><p>Actual value for D = 3, Tree 1’s prediction for D = 2</p></li>
+</ul>
+<p>Now, calculate the squared error for each prediction:</p>
+<ul class="simple">
+<li><p>For A: <span class="math notranslate nohighlight">\( (5 - 4)^2 = 1 \)</span></p></li>
+<li><p>For B: <span class="math notranslate nohighlight">\( (7 - 9)^2 = 4 \)</span></p></li>
+<li><p>For D: <span class="math notranslate nohighlight">\( (3 - 2)^2 = 1 \)</span></p></li>
+</ul>
+</section>
+<section id="step-4-calculating-the-oob-mse">
+<h3>Step 4: Calculating the OOB MSE<a class="headerlink" href="#step-4-calculating-the-oob-mse" title="Permalink to this heading">#</a></h3>
+<p>Finally, calculate the OOB MSE by averaging these squared errors:</p>
+<div class="math notranslate nohighlight">
+\[ \text{OOB MSE} = \frac{1 + 4 + 1}{3} = \frac{6}{3} = 2 \]</div>
+<p>So, the OOB MSE for this Random Forest model is 2. This is a simplified example, but it illustrates the process. In real-world scenarios, random forests have many trees (often hundreds), and the OOB MSE is computed by aggregating predictions from all trees for which a particular data point is out-of-bag.</p>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>What if D is out of bag for more than 1 tree?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>If the data point D is out-of-bag for more than one tree in a Random Forest, the process for calculating the OOB MSE would involve averaging the predictions from all trees for which D is out-of-bag. Let’s modify the previous example to illustrate this scenario:</p>
+<p class="rubric">Modified Example with Multiple OOB Predictions for D</p>
+<p class="rubric">Step 1: Building the Trees with Bootstrapped Samples</p>
+<ul class="simple">
+<li><p><strong>Tree 1</strong>: Uses A, B, C. (D is out-of-bag)</p></li>
+<li><p><strong>Tree 2</strong>: Uses B, C. (A and D are out-of-bag)</p></li>
+<li><p><strong>Tree 3</strong>: Uses A, B, D. (C is out-of-bag)</p></li>
+</ul>
+<p class="rubric">Step 2: Making Predictions for OOB Samples</p>
+<ul class="simple">
+<li><p><strong>Tree 1</strong> predicts D.</p></li>
+<li><p><strong>Tree 2</strong> predicts A and D.</p></li>
+<li><p><strong>Tree 3</strong> predicts C.</p></li>
+</ul>
+<p class="rubric">Step 3: Calculating OOB Predictions for D</p>
+<p>Assume these predictions for D:</p>
+<ul class="simple">
+<li><p>Tree 1’s prediction for D = 2</p></li>
+<li><p>Tree 2’s prediction for D = 3</p></li>
+</ul>
+<p>And the actual value for D = 3.</p>
+<p class="rubric">Step 4: Averaging Predictions for D</p>
+<p>First, average the predictions for D:</p>
+<ul class="simple">
+<li><p>Average prediction for D = ( \frac{2 + 3}{2} = 2.5 )</p></li>
+</ul>
+<p class="rubric">Step 5: Calculating Squared Errors for All OOB Predictions</p>
+<p>Now, calculate the squared error for each OOB prediction:</p>
+<ul class="simple">
+<li><p>Assume the actual values for A and C and the respective tree predictions.</p></li>
+<li><p>Calculate squared errors as done before.</p></li>
+</ul>
+<p class="rubric">Step 6: Computing the OOB MSE</p>
+<p>Include the squared error for D in the average:</p>
+<ul class="simple">
+<li><p>For D: ( (3 - 2.5)^2 = 0.25 )</p></li>
+<li><p>Include the squared errors for A and C.</p></li>
+<li><p>Average all squared errors.</p></li>
+</ul>
+<p class="rubric">Key Points:</p>
+<ol class="arabic simple">
+<li><p><strong>Averaging Predictions</strong>: When a data point is OOB for multiple trees, average the predictions from all those trees before calculating the squared error.</p></li>
+<li><p><strong>Aggregating Errors</strong>: Include this squared error in the overall calculation of the OOB MSE, along with the squared errors for other OOB predictions.</p></li>
+</ol>
+<p>This approach ensures that the OOB MSE is a robust measure of the model’s performance, incorporating predictions from all trees where a particular data point is out-of-bag.</p>
+</div>
+</section>
 </section>
 </section>
 
@@ -558,6 +672,14 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab">Lab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#out-of-bag">Out of Bag</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oob-mse-example">OOB MSE Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-building-the-trees-with-bootstrapped-samples">Step 1: Building the Trees with Bootstrapped Samples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-making-predictions-for-oob-samples">Step 2: Making Predictions for OOB Samples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-calculating-mse-for-each-oob-prediction">Step 3: Calculating MSE for Each OOB Prediction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-calculating-the-oob-mse">Step 4: Calculating the OOB MSE</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
