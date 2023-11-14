@@ -255,3 +255,63 @@ We can get:
 $$
 \text{Cov}(X_i, Y_i) = \Gamma \Lambda \Gamma^T\Gamma = \Gamma \Lambda
 $$
+
+---
+
+
+#### More detailed proof on cov
+
+
+$$ \text{cov}(X_i, \Gamma^T (X_i - \mu)) = \text{cov}(X_i, \Gamma^T X_i) - \text{cov}(X_i, \Gamma^T \mu) $$
+
+
+Since $ \Gamma^T \mu $ is constant with respect to $ X_i $, $ \text{cov}(X_i, \Gamma^T \mu) $ equals zero, which simplifies to:
+
+
+$$ \text{cov}(X_i, Y_i) = \text{cov}(X_i, \Gamma^T X_i) $$
+
+
+This is why the mean $ \mu $ is not present in the final part of the equation.
+
+
+```{admonition} Why $\text{cov}(x, \Gamma^Tx) = \text{cov}(x, x)\Gamma$
+:class: dropdown
+The equation you're referring to involves the covariance of a random vector $ x $ and a transformed version of $ x $ by a matrix $ \Gamma $. Let's break down why $ \text{cov}(x, \Gamma^Tx) = \text{cov}(x, x) \Gamma $:
+
+1. **Definition of Covariance**: For random vectors $ x $ and $ y $, the covariance is defined as $ \text{cov}(x, y) = E[(x - E[x])(y - E[y])^T] $, where $ E[x] $ is the expectation of $ x $.
+
+2. **Transformation of $ x $ by $ \Gamma $**: When you multiply $ x $ by $ \Gamma^T $, you're transforming $ x $ into a new vector space. The operation $ \Gamma^Tx $ can be seen as a linear combination of the columns of $ \Gamma $ weighted by the elements of $ x $.
+
+3. **Covariance of Transformed Variables**: The covariance of $ x $ with $ \Gamma^Tx $ can be expressed as $ \text{cov}(x, \Gamma^Tx) = E[(x - E[x])(\Gamma^Tx - E[\Gamma^Tx])^T] $.
+
+4. **Expectation of Transformed Variables**: Since $ \Gamma $ is a constant matrix, the expectation $ E[\Gamma^Tx] $ simplifies to $ \Gamma^TE[x] $, because the expectation operator is linear.
+
+5. **Covariance of $ x $ with Itself**: The covariance of $ x $ with itself is $ \text{cov}(x, x) $, which is a matrix.
+
+6. **Covariance Equation**: By substituting $ E[\Gamma^Tx] $ into the covariance of transformed variables, we get:
+
+$$
+\text{cov}(x, \Gamma^Tx) = E[(x - E[x])(\Gamma^Tx - \Gamma^TE[x])^T]
+$$
+
+Simplifying further by distributing the transpose and the expectation:
+
+$$
+\text{cov}(x, \Gamma^Tx) = E[(x - E[x])(x - E[x])^T]\Gamma
+$$
+
+Since $ E[(x - E[x])(x - E[x])^T] $ is the covariance matrix of $ x $ with itself, we can replace it with $ \text{cov}(x, x) $:
+
+$$
+\text{cov}(x, \Gamma^Tx) = \text{cov}(x, x)\Gamma
+$$
+
+
+So, the equation states that the covariance of the random vector $ x $ with its transformed self by $ \Gamma^T $ is equal to the covariance matrix of $ x $ with itself, post-multiplied by $ \Gamma $. This relationship holds due to the properties of the expectation operator and the definition of the covariance matrix.
+
+```
+
+
+### Covariance Properties
+
+-[Data 140 Textbook 13.1. Covariance](http://prob140.org/textbook/content/Chapter_13/01_Covariance.html)

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>week6 &#8212; My sample book</title>
+    <title>Week 6 &#8212; MAST90139 Multivariate Statistics for Data Science</title>
   
   
   
@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'week6.0';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -158,8 +160,10 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="basics.html">Notation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="useful_link.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="progress.html">Progress Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comparison.html">Comparison</a></li>
+
 <li class="toctree-l1 has-children"><a class="reference internal" href="week1.0.html">week1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="week1.1.html">Week 1 Lecture 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week1.2.html">week1 lec 2</a></li>
@@ -190,8 +194,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="week5.3.html">week5 additional notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">week6</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Week 6</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="week6.1.html">week6 lec1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week6.2.html">week6 lec2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week6.3.html">week 6 additional resources</a></li>
 </ul>
 </li>
@@ -409,7 +414,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -420,11 +427,28 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>week6</h1>
+    <h1>Week 6</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pcr-principal-component-regression">PCR (Principal Component Regression)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-model">Regression Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimation-of-coefficients">Estimation of Coefficients</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pls-partial-least-squares">PLS (Partial Least Squares)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-of-predictors">Transformation of Predictors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Estimation of Coefficients</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -434,10 +458,49 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="week6">
-<h1>week6<a class="headerlink" href="#week6" title="Permalink to this heading">#</a></h1>
-<p>p.162 - p.193</p>
-<a class="bg-primary mb-1 reference internal image-reference" href="_images/pls1.png"><img alt="pls" class="bg-primary mb-1 align-center" src="_images/pls1.png" style="width: 500px;" /></a>
+  <section class="tex2jax_ignore mathjax_ignore" id="week-6">
+<h1>Week 6<a class="headerlink" href="#week-6" title="Permalink to this heading">#</a></h1>
+<p>Pages: 163 - 193</p>
+<section id="pcr-principal-component-regression">
+<h2>PCR (Principal Component Regression)<a class="headerlink" href="#pcr-principal-component-regression" title="Permalink to this heading">#</a></h2>
+<p>In PCR, we perform regression on the dependent variable, <span class="math notranslate nohighlight">\( Y \)</span>, represented as follows:</p>
+<section id="regression-model">
+<h3>Regression Model<a class="headerlink" href="#regression-model" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[ Z = \alpha + \beta^T x + \epsilon \]</div>
+<p>Where <span class="math notranslate nohighlight">\( Z \)</span> is the dependent variable, <span class="math notranslate nohighlight">\( \alpha \)</span> is the intercept, <span class="math notranslate nohighlight">\( \beta \)</span> is the coefficient vector, <span class="math notranslate nohighlight">\( x \)</span> is the vector of predictors, and <span class="math notranslate nohighlight">\( \epsilon \)</span> is the error term.</p>
+</section>
+<section id="estimation-of-coefficients">
+<h3>Estimation of Coefficients<a class="headerlink" href="#estimation-of-coefficients" title="Permalink to this heading">#</a></h3>
+<p>To estimate the coefficients <span class="math notranslate nohighlight">\( \beta \)</span>, we minimize the sum of squared errors:</p>
+<div class="math notranslate nohighlight">
+\[ \hat{\beta} = \arg \min \sum (Z_i - \beta^T x_i)^2 \]</div>
+<p>The solution is given by:</p>
+<div class="math notranslate nohighlight">
+\[ \hat{\beta} = (X^T X)^{-1} X^T Z \]</div>
+<p>Given that <span class="math notranslate nohighlight">\( X = \Gamma Y \)</span>, where <span class="math notranslate nohighlight">\( \Gamma \)</span> is the matrix of principal components, the PCR estimate of <span class="math notranslate nohighlight">\( \beta \)</span> becomes:</p>
+<div class="math notranslate nohighlight">
+\[ \hat{\beta}_{\text{PC}} = (Y^T Y)^{-1} Y^T Z \]</div>
+</section>
+</section>
+<section id="pls-partial-least-squares">
+<h2>PLS (Partial Least Squares)<a class="headerlink" href="#pls-partial-least-squares" title="Permalink to this heading">#</a></h2>
+<p>In PLS, regression is performed on a transformed set of predictors, <span class="math notranslate nohighlight">\( T \)</span>.</p>
+<section id="transformation-of-predictors">
+<h3>Transformation of Predictors<a class="headerlink" href="#transformation-of-predictors" title="Permalink to this heading">#</a></h3>
+<p>The transformation is defined as:</p>
+<div class="math notranslate nohighlight">
+\[ T = \Phi X \]</div>
+<p>Where <span class="math notranslate nohighlight">\( \Phi \)</span> is a matrix with <span class="math notranslate nohighlight">\( |\Phi| = 1 \)</span>, ensuring normalization, and the covariance between <span class="math notranslate nohighlight">\( Z \)</span> and <span class="math notranslate nohighlight">\( X \)</span> is maximized.</p>
+</section>
+<section id="id1">
+<h3>Estimation of Coefficients<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>The PLS estimate of <span class="math notranslate nohighlight">\( \beta \)</span> is found using:</p>
+<div class="math notranslate nohighlight">
+\[ \hat{\beta}_{\text{PLS}} = (T^T T)^{-1} T^T Z \]</div>
+<p>In this formulation, <span class="math notranslate nohighlight">\( T \)</span> represents the PLS components, which are linear combinations of the original predictors <span class="math notranslate nohighlight">\( X \)</span>, optimized to explain the variance in <span class="math notranslate nohighlight">\( Z \)</span>.</p>
+</section>
+</section>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -501,6 +564,29 @@ document.write(`
             
             
               
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pcr-principal-component-regression">PCR (Principal Component Regression)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-model">Regression Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimation-of-coefficients">Estimation of Coefficients</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pls-partial-least-squares">PLS (Partial Least Squares)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-of-predictors">Transformation of Predictors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Estimation of Coefficients</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -510,7 +596,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Jiahe Liu (jiahe3@student.unimelb.edu.au)
 </p>
 
   </div>
@@ -519,7 +605,7 @@ By The Jupyter Book Community
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

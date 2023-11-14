@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Week 2 Lecture 2 &#8212; My sample book</title>
+    <title>Week 2 Lecture 2 &#8212; MAST90139 Multivariate Statistics for Data Science</title>
   
   
   
@@ -160,8 +160,10 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="basics.html">Notation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="useful_link.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="progress.html">Progress Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comparison.html">Comparison</a></li>
+
 <li class="toctree-l1 has-children"><a class="reference internal" href="week1.0.html">week1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="week1.1.html">Week 1 Lecture 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week1.2.html">week1 lec 2</a></li>
@@ -192,8 +194,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="week5.3.html">week5 additional notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="week6.0.html">week6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week6.0.html">Week 6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="week6.1.html">week6 lec1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week6.2.html">week6 lec2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week6.3.html">week 6 additional resources</a></li>
 </ul>
 </li>
@@ -442,6 +445,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hotelling-s-t-squared-distribution">4.4 The Hotelling’s T-squared Distribution</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof">Proof</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions-and-properties">Definitions and Properties</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Proof</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -558,6 +567,9 @@ document.write(`
 </section>
 <section id="the-wishart-distribution">
 <h3>4.3 The Wishart Distribution<a class="headerlink" href="#the-wishart-distribution" title="Permalink to this heading">#</a></h3>
+<blockquote>
+<div><p>The Wishart Distribution is a family of probability distributions defined over symmetric, positive-definite random matrices (i.e. matrix-valued random variables).</p>
+</div></blockquote>
 <ul class="simple">
 <li><p><strong>Definition</strong>: The Wishart distribution is a probability distribution that generalizes the chi-square distribution to multiple dimensions. It is the distribution of the sample covariance matrix of a multivariate normal distribution.</p></li>
 <li><p><strong>Usage</strong>: It is used in multivariate statistical analysis, particularly in the estimation of covariance matrices. It also appears in the study of Bayesian statistics as the conjugate prior of the inverse covariance matrix of a multivariate normal distribution.</p></li>
@@ -588,6 +600,52 @@ If you take multiple samples from a multivariate normal distribution and calcula
 </li>
 </ol>
 <p>These distributions are foundational in multivariate statistical methods, particularly in hypothesis testing involving multiple dimensions. The Wishart distribution helps in understanding the variability of covariance matrices, while Hotelling’s T-squared distribution is used to compare mean vectors against a hypothesized value or between groups.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="proof">
+<h2>Proof<a class="headerlink" href="#proof" title="Permalink to this heading">#</a></h2>
+<p>To prove that <span class="math notranslate nohighlight">\( \tau^2 = nx^T M^{-1} x \)</span> has a Hotelling’s T² distribution under the conditions that <span class="math notranslate nohighlight">\( x \sim N_p(0, I_p) \)</span> and <span class="math notranslate nohighlight">\( M \sim W_p(I_p, n) \)</span> are independent, we can use the properties of the multivariate normal distribution, the Wishart distribution, and the definition of the Hotelling’s T² distribution.</p>
+<section id="definitions-and-properties">
+<h3>Definitions and Properties<a class="headerlink" href="#definitions-and-properties" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Multivariate Normal Distribution</strong>: <span class="math notranslate nohighlight">\( x \sim N_p(0, I_p) \)</span> means <span class="math notranslate nohighlight">\( x \)</span> is a p-dimensional normal random vector with mean 0 and identity covariance matrix <span class="math notranslate nohighlight">\( I_p \)</span>.</p></li>
+<li><p><strong>Wishart Distribution</strong>: <span class="math notranslate nohighlight">\( M \sim W_p(I_p, n) \)</span> means <span class="math notranslate nohighlight">\( M \)</span> is a p-dimensional Wishart random matrix with scale matrix <span class="math notranslate nohighlight">\( I_p \)</span> and <span class="math notranslate nohighlight">\( n \)</span> degrees of freedom.</p></li>
+<li><p><strong>Hotelling’s T² Distribution</strong>: A random variable is said to have a Hotelling’s T² distribution if it can be expressed in the form <span class="math notranslate nohighlight">\( \tau^2 = n x^T M^{-1} x \)</span> where <span class="math notranslate nohighlight">\( x \)</span> and <span class="math notranslate nohighlight">\( M \)</span> are as defined above.</p></li>
+</ul>
+</section>
+<section id="id1">
+<h3>Proof<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Given Conditions</strong>:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( x \)</span> is distributed as <span class="math notranslate nohighlight">\( N_p(0, I_p) \)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\( M \)</span> is distributed as <span class="math notranslate nohighlight">\( W_p(I_p, n) \)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\( x \)</span> and <span class="math notranslate nohighlight">\( M \)</span> are independent.</p></li>
+</ul>
+</li>
+<li><p><strong>Wishart Distribution as a Sum of Outer Products</strong>:</p>
+<ul class="simple">
+<li><p>By the definition of the Wishart distribution, <span class="math notranslate nohighlight">\( M \)</span> can be expressed as <span class="math notranslate nohighlight">\( M = \sum_{i=1}^n Z_i Z_i^T \)</span>, where <span class="math notranslate nohighlight">\( Z_i \)</span> are independent and identically distributed as <span class="math notranslate nohighlight">\( N_p(0, I_p) \)</span>.</p></li>
+</ul>
+</li>
+<li><p><strong>Quadratic Form of a Multivariate Normal Distribution</strong>:</p>
+<ul class="simple">
+<li><p>The quadratic form <span class="math notranslate nohighlight">\( x^T M^{-1} x \)</span> in the context of multivariate normal distributions has a well-known distribution. Specifically, if <span class="math notranslate nohighlight">\( x \sim N_p(0, I_p) \)</span>, then <span class="math notranslate nohighlight">\( x^T A x \)</span> (for any symmetric matrix <span class="math notranslate nohighlight">\( A \)</span>) follows a chi-square distribution with degrees of freedom equal to the rank of <span class="math notranslate nohighlight">\( A \)</span>, provided <span class="math notranslate nohighlight">\( A \)</span> and <span class="math notranslate nohighlight">\( x \)</span> are independent.</p></li>
+<li><p>In our case, <span class="math notranslate nohighlight">\( A = n M^{-1} \)</span>, and since <span class="math notranslate nohighlight">\( x \)</span> and <span class="math notranslate nohighlight">\( M \)</span> are independent, <span class="math notranslate nohighlight">\( nx^T M^{-1} x \)</span> follows a chi-square distribution with <span class="math notranslate nohighlight">\( p \)</span> degrees of freedom.</p></li>
+</ul>
+</li>
+<li><p><strong>Hotelling’s T² Distribution</strong>:</p>
+<ul class="simple">
+<li><p>The definition of Hotelling’s T² distribution is exactly the form <span class="math notranslate nohighlight">\( \tau^2 = nx^T M^{-1} x \)</span> where <span class="math notranslate nohighlight">\( x \)</span> and <span class="math notranslate nohighlight">\( M \)</span> are as defined.</p></li>
+<li><p>Therefore, <span class="math notranslate nohighlight">\( \tau^2 \)</span> is distributed as Hotelling’s T²(p, n).</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="conclusion">
+<h3>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h3>
+<p>The proof relies on understanding the properties of multivariate normal and Wishart distributions and the known results about the quadratic form of a multivariate normal distribution. By recognizing that <span class="math notranslate nohighlight">\( nx^T M^{-1} x \)</span> forms a quadratic form and considering the independence of <span class="math notranslate nohighlight">\( x \)</span> and <span class="math notranslate nohighlight">\( M \)</span>, we conclude that <span class="math notranslate nohighlight">\( \tau^2 \)</span> is distributed as Hotelling’s T²(p, n).</p>
 </section>
 </section>
 </section>
@@ -667,6 +725,12 @@ If you take multiple samples from a multivariate normal distribution and calcula
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hotelling-s-t-squared-distribution">4.4 The Hotelling’s T-squared Distribution</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof">Proof</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions-and-properties">Definitions and Properties</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Proof</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
@@ -681,7 +745,7 @@ If you take multiple samples from a multivariate normal distribution and calcula
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Jiahe Liu (jiahe3@student.unimelb.edu.au)
 </p>
 
   </div>
@@ -690,7 +754,7 @@ By The Jupyter Book Community
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

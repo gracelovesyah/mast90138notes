@@ -30,3 +30,5 @@ Here's a breakdown of how PLS works and its main idea:
 - The determination of the number of components to retain can be somewhat subjective and usually requires methods like cross-validation.
 
 In essence, the key distinction between PCR and PLS is the objective. PCR seeks to capture the most variance in the predictors, regardless of the response. PLS, on the other hand, seeks to capture the most variance in the predictors that is also relevant to the response. As such, PLS tends to be more appropriate when prediction of the response is the main goal.
+
+---

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>CLUSTERING ALGORITHMS &#8212; My sample book</title>
+    <title>CLUSTERING ALGORITHMS &#8212; MAST90139 Multivariate Statistics for Data Science</title>
   
   
   
@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'week12.1';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -158,8 +160,9 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="basics.html">Notation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="useful_link.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="progress.html">Progress Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comparison.html">Comparison</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="week1.0.html">week1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="week1.1.html">Week 1 Lecture 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week1.2.html">week1 lec 2</a></li>
@@ -190,8 +193,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="week5.3.html">week5 additional notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="week6.0.html">week6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week6.0.html">Week 6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="week6.1.html">week6 lec1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week6.2.html">week6 lec2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week6.3.html">week 6 additional resources</a></li>
 </ul>
 </li>
@@ -437,6 +441,47 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="clustering-algorithms">
 <h1>CLUSTERING ALGORITHMS<a class="headerlink" href="#clustering-algorithms" title="Permalink to this heading">#</a></h1>
 <p>This note is completed with the assistance of <a class="reference external" href="https://chat.openai.com/c/c28984cd-f860-4bc0-86b9-a101f20cbeb5">ChatGPT</a></p>
+<p><strong>Summary: Clustering and K-Means Algorithm</strong></p>
+<p><em>Clustering Overview:</em></p>
+<ul class="simple">
+<li><p>Clustering is a data analysis technique that groups similar data points together.</p></li>
+<li><p>K-means is a popular clustering algorithm that aims to partition data into clusters to minimize the within-cluster variance.</p></li>
+<li><p>The number of clusters (<span class="math notranslate nohighlight">\(K\)</span>) is often a key consideration in clustering.</p></li>
+</ul>
+<p><em>Mathematical Formulas:</em></p>
+<ul class="simple">
+<li><p>Within-cluster variance: <span class="math notranslate nohighlight">\(W(C) = \sum_{k=1}^{K} \sum_{C(i)=k} ||X_i - \bar{X}_k||^2\)</span></p></li>
+<li><p>Empirical mean: <span class="math notranslate nohighlight">\(\bar{Y} = \arg\min_c \sum_{i=1}^{m} ||Y_i - c||^2\)</span></p></li>
+</ul>
+<p><em>K-Means Algorithm:</em></p>
+<ol class="arabic simple">
+<li><p><strong>Initialization</strong>: Start with random or defined cluster centers.</p></li>
+<li><p><strong>Assignment</strong>: Assign each data point to the nearest cluster center.</p></li>
+<li><p><strong>Update Centers</strong>: Recalculate cluster centers as the means of assigned data points.</p></li>
+<li><p><strong>Iteration</strong>: Repeat assignment and update until convergence.</p></li>
+<li><p><strong>Stopping Criteria</strong>: Convergence when cluster assignments no longer change significantly.</p></li>
+</ol>
+<p><em>Challenges and Considerations:</em></p>
+<ul class="simple">
+<li><p>Visualizing multi-dimensional data is challenging; proximity to cluster means is multi-dimensional.</p></li>
+<li><p>Determining the optimal number of clusters is often problem-specific.</p></li>
+<li><p>K-means converges to a local minimum, not necessarily the global minimum.</p></li>
+<li><p>Random initialization sensitivity can lead to different results.</p></li>
+</ul>
+<p><em>Practical Strategies:</em></p>
+<ul class="simple">
+<li><p>Run K-means multiple times with different initializations and choose the best result.</p></li>
+<li><p>Consider domain knowledge and exploratory data analysis for cluster interpretation.</p></li>
+</ul>
+<p><em>Key Takeaways:</em></p>
+<ul class="simple">
+<li><p>Clustering groups similar data points.</p></li>
+<li><p>K-means iteratively assigns data points to clusters and updates cluster centers.</p></li>
+<li><p>Finding the optimal number of clusters is a challenge; it often requires domain expertise and multiple methods.</p></li>
+<li><p>K-means is sensitive to initializations, so it’s common to run it multiple times.</p></li>
+<li><p>Clustering involves art and science, and meaningful results require careful consideration of data and context.</p></li>
+</ul>
+<p>This summary provides an overview of clustering, the K-means algorithm, mathematical formulas involved, common challenges, practical strategies, and key takeaways. It’s suitable for exam revision and serves as a concise reference for understanding clustering concepts and their practical implications.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -507,7 +552,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Jiahe Liu (jiahe3@student.unimelb.edu.au)
 </p>
 
   </div>
@@ -516,7 +561,7 @@ By The Jupyter Book Community
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

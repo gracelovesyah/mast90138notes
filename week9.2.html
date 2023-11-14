@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>week9 lec 2 &#8212; My sample book</title>
+    <title>week9 lec 2 &#8212; MAST90139 Multivariate Statistics for Data Science</title>
   
   
   
@@ -158,8 +158,9 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="basics.html">Notation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="useful_link.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="progress.html">Progress Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comparison.html">Comparison</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="week1.0.html">week1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="week1.1.html">Week 1 Lecture 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week1.2.html">week1 lec 2</a></li>
@@ -190,8 +191,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="week5.3.html">week5 additional notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="week6.0.html">week6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week6.0.html">Week 6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="week6.1.html">week6 lec1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week6.2.html">week6 lec2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week6.3.html">week 6 additional resources</a></li>
 </ul>
 </li>
@@ -409,7 +411,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -425,6 +429,19 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-tree">Decision Tree</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-tree">Regression Tree</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-questions">More questions</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -436,8 +453,99 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="week9-lec-2">
 <h1>week9 lec 2<a class="headerlink" href="#week9-lec-2" title="Permalink to this heading">#</a></h1>
-<p>p.265 - p.xx</p>
-<p>This note is completed with the assistance of <span class="xref myst">ChatGPT</span></p>
+<section id="decision-tree">
+<h2>Decision Tree<a class="headerlink" href="#decision-tree" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="random-forest">
+<h2>Random Forest<a class="headerlink" href="#random-forest" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="regression-tree">
+<h2>Regression Tree<a class="headerlink" href="#regression-tree" title="Permalink to this heading">#</a></h2>
+<p>When to use RT - data’s distribution is wired.</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/rt1.png"><img alt="rt" class="bg-primary mb-1 align-center" src="_images/rt1.png" style="width: 800px;" /></a>
+<p>How to build RT - use mean value on node, evaluate with RSS
+i.e. We decide the splitting criteria based when RSS is minimum.</p>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>When to stop splitting (to prevent overfitting)?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>This can be done by setting the stopping criteria. Which is usually the number of observations on each node. Usually 20. So when there are &lt;= 20 observations  on a node, we will end splitting and call that a leaf. n</p>
+</div>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/rt2.png"><img alt="rt" class="bg-primary mb-1 align-center" src="_images/rt2.png" style="width: 800px;" /></a>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>What if multiple features in regression tree?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>We compare the lowest RSS of each feature can select the lowest RSS among the lowest RSSs as the splitting criteria for the first node and so on.</p>
+</div>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/rt3.png"><img alt="rt" class="bg-primary mb-1 align-center" src="_images/rt3.png" style="width: 800px;" /></a>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Why regression tree are prone to overfitting?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<p>Regression trees, like all decision trees, can exhibit high variance for several reasons. Understanding these reasons requires looking at the nature of decision trees and how they fit data:</p>
+<ol class="arabic simple">
+<li><p><strong>Overfitting to Training Data:</strong> Decision trees, including regression trees, often tend to overfit the training data. This happens because they can create very complex structures that capture not just the underlying patterns in the data but also the noise. For example, a regression tree might create splits to fit outliers or anomalies in the training set, which are not representative of the broader data distribution.</p></li>
+<li><p><strong>Sensitive to Small Changes in Data:</strong> Regression trees can be quite sensitive to small changes in the training data. A slight change, such as the addition or removal of a few data points, can lead to a significantly different tree structure. This is because the choice of splits in a tree can be drastically altered by minor variations in data, resulting in different prediction paths.</p></li>
+<li><p><strong>High Complexity of Trees:</strong> If a regression tree is allowed to grow without constraints (like limiting the depth of the tree or setting a minimum number of samples required to make a split), it can become overly complex. A highly complex tree with many splits is more likely to capture noise in the data, leading to high variance.</p></li>
+<li><p><strong>Lack of Averaging or Regularization:</strong> Unlike ensemble methods (like Random Forests or Gradient Boosting), a single regression tree does not benefit from averaging out predictions over multiple models. Ensemble methods tend to have lower variance as they average out the individual variances of multiple models, whereas a single regression tree does not have this advantage.</p></li>
+<li><p><strong>Modeling Non-linear Relationships:</strong> Regression trees model non-linear relationships by making sequential, hierarchical splits on the data. While this can be powerful, it also means that the prediction is highly dependent on the structure of the tree. If the tree does not generalize well (i.e., it is too tuned to the training data), its predictions can vary widely with different datasets.</p></li>
+</ol>
+<p>To mitigate high variance in regression trees, techniques like pruning (to simplify the tree), setting maximum depth, or employing ensemble methods (like Random Forests or Gradient Boosting) are commonly used. These techniques aim to balance the bias-variance trade-off, making the model more robust to variations in the training data.</p>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>What are the negative results for overfitted model?</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Answer</p>
+<ol class="arabic simple">
+<li><p><strong>Poor Generalization to New Data:</strong> While the model performs well on the training data, its performance significantly deteriorates on new, unseen data (test data or validation data). This decline in performance is due to the model’s inability to generalize from overly specific patterns learned during training.</p></li>
+<li><p><strong>High Variance in Predictions:</strong> Overfitted models typically exhibit high variance. This means that small changes in the input data can lead to large changes in the output (predicted values). The model is too sensitive to the specifics of the training data and thus reacts unpredictably to new data.</p></li>
+<li><p><strong>Complex Tree Structure:</strong> In the case of a regression tree, overfitting is often accompanied by an overly complex tree structure. Such a tree will have many splits, possibly splitting down to very small subsets of the data, which are not representative of the overall data distribution.</p></li>
+<li><p><strong>Capturing Noise Rather Than Signal:</strong> An overfitted tree tends to model the random noise in the training data rather than the actual underlying trend. As a result, the tree’s predictive accuracy decreases when it encounters data that doesn’t have the same noise characteristics as the training set.</p></li>
+<li><p><strong>Unreliable Feature Importance:</strong> Overfitting can lead to a distorted view of which features are important for prediction. The tree might rely heavily on certain features that appeared to be informative in the training set but are not actually relevant for the overall population.</p></li>
+</ol>
+</div>
+<hr class="docutils" />
+<section id="more-questions">
+<h3>More questions<a class="headerlink" href="#more-questions" title="Permalink to this heading">#</a></h3>
+<div class="admonition-q admonition">
+<p class="admonition-title">Q</p>
+<p>Suppose that we are not allowed to adjust the size of the training set (train_size).
+What else can we do to train a better random forest that might further reduce the test error? (5]</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">A</p>
+<ol class="arabic simple">
+<li><p><strong>Parameter Tuning:</strong> Adjusting the hyperparameters of the Random Forest can lead to significant improvements in model performance. Key parameters include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">n_estimators</span></code>: Increase the number of trees in the forest. More trees can improve model performance up to a point, as it reduces variance without increasing bias.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_depth</span></code>: Set an optimal maximum depth for each tree to prevent overfitting.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min_samples_split</span></code> and <code class="docutils literal notranslate"><span class="pre">min_samples_leaf</span></code>: Adjust these to control the minimum number of samples required to split a node and the minimum number of samples required to be at a leaf node.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_features</span></code>: Tune the number of features considered for each split. Trying different values (like <code class="docutils literal notranslate"><span class="pre">sqrt</span></code>, <code class="docutils literal notranslate"><span class="pre">log2</span></code>, or a fraction of total features) can significantly impact performance.</p></li>
+</ul>
+</li>
+<li><p><strong>Feature Engineering:</strong> Improve the model’s performance by enhancing the feature set:</p>
+<ul class="simple">
+<li><p>Create new features that might capture important information in the data more effectively.</p></li>
+<li><p>Perform feature selection to remove irrelevant or redundant features, which can simplify the model and potentially improve its performance on test data.</p></li>
+<li><p>Normalize or standardize features, especially if they are on different scales.</p></li>
+</ul>
+</li>
+<li><p><strong>Ensemble Different Models:</strong> Combine the Random Forest with other models to create a more robust ensemble. This can be done by blending models (averaging their predictions) or stacking (using the predictions of base models as inputs to a higher-level model).</p></li>
+<li><p><strong>Cross-Validation for Model Validation:</strong> Use cross-validation to assess the model’s performance more reliably. This helps in understanding how well the model is likely to perform on unseen data and in tuning hyperparameters more effectively.</p></li>
+<li><p><strong>Address Class Imbalance (if applicable):</strong> If dealing with classification and the data is imbalanced, techniques like adjusting class weights, using different performance metrics (like F1-score instead of accuracy), or employing sampling methods (like SMOTE) can improve model performance.</p></li>
+</ol>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -499,6 +607,25 @@ document.write(`
             
             
               
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-tree">Decision Tree</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-tree">Regression Tree</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-questions">More questions</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -508,7 +635,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Jiahe Liu (jiahe3@student.unimelb.edu.au)
 </p>
 
   </div>
@@ -517,7 +644,7 @@ By The Jupyter Book Community
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

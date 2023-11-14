@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Notation &#8212; My sample book</title>
+    <title>Notation &#8212; MAST90139 Multivariate Statistics for Data Science</title>
   
   
   
@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'basics';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Resources" href="useful_link.html" />
+    <link rel="next" title="Resources" href="resources.html" />
     <link rel="prev" title="Welcome to MAST90138" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -160,8 +160,9 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Notation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="useful_link.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="progress.html">Progress Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comparison.html">Comparison</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="week1.0.html">week1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="week1.1.html">Week 1 Lecture 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week1.2.html">week1 lec 2</a></li>
@@ -192,8 +193,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="week5.3.html">week5 additional notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="week6.0.html">week6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week6.0.html">Week 6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="week6.1.html">week6 lec1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week6.2.html">week6 lec2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week6.3.html">week 6 additional resources</a></li>
 </ul>
 </li>
@@ -437,7 +439,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#names-and-defs">Names and defs</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-principal-component-analysis"><strong>PCA (Principal Component Analysis):</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#x"><strong><span class="math notranslate nohighlight">\(X\)</span></strong>:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gamma-gamma"><strong><span class="math notranslate nohighlight">\(\Gamma\)</span>: (Gamma)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gamma-gamma"><strong><span class="math notranslate nohighlight">\(\Gamma\)</span>: (Gamma)</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#orthogonality">orthogonality</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#y"><strong><span class="math notranslate nohighlight">\(Y\)</span>:</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#z"><strong><span class="math notranslate nohighlight">\(Z\)</span></strong>:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda-lambda"><strong><span class="math notranslate nohighlight">\(\Lambda\)</span> (Lambda)</strong>:</a></li>
@@ -450,6 +455,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Z</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#communality">Communality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-determinant">Matrix Determinant</a></li>
 </ul>
 </li>
 </ul>
@@ -467,7 +473,7 @@ document.write(`
 <h1>Notation<a class="headerlink" href="#notation" title="Permalink to this heading">#</a></h1>
 <section id="names-and-defs">
 <h2>Names and defs<a class="headerlink" href="#names-and-defs" title="Permalink to this heading">#</a></h2>
-<p>The abbreviations and symbols you mentioned are commonly associated with statistical methodologies like Principal Component Analysis (PCA) and Principal Component Regression (PCR). Let’s break down the meanings:</p>
+<p>The following abbreviations and symbols are commonly associated with statistical methodologies like Principal Component Analysis (PCA) and Principal Component Regression (PCR).</p>
 <section id="pca-principal-component-analysis">
 <h3><strong>PCA (Principal Component Analysis):</strong><a class="headerlink" href="#pca-principal-component-analysis" title="Permalink to this heading">#</a></h3>
 <p>PCA is a dimensionality reduction technique that’s often used to reduce the number of variables in a dataset while retaining most of the original variability. It does this by projecting the original data into a new coordinate system defined by the principal components.</p>
@@ -490,14 +496,22 @@ document.write(`
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span><span class="w"> </span><span class="o">=</span><span class="n">PCX</span><span class="o">$</span><span class="n">rotation</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p><a class="reference external" href="https://stats.stackexchange.com/questions/130882/why-are-principal-components-in-pca-eigenvectors-of-the-covariance-matrix-mutu#:~:text=The%20covariance%20matrix%20is%20symmetric.,and%20Av%3D%CE%BCv.&amp;text=Since%20these%20are%20equal%20we,the%20two%20eigenvalues%20are%20equal.">Why are principal components in PCA (eigenvectors of the covariance matrix) mutually orthogonal?</a></p></li>
-</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\Gamma = \begin{bmatrix}
+a_{11} &amp; a_{12} &amp; \dots &amp; a_{1p} \\
+a_{21} &amp; a_{22} &amp; \dots &amp; a_{2p} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{p1} &amp; a_{p2} &amp; \dots &amp; a_{pp} \\
+\end{bmatrix}
+\end{split}\]</div>
 <p>The columns of <span class="math notranslate nohighlight">\(\Gamma\)</span> are the eigenvectors of the covariance matrix of <span class="math notranslate nohighlight">\(X\)</span>. Each column (eigenvector) points in the direction of a principal component. These eigenvectors are also often referred to as “loadings.”</p>
 <ul class="simple">
 <li><p>In other words, <span class="math notranslate nohighlight">\(\Gamma\)</span> provides the weights or coefficients that transform the original data <span class="math notranslate nohighlight">\(X\)</span> into its principal components <span class="math notranslate nohighlight">\(Y\)</span>. If <span class="math notranslate nohighlight">\(X\)</span> has <span class="math notranslate nohighlight">\(p\)</span> predictors, then <span class="math notranslate nohighlight">\(\Gamma\)</span> will be a <span class="math notranslate nohighlight">\(p \times p\)</span> matrix, where the first column is the loading vector for PC1, the second column is the loading vector for PC2, and so on.</p></li>
 </ul>
 <p>The matrix of eigenvectors, denoted as <span class="math notranslate nohighlight">\(\Gamma\)</span>, contains the principal directions of the dataset. Each column of <span class="math notranslate nohighlight">\(\Gamma\)</span> represents an eigenvector, ordered by the corresponding eigenvalue in descending order.</p>
+<section id="orthogonality">
+<span id="orthogonal"></span><h4>orthogonality<a class="headerlink" href="#orthogonality" title="Permalink to this heading">#</a></h4>
 <div class="dropdown admonition">
 <p class="admonition-title">Why orthogonal?</p>
 <ol class="arabic simple">
@@ -509,15 +523,57 @@ document.write(`
 </ol>
 <p>The orthogonality of eigenvectors is a crucial property in principal component analysis (PCA) and other multivariate techniques because it ensures that the new axes (principal components) are uncorrelated with each other, which is one of the goals of these methods—to transform correlated variables into a set of uncorrelated variables.</p>
 </div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://stats.stackexchange.com/questions/130882/why-are-principal-components-in-pca-eigenvectors-of-the-covariance-matrix-mutu#:~:text=The%20covariance%20matrix%20is%20symmetric.,and%20Av%3D%CE%BCv.&amp;text=Since%20these%20are%20equal%20we,the%20two%20eigenvalues%20are%20equal.">Why are principal components in PCA (eigenvectors of the covariance matrix) mutually orthogonal?</a></p></li>
+<li><p><a class="reference external" href="https://ics.uci.edu/~xhx/courses/ics6n/lectures/symmetric-matrices.pdf">ICS 6N Computational Linear Algebra Symmetric Matrices and Orthogonal Diagonalization</a></p></li>
+</ul>
+<blockquote>
+<div><p>The eigenspaces are mutually orthogonal: If λ1 = λ2 are two distinct eigenvalues, then their corresponding eigenvectors v1, v2 are orthogonal.</p>
+</div></blockquote>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/proof1.png"><img alt="proof1" class="bg-primary mb-1 align-center" src="_images/proof1.png" style="width: 800px;" /></a>
+<div class="dropdown admonition">
+<p class="admonition-title">What if <span class="math notranslate nohighlight">\(\lambda = \mu\)</span> (equal eigenvalues)?</p>
+<p><strong>Spectrum Theorem</strong> is the solution!</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://leomiolane.github.io/data/teaching/linalg-for-ds/slides/session_07.pdf">Spectral Theorem,PCA and SVD</a></p></li>
+</ul>
+<p>If <span class="math notranslate nohighlight">\( \lambda = \mu \)</span>, that means we are dealing with a repeated eigenvalue (also known as a degenerate eigenvalue) in the context of the covariance matrix for PCA.</p>
+<p>In the case of a repeated eigenvalue <span class="math notranslate nohighlight">\( \lambda \)</span>, the corresponding eigenspace (the space spanned by all the eigenvectors associated with <span class="math notranslate nohighlight">\( \lambda \)</span>) might be multidimensional, i.e., there might be more than one linearly independent eigenvector corresponding to the eigenvalue <span class="math notranslate nohighlight">\( \lambda \)</span>.</p>
+<p>For a symmetric matrix (like the covariance matrix in PCA), the Spectral Theorem assures us that even with repeated eigenvalues, we can still find an orthogonal basis for each eigenspace. This means that within the subspace of eigenvectors corresponding to the repeated eigenvalue, we can select or construct eigenvectors that are orthogonal to each other.</p>
+<p>Here’s why this is important for PCA:</p>
+<ol class="arabic simple">
+<li><p><strong>PCA Seeks Orthogonality</strong>: In PCA, we look for orthogonal axes (principal components) that represent different dimensions of variance in the data. If we had non-orthogonal axes, they would not represent independent dimensions of variance.</p></li>
+<li><p><strong>Interpretability</strong>: Orthogonal eigenvectors lead to principal components that are uncorrelated with each other, which makes them easier to interpret in terms of the variance of the data they explain.</p></li>
+<li><p><strong>Stability and Uniqueness</strong>: While the choice of orthogonal eigenvectors within a repeated eigenvalue is not unique (there are infinitely many sets of orthogonal vectors within a subspace), the fact that they are orthogonal lends a form of stability to the PCA results in that each of the selected vectors will still describe a unique aspect of the variance in the data.</p></li>
+</ol>
+<p>When implementing PCA:</p>
+<ul class="simple">
+<li><p><strong>Numerical Algorithms</strong>: Computational routines (like those in LAPACK or other linear algebra libraries) that are used to find the eigenvectors of a symmetric matrix automatically take care of finding orthogonal eigenvectors, even in the case of repeated eigenvalues.</p></li>
+<li><p><strong>SVD Approach</strong>: When using Singular Value Decomposition (SVD) to perform PCA, the issue of repeated eigenvalues does not directly arise. SVD decomposes the data matrix into orthogonal matrices, ensuring the orthogonality of the components.</p></li>
+</ul>
+<p>So, in practice, even when <span class="math notranslate nohighlight">\( \lambda = \mu \)</span>, PCA implementations ensure that the resulting principal components are orthogonal and thus can be used effectively for dimensionality reduction, feature extraction, or data visualization purposes.</p>
+<hr class="docutils" />
+<p>The Spectral Theorem is a fundamental result in linear algebra that provides the conditions under which a matrix can be diagonalized through a basis of eigenvectors. In its most general form applicable to symmetric matrices, the theorem states:</p>
+<p><strong>Spectral Theorem for Symmetric Matrices:</strong>
+Every real symmetric matrix <span class="math notranslate nohighlight">\( A \)</span> can be diagonalized by an orthogonal matrix. That is, for any real symmetric matrix <span class="math notranslate nohighlight">\( A \)</span>, there exists an orthogonal matrix <span class="math notranslate nohighlight">\( Q \)</span> and a diagonal matrix <span class="math notranslate nohighlight">\( D \)</span> such that</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}
-\Gamma = \begin{bmatrix}
-a_{11} &amp; a_{12} &amp; \dots &amp; a_{1p} \\
-a_{21} &amp; a_{22} &amp; \dots &amp; a_{2p} \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-a_{p1} &amp; a_{p2} &amp; \dots &amp; a_{pp} \\
-\end{bmatrix}
-\end{split}\]</div>
+\[ A = QDQ^T \]</div>
+<p>Here’s what this means in more detail:</p>
+<ol class="arabic simple">
+<li><p><strong>Real Symmetric Matrix</strong>: The matrix <span class="math notranslate nohighlight">\( A \)</span> is symmetric if <span class="math notranslate nohighlight">\( A = A^T \)</span>, and all of its entries are real numbers.</p></li>
+<li><p><strong>Orthogonal Matrix</strong>: The matrix <span class="math notranslate nohighlight">\( Q \)</span> is orthogonal if its columns are orthonormal eigenvectors of <span class="math notranslate nohighlight">\( A \)</span>, meaning that <span class="math notranslate nohighlight">\( Q^TQ = QQ^T = I \)</span>, where <span class="math notranslate nohighlight">\( I \)</span> is the identity matrix. The orthonormality condition implies that each eigenvector is unit length, and any pair of different eigenvectors are orthogonal to each other.</p></li>
+<li><p><strong>Diagonal Matrix</strong>: The diagonal matrix <span class="math notranslate nohighlight">\( D \)</span> contains the eigenvalues of <span class="math notranslate nohighlight">\( A \)</span> along its diagonal, and these eigenvalues are real numbers because <span class="math notranslate nohighlight">\( A \)</span> is symmetric.</p></li>
+<li><p><strong>Diagonalization</strong>: To say that <span class="math notranslate nohighlight">\( A \)</span> can be diagonalized means that there is a basis for the vector space consisting entirely of eigenvectors of <span class="math notranslate nohighlight">\( A \)</span>, and when <span class="math notranslate nohighlight">\( A \)</span> is represented in this basis, it takes on a diagonal form.</p></li>
+</ol>
+<p>This theorem is particularly powerful for several reasons:</p>
+<ul class="simple">
+<li><p>It guarantees that eigenvalues of a real symmetric matrix are always real, even though eigenvalues of non-symmetric matrices can be complex.</p></li>
+<li><p>It provides an orthogonal set of eigenvectors for symmetric matrices, which is crucial for many applications in mathematics, physics, engineering, statistics, and machine learning, including PCA.</p></li>
+<li><p>It implies that quadratic forms associated with symmetric matrices can be easily studied by considering their diagonal form, which simplifies understanding their topography (e.g., identifying maxima, minima, and saddle points).</p></li>
+</ul>
+<p>In the context of PCA, the Spectral Theorem ensures that we can find a set of orthogonal principal components, even if some eigenvalues are repeated. These principal components can be used to describe the variance in the dataset with uncorrelated features, simplifying both the geometry and the statistics of high-dimensional data.</p>
+</div>
+</section>
 </section>
 <section id="y">
 <h3><strong><span class="math notranslate nohighlight">\(Y\)</span>:</strong><a class="headerlink" href="#y" title="Permalink to this heading">#</a></h3>
@@ -532,7 +588,7 @@ a_{p1} &amp; a_{p2} &amp; \dots &amp; a_{pp} \\
 <p>When you project the original data <span class="math notranslate nohighlight">\(X\)</span> onto the principal components (or eigenvectors), you get a new data representation, <span class="math notranslate nohighlight">\(Y\)</span>. Here, <span class="math notranslate nohighlight">\(Y\)</span> contains the scores of the observations on the principal components. The first column of <span class="math notranslate nohighlight">\(Y\)</span> contains the scores for PC1, the second column has the scores for PC2, and so on.</p>
 <div class="math notranslate nohighlight">
 \[ Y = Γ^T X \]</div>
-<p>Similarly, as Γ is orthogonal:</p>
+<p>Similarly, as Γ is <a class="reference internal" href="#orthogonal"><span class="std std-ref">orthogonal</span></a>:</p>
 <div class="math notranslate nohighlight">
 \[ X = ΓY \]</div>
 </section>
@@ -621,8 +677,78 @@ a_{p1} &amp; a_{p2} &amp; \dots &amp; a_{pp} \\
 <div class="math notranslate nohighlight">
 \[Tr( \Sigma ) = \sum \lambda_i\]</div>
 <div class="math notranslate nohighlight">
-\[Det(\Sigma) = \lambda \]</div>
+\[Det(\Sigma) = \Pi \lambda_i \]</div>
 <p>where <span class="math notranslate nohighlight">\(var(Y) = \lambda\)</span></p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Why <span class="math notranslate nohighlight">\(Tr( \Sigma ) = \sum \lambda_i\)</span></p>
+<p>In Principal Component Analysis (PCA), the covariance matrix is a key element that captures the variance and correlation between different variables in the dataset. The trace of a matrix, which is the sum of its diagonal elements, has a special significance when it comes to the covariance matrix.</p>
+<p>For any square matrix, the trace has an important property: it is equal to the sum of the matrix’s eigenvalues. This is known because the eigenvalues of a matrix represent how much variance there is in the directions of the principal components (in the case of PCA), and the trace represents the total variance of the data.</p>
+<p>Here’s why the trace of the covariance matrix equals the sum of its eigenvalues:</p>
+<ol class="arabic simple">
+<li><p><strong>Eigenvalue Decomposition:</strong>
+A covariance matrix, which is symmetric, can be decomposed into its eigenvectors and eigenvalues. This is often written as <span class="math notranslate nohighlight">\( \Sigma = Q \Lambda Q^T \)</span>, where <span class="math notranslate nohighlight">\( \Sigma \)</span> is the covariance matrix, <span class="math notranslate nohighlight">\( Q \)</span> is the matrix of eigenvectors, and <span class="math notranslate nohighlight">\( \Lambda \)</span> is the diagonal matrix of eigenvalues. The columns of <span class="math notranslate nohighlight">\( Q \)</span> are the principal components of the data.</p></li>
+<li><p><strong>Trace and Eigenvalues:</strong>
+When you calculate the trace of the covariance matrix <span class="math notranslate nohighlight">\( \Sigma \)</span>, you are essentially summing the diagonal elements of <span class="math notranslate nohighlight">\( \Sigma \)</span>. If you substitute <span class="math notranslate nohighlight">\( \Sigma \)</span> with <span class="math notranslate nohighlight">\( Q \Lambda Q^T \)</span> and take the trace, you get:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+   \text{tr}(\Sigma) = \text{tr}(Q \Lambda Q^T).
+   \]</div>
+<p>Using the cyclic property of the trace (which allows rearranging the factors in a trace without changing the result, <span class="math notranslate nohighlight">\( \text{tr}(ABC) = \text{tr}(CAB) = \text{tr}(BCA) \)</span>), we get:</p>
+<div class="math notranslate nohighlight">
+\[
+   \text{tr}(Q \Lambda Q^T) = \text{tr}(\Lambda Q^T Q) = \text{tr}(\Lambda).
+   \]</div>
+<p>Since <span class="math notranslate nohighlight">\( Q \)</span> is an orthogonal matrix (for a covariance matrix, the eigenvectors are orthogonal), <span class="math notranslate nohighlight">\( Q^T Q \)</span> equals the identity matrix <span class="math notranslate nohighlight">\( I \)</span>. Thus, the trace simplifies to the trace of <span class="math notranslate nohighlight">\( \Lambda \)</span>, which is the sum of the eigenvalues because <span class="math notranslate nohighlight">\( \Lambda \)</span> is a diagonal matrix.</p>
+<ol class="arabic simple" start="3">
+<li><p><strong>Variance Explanation:</strong>
+Each eigenvalue represents the variance along its corresponding eigenvector (principal component). So, the sum of the eigenvalues is the sum of the variances in each of the principal component directions. Since the trace of the covariance matrix represents the total variance in the data (by summing the variances of each variable), it must be equal to the sum of the eigenvalues.</p></li>
+</ol>
+<p>In summary, the reason the trace of the covariance matrix in PCA equals the sum of its eigenvalues is because the trace is invariant under a change of basis (which is what the eigenvectors provide) and because the trace represents the total variance encapsulated by the eigenvalues. This mathematical property holds not just in PCA, but in linear algebra generally for any square matrix.</p>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://math.stackexchange.com/questions/546155/proof-that-the-trace-of-a-matrix-is-the-sum-of-its-eigenvalues">Proof that the trace of a matrix is the sum of its eigenvalues</a></p></li>
+</ul>
+<div class="dropdown admonition">
+<p class="admonition-title">Why <span class="math notranslate nohighlight">\(Det(\Sigma) = \Pi \lambda_i \)</span></p>
+<p>The determinant of a matrix is a scalar value that is a function of all the elements of the matrix. For a covariance matrix <span class="math notranslate nohighlight">\( \Sigma \)</span> (which is symmetric and positive semi-definite), the determinant can give us insights into the total variance captured by the matrix and can also be related to the volume of the data it represents in the multi-dimensional space.</p>
+<p>When we talk about the determinant of <span class="math notranslate nohighlight">\( \Sigma \)</span> being equal to <span class="math notranslate nohighlight">\( \Lambda \)</span>, there’s a bit of clarification needed. <span class="math notranslate nohighlight">\( \Lambda \)</span> here should be understood not as the matrix of eigenvalues but as the product of the eigenvalues, because the determinant of a matrix is equal to the product of its eigenvalues.</p>
+<p>Here’s why the determinant of the covariance matrix <span class="math notranslate nohighlight">\( \Sigma \)</span> is equal to the product of its eigenvalues:</p>
+<ol class="arabic simple">
+<li><p><strong>Eigenvalue Decomposition:</strong>
+As previously mentioned, a covariance matrix <span class="math notranslate nohighlight">\( \Sigma \)</span> can be decomposed as <span class="math notranslate nohighlight">\( \Sigma = Q \Lambda Q^T \)</span>, where <span class="math notranslate nohighlight">\( Q \)</span> is the orthogonal matrix of eigenvectors and <span class="math notranslate nohighlight">\( \Lambda \)</span> is the diagonal matrix of eigenvalues.</p></li>
+<li><p><strong>Determinant of the Decomposed Matrix:</strong>
+When you take the determinant of <span class="math notranslate nohighlight">\( \Sigma \)</span>, you can express it in terms of its decomposition:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+   \det(\Sigma) = \det(Q \Lambda Q^T).
+   \]</div>
+<p>Using the property that the determinant of a product of matrices equals the product of their determinants (<span class="math notranslate nohighlight">\( \det(AB) = \det(A) \det(B) \)</span>), we can write:</p>
+<div class="math notranslate nohighlight">
+\[
+   \det(Q \Lambda Q^T) = \det(Q) \det(\Lambda) \det(Q^T).
+   \]</div>
+<p>Since <span class="math notranslate nohighlight">\( Q \)</span> is an orthogonal matrix, its determinant is <span class="math notranslate nohighlight">\( \pm 1 \)</span>, and therefore <span class="math notranslate nohighlight">\( \det(Q) \det(Q^T) = (\pm 1)(\pm 1) = 1 \)</span>. This simplifies our equation to:</p>
+<div class="math notranslate nohighlight">
+\[
+   \det(\Sigma) = \det(\Lambda).
+   \]</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>Determinant of the Diagonal Matrix of Eigenvalues:</strong>
+The determinant of a diagonal matrix like <span class="math notranslate nohighlight">\( \Lambda \)</span> is simply the product of its diagonal elements, which are the eigenvalues of <span class="math notranslate nohighlight">\( \Sigma \)</span>. Thus, the determinant of <span class="math notranslate nohighlight">\( \Lambda \)</span> is the product of the eigenvalues <span class="math notranslate nohighlight">\( \lambda_i \)</span> of <span class="math notranslate nohighlight">\( \Sigma \)</span>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+   \det(\Lambda) = \lambda_1 \times \lambda_2 \times \cdots \times \lambda_n.
+   \]</div>
+<p>Therefore:</p>
+<div class="math notranslate nohighlight">
+\[
+   \det(\Sigma) = \lambda_1 \times \lambda_2 \times \cdots \times \lambda_n.
+   \]</div>
+<p>In this way, the determinant of the covariance matrix <span class="math notranslate nohighlight">\( \Sigma \)</span> is indeed equal to the product of its eigenvalues, not the sum. This product of eigenvalues (or determinant of <span class="math notranslate nohighlight">\( \Sigma \)</span>) gives us a measure of the “spread” or “volume” of the data in the space defined by the principal components. If any of the eigenvalues are zero (or very close to zero), it indicates that the data is lying flat in some dimension, and the determinant will be zero (or very small), reflecting the lower dimensionality of the dataset.</p>
 </div>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
@@ -669,6 +795,9 @@ a_{p1} &amp; a_{p2} &amp; \dots &amp; a_{pp} \\
 </ol>
 <p>The orthogonality comes into play when we discuss the eigenvectors of the covariance matrix. If you’ve heard of Principal Component Analysis (PCA), it leverages this property. PCA finds the eigenvectors (principal components) of the data’s covariance matrix, and these eigenvectors are orthogonal to each other.</p>
 </div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://math.mit.edu/~dav/spectral.pdf">Proof of spectral decomposition</a></p></li>
+</ul>
 <hr class="docutils" />
 </section>
 <section id="rho-rho">
@@ -678,17 +807,29 @@ a_{p1} &amp; a_{p2} &amp; \dots &amp; a_{pp} \\
 </div></blockquote>
 <div class="math notranslate nohighlight">
 \[
-\rho(X,Y)= \frac{\text{Cov}(X,Y)}{\sqrt{Var(X)Var(Y)}} = \frac{\gamma \lambda}{\sqrt{\sigma\lambda}} \]</div>
+\rho(X,Y)= \frac{\text{Cov}(X,Y)}{\sqrt{Var(X)Var(Y)}} = \frac{\gamma \lambda}{\sqrt{\sigma^2\lambda}} = \gamma  \frac{\lambda ^{\frac{1}{2}}}{\sigma}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\sigma^2 = \sum  \lambda \gamma^2
+\]</div>
+<p>Note:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\sigma^2 \)</span> (<span class="math notranslate nohighlight">\(s_{ii}\)</span>)is the sample variance.</p></li>
+<li><p>The length in the circular graph corresponds to <span class="math notranslate nohighlight">\(\rho\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda ^{\frac{1}{2}}\)</span> corresponds to the std of PC as <span class="math notranslate nohighlight">\(\lambda\)</span> is the variance of PC.</p></li>
+</ul>
 </section>
 <section id="r-2">
 <h3><span class="math notranslate nohighlight">\(R^2\)</span><a class="headerlink" href="#r-2" title="Permalink to this heading">#</a></h3>
 <blockquote>
-<div><p>Correlation (squared, more interpretable)</p>
+<div><p>Correlation (squared correlation)</p>
 </div></blockquote>
 <div class="math notranslate nohighlight">
 \[
-R^2 = \frac{\gamma^2 \lambda}{\sigma} 
+R^2 = \frac{\gamma^2 \lambda}{\sigma} = \frac{\gamma^2 \lambda}{ \sum  \lambda \gamma^2} 
 \]</div>
+<p>Note: <span class="math notranslate nohighlight">\(\gamma\)</span> is the lower case for <span class="math notranslate nohighlight">\(\Gamma\)</span>.</p>
 </section>
 <hr class="docutils" />
 <section id="pcr-principal-component-regression">
@@ -774,6 +915,20 @@ To get the projection of the data onto the principal components, you multiply th
 <p>When you conduct factor analysis, you’re essentially trying to find underlying factors that account for the communalities among variables, which helps in reducing dimensionality and in understanding the underlying structure of the data.</p>
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/communality.png"><img alt="communality" class="bg-primary mb-1 align-center" src="_images/communality.png" style="width: 800px;" /></a>
 </section>
+<section id="matrix-determinant">
+<h3>Matrix Determinant<a class="headerlink" href="#matrix-determinant" title="Permalink to this heading">#</a></h3>
+<p>To calculate the determinant of a (3 \times 3) matrix with elements (a, b, c; d, e, f; g, h, i), we can use the following formula:</p>
+<div class="math notranslate nohighlight">
+\[ \text{Determinant} = a(ei - fh) - b(di - fg) + c(dh - eg) \]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}
+a &amp; b &amp; c \\
+d &amp; e &amp; f \\
+g &amp; h &amp; i
+\end{pmatrix}
+\end{split}\]</div>
+</section>
 </section>
 </section>
 
@@ -818,7 +973,7 @@ To get the projection of the data onto the principal components, you multiply th
       </div>
     </a>
     <a class="right-next"
-       href="useful_link.html"
+       href="resources.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
@@ -847,7 +1002,10 @@ To get the projection of the data onto the principal components, you multiply th
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#names-and-defs">Names and defs</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-principal-component-analysis"><strong>PCA (Principal Component Analysis):</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#x"><strong><span class="math notranslate nohighlight">\(X\)</span></strong>:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gamma-gamma"><strong><span class="math notranslate nohighlight">\(\Gamma\)</span>: (Gamma)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gamma-gamma"><strong><span class="math notranslate nohighlight">\(\Gamma\)</span>: (Gamma)</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#orthogonality">orthogonality</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#y"><strong><span class="math notranslate nohighlight">\(Y\)</span>:</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#z"><strong><span class="math notranslate nohighlight">\(Z\)</span></strong>:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda-lambda"><strong><span class="math notranslate nohighlight">\(\Lambda\)</span> (Lambda)</strong>:</a></li>
@@ -860,6 +1018,7 @@ To get the projection of the data onto the principal components, you multiply th
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Z</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#communality">Communality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-determinant">Matrix Determinant</a></li>
 </ul>
 </li>
 </ul>
@@ -876,7 +1035,7 @@ To get the projection of the data onto the principal components, you multiply th
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Jiahe Liu (jiahe3@student.unimelb.edu.au)
 </p>
 
   </div>
@@ -885,7 +1044,7 @@ By The Jupyter Book Community
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

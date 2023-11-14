@@ -39,3 +39,6 @@ $$ \hat{\theta} = \frac{\alpha'}{\alpha' + \beta'} $$
 Let's say you start with a completely uniform prior (no knowledge about the coin's bias). After flipping the coin 10 times, you observe 7 heads. Your belief (posterior distribution) about the coin's bias will shift toward 0.7, but it will also consider your initial uncertainty. The more data (coin flips) you observe, the more your belief will be influenced by the observed data relative to the prior.
 
 In Bayesian parameter estimation, rather than obtaining a single "best estimate" value as in frequentist statistics, you obtain a distribution over the possible parameter values that reflects both the data and the prior beliefs.
+
+### Eigen Calculation
+- [Eigenvector and Eigenvalue](https://www.mathsisfun.com/algebra/eigenvalue.html)

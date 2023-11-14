@@ -2,7 +2,7 @@
 
 ## Names and defs
 
-The abbreviations and symbols you mentioned are commonly associated with statistical methodologies like Principal Component Analysis (PCA) and Principal Component Regression (PCR). Let's break down the meanings:
+The following abbreviations and symbols are commonly associated with statistical methodologies like Principal Component Analysis (PCA) and Principal Component Regression (PCR).
 
 ### **PCA (Principal Component Analysis):**
    PCA is a dimensionality reduction technique that's often used to reduce the number of variables in a dataset while retaining most of the original variability. It does this by projecting the original data into a new coordinate system defined by the principal components.
@@ -22,7 +22,15 @@ Each entry $X_{ij}$ represents the measurement of the $j^{th}$ variable for the 
 vector =PCX$rotation
 ```
 
-- [Why are principal components in PCA (eigenvectors of the covariance matrix) mutually orthogonal?](https://stats.stackexchange.com/questions/130882/why-are-principal-components-in-pca-eigenvectors-of-the-covariance-matrix-mutu#:~:text=The%20covariance%20matrix%20is%20symmetric.,and%20Av%3D%CE%BCv.&text=Since%20these%20are%20equal%20we,the%20two%20eigenvalues%20are%20equal.)
+
+$$
+\Gamma = \begin{bmatrix}
+a_{11} & a_{12} & \dots & a_{1p} \\
+a_{21} & a_{22} & \dots & a_{2p} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{p1} & a_{p2} & \dots & a_{pp} \\
+\end{bmatrix}
+$$
 
 The columns of $\Gamma$ are the eigenvectors of the covariance matrix of $X$. Each column (eigenvector) points in the direction of a principal component. These eigenvectors are also often referred to as "loadings."
 
@@ -30,8 +38,11 @@ The columns of $\Gamma$ are the eigenvectors of the covariance matrix of $X$. Ea
 
 The matrix of eigenvectors, denoted as $\Gamma$, contains the principal directions of the dataset. Each column of $\Gamma$ represents an eigenvector, ordered by the corresponding eigenvalue in descending order.
 
+(orthogonal)=
+#### orthogonality
 ```{admonition} Why orthogonal?
 :class: dropdown
+
 
 1. **Symmetric Matrix**: A covariance matrix is always symmetric since $ \text{Cov}(X, Y) = \text{Cov}(Y, X) $. The covariance between any two variables $ X $ and $ Y $ is the same, regardless of the order.
 
@@ -47,14 +58,77 @@ The orthogonality of eigenvectors is a crucial property in principal component a
 
 ```
 
-$$
-\Gamma = \begin{bmatrix}
-a_{11} & a_{12} & \dots & a_{1p} \\
-a_{21} & a_{22} & \dots & a_{2p} \\
-\vdots & \vdots & \ddots & \vdots \\
-a_{p1} & a_{p2} & \dots & a_{pp} \\
-\end{bmatrix}
-$$
+
+- [Why are principal components in PCA (eigenvectors of the covariance matrix) mutually orthogonal?](https://stats.stackexchange.com/questions/130882/why-are-principal-components-in-pca-eigenvectors-of-the-covariance-matrix-mutu#:~:text=The%20covariance%20matrix%20is%20symmetric.,and%20Av%3D%CE%BCv.&text=Since%20these%20are%20equal%20we,the%20two%20eigenvalues%20are%20equal.)
+
+
+- [ICS 6N Computational Linear Algebra Symmetric Matrices and Orthogonal Diagonalization](https://ics.uci.edu/~xhx/courses/ics6n/lectures/symmetric-matrices.pdf)
+
+
+> The eigenspaces are mutually orthogonal: If λ1 = λ2 are two distinct eigenvalues, then their corresponding eigenvectors v1, v2 are orthogonal.
+
+```{image} ./images/proof1.png
+:alt: proof1
+:class: bg-primary mb-1
+:width: 800px
+:align: center
+```
+
+```{admonition} What if $\lambda = \mu$ (equal eigenvalues)?
+:class: dropdown
+**Spectrum Theorem** is the solution!
+- [Spectral Theorem,PCA and SVD](https://leomiolane.github.io/data/teaching/linalg-for-ds/slides/session_07.pdf)
+
+If $ \lambda = \mu $, that means we are dealing with a repeated eigenvalue (also known as a degenerate eigenvalue) in the context of the covariance matrix for PCA.
+
+In the case of a repeated eigenvalue $ \lambda $, the corresponding eigenspace (the space spanned by all the eigenvectors associated with $ \lambda $) might be multidimensional, i.e., there might be more than one linearly independent eigenvector corresponding to the eigenvalue $ \lambda $.
+
+For a symmetric matrix (like the covariance matrix in PCA), the Spectral Theorem assures us that even with repeated eigenvalues, we can still find an orthogonal basis for each eigenspace. This means that within the subspace of eigenvectors corresponding to the repeated eigenvalue, we can select or construct eigenvectors that are orthogonal to each other.
+
+Here’s why this is important for PCA:
+
+1. **PCA Seeks Orthogonality**: In PCA, we look for orthogonal axes (principal components) that represent different dimensions of variance in the data. If we had non-orthogonal axes, they would not represent independent dimensions of variance.
+
+2. **Interpretability**: Orthogonal eigenvectors lead to principal components that are uncorrelated with each other, which makes them easier to interpret in terms of the variance of the data they explain.
+
+3. **Stability and Uniqueness**: While the choice of orthogonal eigenvectors within a repeated eigenvalue is not unique (there are infinitely many sets of orthogonal vectors within a subspace), the fact that they are orthogonal lends a form of stability to the PCA results in that each of the selected vectors will still describe a unique aspect of the variance in the data.
+
+When implementing PCA:
+
+- **Numerical Algorithms**: Computational routines (like those in LAPACK or other linear algebra libraries) that are used to find the eigenvectors of a symmetric matrix automatically take care of finding orthogonal eigenvectors, even in the case of repeated eigenvalues.
+
+- **SVD Approach**: When using Singular Value Decomposition (SVD) to perform PCA, the issue of repeated eigenvalues does not directly arise. SVD decomposes the data matrix into orthogonal matrices, ensuring the orthogonality of the components.
+
+So, in practice, even when $ \lambda = \mu $, PCA implementations ensure that the resulting principal components are orthogonal and thus can be used effectively for dimensionality reduction, feature extraction, or data visualization purposes.
+
+---
+
+The Spectral Theorem is a fundamental result in linear algebra that provides the conditions under which a matrix can be diagonalized through a basis of eigenvectors. In its most general form applicable to symmetric matrices, the theorem states:
+
+**Spectral Theorem for Symmetric Matrices:**
+Every real symmetric matrix $ A $ can be diagonalized by an orthogonal matrix. That is, for any real symmetric matrix $ A $, there exists an orthogonal matrix $ Q $ and a diagonal matrix $ D $ such that
+
+$$ A = QDQ^T $$
+
+Here’s what this means in more detail:
+
+1. **Real Symmetric Matrix**: The matrix $ A $ is symmetric if $ A = A^T $, and all of its entries are real numbers.
+
+2. **Orthogonal Matrix**: The matrix $ Q $ is orthogonal if its columns are orthonormal eigenvectors of $ A $, meaning that $ Q^TQ = QQ^T = I $, where $ I $ is the identity matrix. The orthonormality condition implies that each eigenvector is unit length, and any pair of different eigenvectors are orthogonal to each other.
+
+3. **Diagonal Matrix**: The diagonal matrix $ D $ contains the eigenvalues of $ A $ along its diagonal, and these eigenvalues are real numbers because $ A $ is symmetric.
+
+4. **Diagonalization**: To say that $ A $ can be diagonalized means that there is a basis for the vector space consisting entirely of eigenvectors of $ A $, and when $ A $ is represented in this basis, it takes on a diagonal form.
+
+This theorem is particularly powerful for several reasons:
+
+- It guarantees that eigenvalues of a real symmetric matrix are always real, even though eigenvalues of non-symmetric matrices can be complex.
+- It provides an orthogonal set of eigenvectors for symmetric matrices, which is crucial for many applications in mathematics, physics, engineering, statistics, and machine learning, including PCA.
+- It implies that quadratic forms associated with symmetric matrices can be easily studied by considering their diagonal form, which simplifies understanding their topography (e.g., identifying maxima, minima, and saddle points).
+
+In the context of PCA, the Spectral Theorem ensures that we can find a set of orthogonal principal components, even if some eigenvalues are repeated. These principal components can be used to describe the variance in the dataset with uncorrelated features, simplifying both the geometry and the statistics of high-dimensional data.
+
+```
 
 ### **$Y$:**
 
@@ -71,7 +145,7 @@ When you project the original data $X$ onto the principal components (or eigenve
 
 $$ Y = Γ^T X $$
 
-Similarly, as Γ is orthogonal:
+Similarly, as Γ is [orthogonal](orthogonal):
 
 $$ X = ΓY $$
 ### **$Z$**: 
@@ -160,12 +234,95 @@ In practical terms, this cumulative proportion of explained variance is used to 
 
 $$Tr( \Sigma ) = \sum \lambda_i$$
 
-$$Det(\Sigma) = \lambda $$
+$$Det(\Sigma) = \Pi \lambda_i $$
 
 where $var(Y) = \lambda$
 ```
 
+```{admonition} Why $Tr( \Sigma ) = \sum \lambda_i$
+:class: dropdown
+In Principal Component Analysis (PCA), the covariance matrix is a key element that captures the variance and correlation between different variables in the dataset. The trace of a matrix, which is the sum of its diagonal elements, has a special significance when it comes to the covariance matrix.
 
+For any square matrix, the trace has an important property: it is equal to the sum of the matrix's eigenvalues. This is known because the eigenvalues of a matrix represent how much variance there is in the directions of the principal components (in the case of PCA), and the trace represents the total variance of the data.
+
+Here's why the trace of the covariance matrix equals the sum of its eigenvalues:
+
+1. **Eigenvalue Decomposition:**
+   A covariance matrix, which is symmetric, can be decomposed into its eigenvectors and eigenvalues. This is often written as $ \Sigma = Q \Lambda Q^T $, where $ \Sigma $ is the covariance matrix, $ Q $ is the matrix of eigenvectors, and $ \Lambda $ is the diagonal matrix of eigenvalues. The columns of $ Q $ are the principal components of the data.
+
+2. **Trace and Eigenvalues:**
+   When you calculate the trace of the covariance matrix $ \Sigma $, you are essentially summing the diagonal elements of $ \Sigma $. If you substitute $ \Sigma $ with $ Q \Lambda Q^T $ and take the trace, you get:
+   
+$$
+   \text{tr}(\Sigma) = \text{tr}(Q \Lambda Q^T).
+   $$
+
+   Using the cyclic property of the trace (which allows rearranging the factors in a trace without changing the result, $ \text{tr}(ABC) = \text{tr}(CAB) = \text{tr}(BCA) $), we get:
+   
+$$
+   \text{tr}(Q \Lambda Q^T) = \text{tr}(\Lambda Q^T Q) = \text{tr}(\Lambda).
+   $$
+
+   Since $ Q $ is an orthogonal matrix (for a covariance matrix, the eigenvectors are orthogonal), $ Q^T Q $ equals the identity matrix $ I $. Thus, the trace simplifies to the trace of $ \Lambda $, which is the sum of the eigenvalues because $ \Lambda $ is a diagonal matrix.
+
+3. **Variance Explanation:**
+   Each eigenvalue represents the variance along its corresponding eigenvector (principal component). So, the sum of the eigenvalues is the sum of the variances in each of the principal component directions. Since the trace of the covariance matrix represents the total variance in the data (by summing the variances of each variable), it must be equal to the sum of the eigenvalues.
+
+In summary, the reason the trace of the covariance matrix in PCA equals the sum of its eigenvalues is because the trace is invariant under a change of basis (which is what the eigenvectors provide) and because the trace represents the total variance encapsulated by the eigenvalues. This mathematical property holds not just in PCA, but in linear algebra generally for any square matrix.
+```
+
+- [Proof that the trace of a matrix is the sum of its eigenvalues](https://math.stackexchange.com/questions/546155/proof-that-the-trace-of-a-matrix-is-the-sum-of-its-eigenvalues)
+
+```{admonition} Why $Det(\Sigma) = \Pi \lambda_i $
+:class: dropdown
+
+The determinant of a matrix is a scalar value that is a function of all the elements of the matrix. For a covariance matrix $ \Sigma $ (which is symmetric and positive semi-definite), the determinant can give us insights into the total variance captured by the matrix and can also be related to the volume of the data it represents in the multi-dimensional space.
+
+When we talk about the determinant of $ \Sigma $ being equal to $ \Lambda $, there's a bit of clarification needed. $ \Lambda $ here should be understood not as the matrix of eigenvalues but as the product of the eigenvalues, because the determinant of a matrix is equal to the product of its eigenvalues.
+
+Here’s why the determinant of the covariance matrix $ \Sigma $ is equal to the product of its eigenvalues:
+
+1. **Eigenvalue Decomposition:**
+   As previously mentioned, a covariance matrix $ \Sigma $ can be decomposed as $ \Sigma = Q \Lambda Q^T $, where $ Q $ is the orthogonal matrix of eigenvectors and $ \Lambda $ is the diagonal matrix of eigenvalues.
+
+2. **Determinant of the Decomposed Matrix:**
+   When you take the determinant of $ \Sigma $, you can express it in terms of its decomposition:
+   
+$$
+   \det(\Sigma) = \det(Q \Lambda Q^T).
+   $$
+
+   Using the property that the determinant of a product of matrices equals the product of their determinants ($ \det(AB) = \det(A) \det(B) $), we can write:
+   
+$$
+   \det(Q \Lambda Q^T) = \det(Q) \det(\Lambda) \det(Q^T).
+   $$
+
+   Since $ Q $ is an orthogonal matrix, its determinant is $ \pm 1 $, and therefore $ \det(Q) \det(Q^T) = (\pm 1)(\pm 1) = 1 $. This simplifies our equation to:
+   
+$$
+   \det(\Sigma) = \det(\Lambda).
+   $$
+
+
+3. **Determinant of the Diagonal Matrix of Eigenvalues:**
+   The determinant of a diagonal matrix like $ \Lambda $ is simply the product of its diagonal elements, which are the eigenvalues of $ \Sigma $. Thus, the determinant of $ \Lambda $ is the product of the eigenvalues $ \lambda_i $ of $ \Sigma $:
+   
+$$
+   \det(\Lambda) = \lambda_1 \times \lambda_2 \times \cdots \times \lambda_n.
+   $$
+
+   Therefore:
+   
+$$
+   \det(\Sigma) = \lambda_1 \times \lambda_2 \times \cdots \times \lambda_n.
+   $$
+
+
+In this way, the determinant of the covariance matrix $ \Sigma $ is indeed equal to the product of its eigenvalues, not the sum. This product of eigenvalues (or determinant of $ \Sigma $) gives us a measure of the "spread" or "volume" of the data in the space defined by the principal components. If any of the eigenvalues are zero (or very close to zero), it indicates that the data is lying flat in some dimension, and the determinant will be zero (or very small), reflecting the lower dimensionality of the dataset.
+
+
+```
 $$ 
 \Sigma = \begin{bmatrix}
 \sigma_A^2 & \sigma_{AB} & \sigma_{AC} & \sigma_{AD} \\
@@ -218,6 +375,9 @@ Remember, this is just an arbitrary example. In real scenarios, the covariance m
 The orthogonality comes into play when we discuss the eigenvectors of the covariance matrix. If you've heard of Principal Component Analysis (PCA), it leverages this property. PCA finds the eigenvectors (principal components) of the data's covariance matrix, and these eigenvectors are orthogonal to each other.
 
 ```
+
+- [Proof of spectral decomposition](https://math.mit.edu/~dav/spectral.pdf)
+
 ---
 (content:references:label-corr)=
 ### $\rho$ (rho)
@@ -225,17 +385,27 @@ The orthogonality comes into play when we discuss the eigenvectors of the covari
 > Correlation
 
 $$
-\rho(X,Y)= \frac{\text{Cov}(X,Y)}{\sqrt{Var(X)Var(Y)}} = \frac{\gamma \lambda}{\sqrt{\sigma\lambda}} 
+\rho(X,Y)= \frac{\text{Cov}(X,Y)}{\sqrt{Var(X)Var(Y)}} = \frac{\gamma \lambda}{\sqrt{\sigma^2\lambda}} = \gamma  \frac{\lambda ^{\frac{1}{2}}}{\sigma}
+$$
 
 $$
+\sigma^2 = \sum  \lambda \gamma^2
+$$
+
+Note: 
+- $\sigma^2 $ ($s_{ii}$)is the sample variance.
+- The length in the circular graph corresponds to $\rho$. 
+- $\lambda ^{\frac{1}{2}}$ corresponds to the std of PC as $\lambda$ is the variance of PC.
 
 ### $R^2$
 
-> Correlation (squared, more interpretable)
+> Correlation (squared correlation)
 
 $$
-R^2 = \frac{\gamma^2 \lambda}{\sigma} 
+R^2 = \frac{\gamma^2 \lambda}{\sigma} = \frac{\gamma^2 \lambda}{ \sum  \lambda \gamma^2} 
 $$
+
+Note: $\gamma$ is the lower case for $\Gamma$.
 
 ---
 
@@ -334,3 +504,19 @@ When you conduct factor analysis, you're essentially trying to find underlying f
 :width: 800px
 :align: center
 ```
+
+### Matrix Determinant
+
+To calculate the determinant of a \(3 \times 3\) matrix with elements \(a, b, c; d, e, f; g, h, i\), we can use the following formula:
+
+$$ \text{Determinant} = a(ei - fh) - b(di - fg) + c(dh - eg) $$
+
+
+$$
+\begin{pmatrix}
+a & b & c \\
+d & e & f \\
+g & h & i
+\end{pmatrix}
+$$
+

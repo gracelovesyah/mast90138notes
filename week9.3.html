@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>week9 additional notes &#8212; My sample book</title>
+    <title>week9 additional notes &#8212; MAST90139 Multivariate Statistics for Data Science</title>
   
   
   
@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'week9.3';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -158,8 +160,9 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="basics.html">Notation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="useful_link.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="progress.html">Progress Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comparison.html">Comparison</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="week1.0.html">week1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="week1.1.html">Week 1 Lecture 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week1.2.html">week1 lec 2</a></li>
@@ -190,8 +193,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="week5.3.html">week5 additional notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="week6.0.html">week6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week6.0.html">Week 6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="week6.1.html">week6 lec1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week6.2.html">week6 lec2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="week6.3.html">week 6 additional resources</a></li>
 </ul>
 </li>
@@ -435,6 +439,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lda">LDA</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qda">QDA</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab">Lab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#issue-with-tree">Issue with Tree</a></li>
 </ul>
             </nav>
         </div>
@@ -496,6 +502,51 @@ document.write(`
 <p>(1) use the training data to construct the classifier;</p>
 <p>(2) apply the classifier to the test data;</p>
 <p>(3) Compute the classification error of the classifier on those test data</p>
+</section>
+<hr class="docutils" />
+<section id="random-forest">
+<h2>Random Forest<a class="headerlink" href="#random-forest" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=J4Wdy0Wc_xQ">StatQuest: Random Forests Part 1 - Building, Using and Evaluating</a></p></li>
+</ul>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/rf1.png"><img alt="rf" class="bg-primary mb-1 align-center" src="_images/rf1.png" style="width: 800px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/rf2.png"><img alt="rf" class="bg-primary mb-1 align-center" src="_images/rf2.png" style="width: 800px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/rf3.png"><img alt="rf" class="bg-primary mb-1 align-center" src="_images/rf3.png" style="width: 800px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/rf4.png"><img alt="rf" class="bg-primary mb-1 align-center" src="_images/rf4.png" style="width: 800px;" /></a>
+<p>-<a class="reference external" href="https://www.youtube.com/watch?v=sQ870aTKqiM">StatQuest: Random Forests Part 2: Missing data and clustering</a></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/rf5.png"><img alt="rf" class="bg-primary mb-1 align-center" src="_images/rf5.png" style="width: 800px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/rf6.png"><img alt="rf" class="bg-primary mb-1 align-center" src="_images/rf6.png" style="width: 800px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/rf7.png"><img alt="rf" class="bg-primary mb-1 align-center" src="_images/rf7.png" style="width: 800px;" /></a>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/rf8.png"><img alt="rf" class="bg-primary mb-1 align-center" src="_images/rf8.png" style="width: 800px;" /></a>
+</section>
+<hr class="docutils" />
+<section id="issue-with-tree">
+<h2>Issue with Tree<a class="headerlink" href="#issue-with-tree" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://stats.stackexchange.com/questions/295868/why-is-tree-correlation-a-problem-when-working-with-bagging">Why is tree correlation a problem when working with bagging?</a></p></li>
+</ul>
+<p>In the context of Random Forests and other ensemble methods like bagging, it’s not primarily the overlap in data points that causes the trees to be dependent, but rather the use of strong predictor features across different trees. Here’s how this works:</p>
+<ol class="arabic simple">
+<li><p><strong>Strong Predictors:</strong> In a dataset, if there are features (predictors) that are very strong, meaning they have a significant and consistent impact on the dependent variable, these features are likely to be selected for splitting early in the decision trees. In a standard bagging approach, where all features are considered for every split in every tree, these strong predictors dominate the tree-building process. This leads to a situation where many trees in the ensemble might have similar structures, especially near the top of the trees, because they are all using the same strong predictors.</p></li>
+<li><p><strong>Tree Correlation:</strong> When many trees in an ensemble use the same strong predictors for their primary splits, the trees become correlated with each other. In other words, they are likely to make similar predictions because they are structured similarly. This correlation among trees can diminish the effectiveness of the ensemble. The main power of ensemble methods comes from combining predictions from diverse (less correlated) models, as this can lead to a reduction in overall variance and an increase in prediction accuracy.</p></li>
+<li><p><strong>Random Forest Solution:</strong> Random Forests address this issue by introducing randomness in the feature selection process. When building each tree, instead of considering all available features for each split, Random Forests randomly select a subset of features. This means that even if there are strong predictors in the dataset, not every tree in the forest will have a chance to use them at every split. This encourages each tree to explore different paths and leads to a more diverse (less correlated) set of trees in the ensemble.</p></li>
+<li><p><strong>Outcome:</strong> By reducing the correlation among the trees in the ensemble, Random Forests typically provide a more accurate and robust model compared to a standard bagging ensemble of decision trees, especially in cases where the dataset contains one or more strong predictors.</p></li>
+</ol>
+<div class="admonition-from-dt-to-rf admonition">
+<p class="admonition-title">From DT to RF</p>
+<ol class="arabic simple">
+<li><p><strong>Decision Trees (DT):</strong> In a standard decision tree, when deciding which feature to use for a split at each node, the algorithm considers all available features. It selects the feature and the split-point that best separates the data according to some impurity measure (like Gini impurity for classification tasks). This process continues recursively until the tree reaches a stopping criterion.</p></li>
+<li><p><strong>Bagging with Decision Trees:</strong> When using bagging (Bootstrap Aggregating) with decision trees, multiple trees are created, each trained on a different bootstrap sample of the dataset. However, in standard bagging, each tree still considers all features for splitting at each node. Since they all have access to the same features and use the same criteria for choosing splits, if some features are very strong predictors, they are likely to be chosen in many of the trees, making the structure of these trees similar.</p></li>
+<li><p><strong>Random Forests and Feature Randomness:</strong> The ‘random’ in Random Forest indeed refers to an additional layer of randomness beyond what is used in standard bagging. In Random Forests, when building each tree:</p>
+<ul class="simple">
+<li><p>Not only is a bootstrap sample of the data used (as in standard bagging), but also a random subset of features is considered at each split.</p></li>
+<li><p>This means, for each split in each tree, the algorithm randomly selects a subset of the features and only considers those for splitting.</p></li>
+<li><p>The default number of features considered at each split is typically the square root of the total number of features (<span class="math notranslate nohighlight">\( p^{1/2} \)</span> for classification tasks). This parameter can be tuned based on the specific dataset and problem.</p></li>
+</ul>
+</li>
+<li><p><strong>Effect on Tree Correlation:</strong> By introducing this feature randomness, Random Forests ensure that not every tree in the ensemble will use the same strong predictors at every split. This results in a more diverse set of trees, reducing the correlation among them, which is beneficial for the ensemble’s overall predictive performance.</p></li>
+</ol>
+</div>
 </section>
 </section>
 
@@ -569,6 +620,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lda">LDA</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qda">QDA</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lab">Lab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#issue-with-tree">Issue with Tree</a></li>
 </ul>
   </nav></div>
 
@@ -583,7 +636,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Jiahe Liu (jiahe3@student.unimelb.edu.au)
 </p>
 
   </div>
@@ -592,7 +645,7 @@ By The Jupyter Book Community
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
