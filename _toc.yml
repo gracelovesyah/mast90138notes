@@ -7,6 +7,7 @@ chapters:
 - file: basics
 - file: resources
 - file: progress
+- file: comparison
 
 - file: week1.0
   sections:

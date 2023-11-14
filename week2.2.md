@@ -87,6 +87,8 @@ Combining all these concepts, we understand how multivariate distributions behav
 
 ### 4.3 The Wishart Distribution
 
+> The Wishart Distribution is a family of probability distributions defined over symmetric, positive-definite random matrices (i.e. matrix-valued random variables).
+
 - **Definition**: The Wishart distribution is a probability distribution that generalizes the chi-square distribution to multiple dimensions. It is the distribution of the sample covariance matrix of a multivariate normal distribution.
 - **Usage**: It is used in multivariate statistical analysis, particularly in the estimation of covariance matrices. It also appears in the study of Bayesian statistics as the conjugate prior of the inverse covariance matrix of a multivariate normal distribution.
 
@@ -119,3 +121,36 @@ Here are the visualizations for the Wishart and Hotelling's T-squared distributi
    - The second plot is a histogram of the T-squared values that follow Hotelling's T-squared distribution. It shows how often each range of T-squared values occurred. The shape of the distribution is similar to the Student's t-distribution but in a multivariate context.
 
 These distributions are foundational in multivariate statistical methods, particularly in hypothesis testing involving multiple dimensions. The Wishart distribution helps in understanding the variability of covariance matrices, while Hotelling's T-squared distribution is used to compare mean vectors against a hypothesized value or between groups.
+
+---
+
+## Proof
+
+To prove that $ \tau^2 = nx^T M^{-1} x $ has a Hotelling's T² distribution under the conditions that $ x \sim N_p(0, I_p) $ and $ M \sim W_p(I_p, n) $ are independent, we can use the properties of the multivariate normal distribution, the Wishart distribution, and the definition of the Hotelling's T² distribution.
+
+### Definitions and Properties
+
+- **Multivariate Normal Distribution**: $ x \sim N_p(0, I_p) $ means $ x $ is a p-dimensional normal random vector with mean 0 and identity covariance matrix $ I_p $.
+- **Wishart Distribution**: $ M \sim W_p(I_p, n) $ means $ M $ is a p-dimensional Wishart random matrix with scale matrix $ I_p $ and $ n $ degrees of freedom.
+- **Hotelling's T² Distribution**: A random variable is said to have a Hotelling's T² distribution if it can be expressed in the form $ \tau^2 = n x^T M^{-1} x $ where $ x $ and $ M $ are as defined above.
+
+### Proof
+
+1. **Given Conditions**:
+   - $ x $ is distributed as $ N_p(0, I_p) $.
+   - $ M $ is distributed as $ W_p(I_p, n) $.
+   - $ x $ and $ M $ are independent.
+
+2. **Wishart Distribution as a Sum of Outer Products**:
+   - By the definition of the Wishart distribution, $ M $ can be expressed as $ M = \sum_{i=1}^n Z_i Z_i^T $, where $ Z_i $ are independent and identically distributed as $ N_p(0, I_p) $.
+
+3. **Quadratic Form of a Multivariate Normal Distribution**:
+   - The quadratic form $ x^T M^{-1} x $ in the context of multivariate normal distributions has a well-known distribution. Specifically, if $ x \sim N_p(0, I_p) $, then $ x^T A x $ (for any symmetric matrix $ A $) follows a chi-square distribution with degrees of freedom equal to the rank of $ A $, provided $ A $ and $ x $ are independent.
+   - In our case, $ A = n M^{-1} $, and since $ x $ and $ M $ are independent, $ nx^T M^{-1} x $ follows a chi-square distribution with $ p $ degrees of freedom.
+
+4. **Hotelling's T² Distribution**:
+   - The definition of Hotelling's T² distribution is exactly the form $ \tau^2 = nx^T M^{-1} x $ where $ x $ and $ M $ are as defined.
+   - Therefore, $ \tau^2 $ is distributed as Hotelling's T²(p, n).
+
+### Conclusion
+The proof relies on understanding the properties of multivariate normal and Wishart distributions and the known results about the quadratic form of a multivariate normal distribution. By recognizing that $ nx^T M^{-1} x $ forms a quadratic form and considering the independence of $ x $ and $ M $, we conclude that $ \tau^2 $ is distributed as Hotelling's T²(p, n).

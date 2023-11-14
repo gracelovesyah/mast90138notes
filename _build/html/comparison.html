@@ -1,0 +1,1446 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Comparison &#8212; MAST90139 Multivariate Statistics for Data Science</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'comparison';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="week1" href="week1.0.html" />
+    <link rel="prev" title="Progress Check" href="progress.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to MAST90138
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="basics.html">Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="progress.html">Progress Check</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Comparison</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="week1.0.html">week1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="week1.1.html">Week 1 Lecture 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week1.2.html">week1 lec 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week1.3.html">week1 additional notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week2.0.html">week2</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="week2.1.html">Week 2 Lecture 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week2.2.html">Week 2 Lecture 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week2.3.html">week2 additional notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week3.0.html">week3</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="week3.1.html">Week 3 Lecture 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week3.2.html">week3 lec 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week3.3.html">week3 additional notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week4.0.html">week4</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="week4.1.html">week4 lec 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week4.2.html">week4 lec 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week4.3.html">week4 additional notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week5.0.html">week5</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="week5.1.html">week5 lec 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week5.2.html">week5 lec2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week5.3.html">week5 additional notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week6.0.html">Week 6</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="week6.1.html">week6 lec1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week6.2.html">week6 lec2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week6.3.html">week 6 additional resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week7.0.html">week7</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="week7.1.html">week7 lec1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week7.2.html">week7 lec2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week7.3.html">week7 additional notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week8.0.html">week8</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="week8.1.html">week8 lec 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week8.2.html">week8 lec 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week8.3.html">week8 additional notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week9.0.html">week9</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="week9.1.html">week9 lec 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week9.2.html">week9 lec 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week9.3.html">week9 additional notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week10.0.html">week10</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="week10.1.html">week10 lec 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week10.2.html">week10 lec2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week10.3.html">week10 additional notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week11.0.html">week11</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="week11.1.html">week11. lec1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week11.2.html">week11. lec2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week11.3.html">week11 additional notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="week12.0.html">week12</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="week12.1.html">CLUSTERING ALGORITHMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week12.2.html">week12 lec 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="week12.3.html">week12 additional notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="review0.html">Review</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="review1.0.html">review1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="review2.0.html">review2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="review3.0.html">review3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="review4.0.html">review4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="review5.0.html">review5</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcomparison.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/comparison.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Comparison</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Comparison</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lda-qda">LDA &amp; QDA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means-and-k-medoids">K-means and K-medoids</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-and-dt-and-rt">RF and DT and RT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-and-fa-and-lda">PCA and FA and LDA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pcr-and-ols">PCR and OLS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pcr-and-pls">PCR and PLS</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#some-exam-questions">Some exam questions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qda-lda-algorithm">QDA &amp; LDA Algorithm</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underlying-model-of-qda">Underlying Model of QDA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-rule">Decision Rule</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discriminant-function-qda">Discriminant Function (QDA)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discriminant-function-lda">Discriminant Function (LDA)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#original-discriminant-function">Original Discriminant Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#breaking-down-the-quadratic-term">Breaking Down the Quadratic Term</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simplification-to-linear-function">Simplification to Linear Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means-algorithm">K means algorithm</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#description-of-the-k-means-algorithm">Description of the K-means Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-solution-k-means-attempts-to-approximate">Optimal Solution K-means Attempts to Approximate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-and-limitations">Characteristics and Limitations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-between-k-medoids-and-k-means">Differences Between K-medoids and K-means</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agglomerative-algorithm">Agglomerative algorithm</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#group-average-agglomerative-clustering">Group Average Agglomerative Clustering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agglomerative-hierarchical-clustering-algorithm">Agglomerative Hierarchical Clustering Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantage-of-k-medoids-over-k-means">Advantage of K-medoids Over K-means</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t-or-f">T or F</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tree-size">Tree Size</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fa">FA</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pls-algorithm">PLS Algorithm</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="comparison">
+<h1>Comparison<a class="headerlink" href="#comparison" title="Permalink to this heading">#</a></h1>
+<section id="lda-qda">
+<h2>LDA &amp; QDA<a class="headerlink" href="#lda-qda" title="Permalink to this heading">#</a></h2>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Feature</strong></p></th>
+<th class="head"><p><strong>LDA</strong></p></th>
+<th class="head"><p><strong>QDA</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Covariance Matrix</strong></p></td>
+<td><p>Assumes a common covariance matrix for all classes.</p></td>
+<td><p>Estimates a separate covariance matrix for each class.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Complexity</strong></p></td>
+<td><p>Simpler model due to common covariance assumption. Less computationally intensive.</p></td>
+<td><p>More complex model; requires estimating more parameters. More computationally intensive.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Overfitting Risk</strong></p></td>
+<td><p>Lower risk of overfitting, especially with small datasets like Iris.</p></td>
+<td><p>Higher risk of overfitting, as it estimates more parameters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Dimensionality Reduction</strong></p></td>
+<td><p>Effective in reducing dimensions while maintaining class separability.</p></td>
+<td><p>Does not focus on dimensionality reduction.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Data Distribution Assumption</strong></p></td>
+<td><p>Performs well if predictor distributions are approximately normal and similar across classes.</p></td>
+<td><p>Can model more complex class distributions but needs more data to estimate these distributions effectively.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Regularization</strong></p></td>
+<td><p>Implicit regularization due to common covariance assumption.</p></td>
+<td><p>Lacks the same level of implicit regularization.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Performance with Small Sample Size</strong></p></td>
+<td><p>Generally better performance on small datasets due to simpler model and regularization.</p></td>
+<td><p>May struggle with small sample sizes due to the need to estimate more parameters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Best Use Case</strong></p></td>
+<td><p>More suitable for datasets where classes have similar covariance structures.</p></td>
+<td><p>More suitable for datasets with significantly different covariance structures in each class and larger sample sizes.</p></td>
+</tr>
+</tbody>
+</table>
+<p>This table illustrates why LDA often performs better than QDA on the Iris dataset, largely due to its simplicity, lower overfitting risk, effective dimensionality reduction, and better suitability for smaller datasets with similar class covariance structures.</p>
+</section>
+<section id="k-means-and-k-medoids">
+<h2>K-means and K-medoids<a class="headerlink" href="#k-means-and-k-medoids" title="Permalink to this heading">#</a></h2>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Feature</strong></p></th>
+<th class="head"><p><strong>K-means</strong></p></th>
+<th class="head"><p><strong>K-medoids</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Centroid Representation</strong></p></td>
+<td><p>Uses the mean of the points in a cluster as the cluster center.</p></td>
+<td><p>Uses an actual point from the dataset as the cluster center (medoid).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Sensitivity to Outliers</strong></p></td>
+<td><p>Sensitive to outliers, as means are easily influenced by extreme values.</p></td>
+<td><p>Less sensitive to outliers since medoids are less affected by extreme values.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Objective Function</strong></p></td>
+<td><p>Minimizes the sum of squared distances between points and their respective cluster centroids.</p></td>
+<td><p>Minimizes the sum of dissimilarities between points and their respective medoids.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Scalability</strong></p></td>
+<td><p>Generally more scalable to large datasets due to simpler calculations.</p></td>
+<td><p>Less scalable as it involves more complex calculations (e.g., pairwise distances between all points).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Suitability for Different Data Types</strong></p></td>
+<td><p>Best suited for numerical data where mean is a meaningful measure.</p></td>
+<td><p>Suitable for various types of data, including non-metric data, as it relies on general dissimilarity measures.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Algorithm Complexity</strong></p></td>
+<td><p>Computationally faster and simpler, especially for large datasets.</p></td>
+<td><p>Computationally more intensive, particularly for large datasets due to the need to compute and store all pairwise distances.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Robustness</strong></p></td>
+<td><p>Less robust due to its sensitivity to outliers and initial centroid placement.</p></td>
+<td><p>More robust to outliers and noise, but still sensitive to initial medoid placement.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Result Interpretation</strong></p></td>
+<td><p>Cluster centers (means) may not correspond to actual data points, making interpretation less intuitive.</p></td>
+<td><p>Cluster centers are actual data points (medoids), making interpretation more intuitive.</p></td>
+</tr>
+</tbody>
+</table>
+<p>K-means is generally preferred for its computational efficiency, especially with large and well-separated numerical datasets. K-medoids, on the other hand, offers advantages in terms of robustness and flexibility, being more suitable for datasets with outliers or non-numerical data types, though at the cost of increased computational requirements.</p>
+</section>
+<section id="rf-and-dt-and-rt">
+<h2>RF and DT and RT<a class="headerlink" href="#rf-and-dt-and-rt" title="Permalink to this heading">#</a></h2>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Feature</strong></p></th>
+<th class="head"><p><strong>Decision Tree</strong></p></th>
+<th class="head"><p><strong>Regression Tree</strong></p></th>
+<th class="head"><p><strong>Random Forest</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Type</strong></p></td>
+<td><p>A single tree structure used for classification or regression.</p></td>
+<td><p>A type of Decision Tree specifically used for regression problems (predicting continuous values).</p></td>
+<td><p>An ensemble of Decision Trees, used for both classification and regression.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Complexity</strong></p></td>
+<td><p>Relatively simple model. Complexity depends on depth and number of nodes.</p></td>
+<td><p>Similar to Decision Tree; complexity varies with depth. Designed to handle continuous data and complex relationships.</p></td>
+<td><p>More complex model due to being an ensemble of multiple trees.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Overfitting</strong></p></td>
+<td><p>Prone to overfitting, especially if the tree is deep.</p></td>
+<td><p>Also prone to overfitting, similar to Decision Trees.</p></td>
+<td><p>Less prone to overfitting due to averaging/majority voting across multiple trees.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Interpretability</strong></p></td>
+<td><p>Highly interpretable with clear decision paths.</p></td>
+<td><p>Interpretable as it provides a clear regression model for decision paths.</p></td>
+<td><p>Less interpretable due to complexity of multiple trees.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Handling Non-Linearity</strong></p></td>
+<td><p>Handles non-linear relationships well.</p></td>
+<td><p>Specifically designed to handle non-linear relationships in regression.</p></td>
+<td><p>Very effective in handling non-linear relationships due to multiple trees capturing various aspects of the data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Feature Importance</strong></p></td>
+<td><p>Provides insights on feature importance.</p></td>
+<td><p>Similar to Decision Trees, offers insights on feature importance for regression tasks.</p></td>
+<td><p>Offers a more robust insight into feature importance by averaging across multiple trees.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Performance</strong></p></td>
+<td><p>Performance can vary; may struggle with very complex datasets.</p></td>
+<td><p>Good for regression tasks, but performance can be affected by overfitting.</p></td>
+<td><p>Generally high performance, especially in cases where individual trees have uncorrelated errors.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Robustness</strong></p></td>
+<td><p>Sensitive to changes in data and can suffer from variance.</p></td>
+<td><p>Similar to Decision Trees, can be sensitive to variance in data.</p></td>
+<td><p>Robust to noise and variance in data, thanks to averaging over many trees.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Suitability</strong></p></td>
+<td><p>Suitable for simple to moderately complex tasks.</p></td>
+<td><p>Best for regression problems with moderate complexity.</p></td>
+<td><p>Ideal for both classification and regression in complex scenarios with large datasets.</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>Decision Trees</strong> are versatile and can be used for both classification and regression, but they can easily overfit.</p></li>
+<li><p><strong>Regression Trees</strong> are decision trees used specifically for regression tasks, predicting continuous values.</p></li>
+<li><p><strong>Random Forests</strong> are an ensemble of decision trees, offering better performance and robustness, especially in complex scenarios, but with reduced interpretability.</p></li>
+</ul>
+</section>
+<section id="pca-and-fa-and-lda">
+<h2>PCA and FA and LDA<a class="headerlink" href="#pca-and-fa-and-lda" title="Permalink to this heading">#</a></h2>
+<p>Here’s a comparison table for Principal Component Analysis (PCA), Factor Analysis (FA), and Linear Discriminant Analysis (LDA):</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Feature</strong></p></th>
+<th class="head"><p><strong>Principal Component Analysis (PCA)</strong></p></th>
+<th class="head"><p><strong>Factor Analysis (FA)</strong></p></th>
+<th class="head"><p><strong>Linear Discriminant Analysis (LDA)</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Objective</strong></p></td>
+<td><p>Reduces dimensionality by finding new uncorrelated variables (principal components) that maximize variance.</p></td>
+<td><p>Seeks to explain observed correlations between variables using latent (unobserved) factors.</p></td>
+<td><p>Maximizes class separability for classification purposes. Focuses on finding a linear combination of features that best separates different classes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Methodology</strong></p></td>
+<td><p>Uses orthogonal transformation to convert possibly correlated features into linearly uncorrelated principal components.</p></td>
+<td><p>Identifies underlying factors that explain the correlations among variables. Assumes that observed variables are linear combinations of factors plus error terms.</p></td>
+<td><p>Finds linear discriminants based on the concept that classes are separable by finding the directions that maximize the distance between class means and minimize the variance within each class.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Type of Analysis</strong></p></td>
+<td><p>Unsupervised – does not consider class labels in the data.</p></td>
+<td><p>Unsupervised – does not consider class labels. Primarily used for exploring data structure.</p></td>
+<td><p>Supervised – uses class labels to find the optimal separation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Assumptions</strong></p></td>
+<td><p>Assumes linear relationships among variables.</p></td>
+<td><p>Assumes that observed variables have underlying latent factors and that these factors are linearly related to the variables.</p></td>
+<td><p>Assumes that data is normally distributed, classes have identical covariance matrices, and the features are statistically independent.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Output</strong></p></td>
+<td><p>Principal components (new set of orthogonal features).</p></td>
+<td><p>Factors (latent variables) and factor loadings (relationship of each variable to the underlying factor).</p></td>
+<td><p>Linear discriminants used for classification.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Use Cases</strong></p></td>
+<td><p>Used for feature extraction, data compression, and exploratory data analysis.</p></td>
+<td><p>Used for uncovering latent structure in data, especially in psychology, social sciences, and market research.</p></td>
+<td><p>Used in classification problems to find a linear combination of features that best separates different classes.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Interpretability</strong></p></td>
+<td><p>Components are linear combinations of original features but can be less interpretable due to being a mixture of all features.</p></td>
+<td><p>Factor loadings can be interpreted, but the factors themselves are abstract and not always directly interpretable.</p></td>
+<td><p>The discriminant function is directly related to the class labels, making it interpretable in the context of classification.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Robustness and Limitations</strong></p></td>
+<td><p>Sensitive to scaling of data; works best with linear relationships.</p></td>
+<td><p>Requires sufficient sample size and careful interpretation; sensitive to the choice of the number of factors.</p></td>
+<td><p>Performance depends on the assumptions of normality and equal covariance; sensitive to outliers.</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>PCA</strong> is primarily used for dimensionality reduction and feature extraction without considering class labels.</p></li>
+<li><p><strong>FA</strong> is used to identify latent factors explaining observed correlations, useful in psychometrics and other fields.</p></li>
+<li><p><strong>LDA</strong> is a supervised technique used for classification, focusing on maximizing the separability between different classes.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="pcr-and-ols">
+<h2>PCR and OLS<a class="headerlink" href="#pcr-and-ols" title="Permalink to this heading">#</a></h2>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Aspect</strong></p></th>
+<th class="head"><p><strong>Principal Component Regression (PCR)</strong></p></th>
+<th class="head"><p><strong>Ordinary Least Squares (OLS)</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Handling Multicollinearity</strong></p></td>
+<td><p>Excellent. PCR reduces multicollinearity by transforming the predictors into a set of uncorrelated principal components.</p></td>
+<td><p>Poor. OLS is sensitive to multicollinearity, which can inflate the variance of the coefficient estimates and make them unstable.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Dimensionality Reduction</strong></p></td>
+<td><p>Good. PCR is useful for dimensionality reduction, as it summarizes the predictor variables with fewer principal components.</p></td>
+<td><p>None. OLS uses all original predictor variables and does not inherently reduce dimensionality.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Interpretability</strong></p></td>
+<td><p>Lower. The principal components are linear combinations of original variables, which can be less interpretable.</p></td>
+<td><p>Higher. OLS maintains the original variables, making the model more interpretable in terms of those variables.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Model Complexity</strong></p></td>
+<td><p>Variable. The number of components used can be adjusted, offering flexibility in model complexity.</p></td>
+<td><p>Fixed. OLS uses all variables, leading to potentially more complex models, especially with many predictors.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Data Requirements</strong></p></td>
+<td><p>Higher. PCR requires sufficient data to accurately estimate the principal components.</p></td>
+<td><p>Lower. OLS can be applied even with a smaller dataset, although issues like multicollinearity may still arise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Prediction Accuracy</strong></p></td>
+<td><p>Potentially High. By reducing noise and multicollinearity, PCR can improve prediction accuracy.</p></td>
+<td><p>Variable. OLS can be very accurate if the assumptions of linear regression are met, but can struggle with multicollinearity.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Model Selection</strong></p></td>
+<td><p>More Complex. Choosing the number of principal components to include adds an extra layer of model selection.</p></td>
+<td><p>Simpler. OLS does not require this additional step, though variable selection might still be necessary.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Computational Efficiency</strong></p></td>
+<td><p>Lower. Calculating principal components adds extra computational steps.</p></td>
+<td><p>Higher. OLS is generally computationally simpler and faster, especially for smaller datasets.</p></td>
+</tr>
+</tbody>
+</table>
+<p>In summary, PCR is particularly advantageous in situations with multicollinearity and when dealing with a large number of predictor variables, as it can reduce dimensionality and potentially improve prediction accuracy. However, this comes at the cost of reduced interpretability and increased computational complexity. OLS, on the other hand, is simpler and more interpretable but can struggle with multicollinearity and high-dimensional data.</p>
+</section>
+<hr class="docutils" />
+<section id="pcr-and-pls">
+<h2>PCR and PLS<a class="headerlink" href="#pcr-and-pls" title="Permalink to this heading">#</a></h2>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Aspect</strong></p></th>
+<th class="head"><p><strong>Principal Component Regression (PCR)</strong></p></th>
+<th class="head"><p><strong>Partial Least Squares Regression (PLS)</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Objective</strong></p></td>
+<td><p>Focuses on explaining the variance in the predictor variables.</p></td>
+<td><p>Focuses on explaining the variance in both the predictor variables and the response variable.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Handling Multicollinearity</strong></p></td>
+<td><p>Excellent. Reduces multicollinearity by using uncorrelated principal components derived from predictors.</p></td>
+<td><p>Excellent. Reduces multicollinearity and focuses on components that are most relevant for predicting the response variable.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Dimensionality Reduction</strong></p></td>
+<td><p>Good. Efficient in reducing the number of variables by using principal components.</p></td>
+<td><p>Good. Reduces dimensionality by extracting a small number of latent factors that are useful for predicting the response.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Interpretability</strong></p></td>
+<td><p>Lower. The principal components are linear combinations of original variables, which may be less interpretable.</p></td>
+<td><p>Moderate. PLS components are also linear combinations, but they are constructed with an eye towards predicting the response.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Prediction Accuracy</strong></p></td>
+<td><p>Potentially high, especially in cases of strong multicollinearity, but not directly focused on predicting the response variable.</p></td>
+<td><p>Often better than PCR, especially when the relationship between predictors and response is complex.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Variable Selection</strong></p></td>
+<td><p>Does not perform variable selection; all variables are included in the principal components.</p></td>
+<td><p>Can implicitly perform variable selection by emphasizing variables more relevant for predicting the response.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Model Complexity</strong></p></td>
+<td><p>Variable. Depends on the number of principal components chosen.</p></td>
+<td><p>Variable. Depends on the number of latent factors chosen.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Computational Efficiency</strong></p></td>
+<td><p>Generally efficient, but requires an additional step to calculate principal components.</p></td>
+<td><p>Less efficient than PCR due to the iterative nature of finding the latent factors.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Applicability</strong></p></td>
+<td><p>Better suited for data exploration and understanding underlying patterns in the predictors.</p></td>
+<td><p>More suited for predictive modeling where the goal is to predict a response variable.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Model Selection</strong></p></td>
+<td><p>Requires choosing the number of principal components.</p></td>
+<td><p>Requires choosing the number of latent variables, which can be more challenging due to the focus on prediction accuracy.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Both PCR and PLS are valuable in dealing with high-dimensional data and multicollinearity, but they serve slightly different purposes. PCR is more focused on dimensionality reduction and is used when the primary goal is to understand the structure in the predictor variables. PLS, however, is more focused on prediction and is used when the primary goal is to predict a response variable, often providing better predictive performance when the predictors and response are complexly related.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="some-exam-questions">
+<h1>Some exam questions<a class="headerlink" href="#some-exam-questions" title="Permalink to this heading">#</a></h1>
+<section id="qda-lda-algorithm">
+<h2>QDA &amp; LDA Algorithm<a class="headerlink" href="#qda-lda-algorithm" title="Permalink to this heading">#</a></h2>
+<p>Quadratic Discriminant Analysis (QDA) is a statistical method used for classification problems where there are <span class="math notranslate nohighlight">\( K \)</span> classes (<span class="math notranslate nohighlight">\( K &gt; 2 \)</span>). Here’s a description of its underlying model and the decision rule:</p>
+<section id="underlying-model-of-qda">
+<h3>Underlying Model of QDA<a class="headerlink" href="#underlying-model-of-qda" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Assumptions</strong>:</p>
+<ul class="simple">
+<li><p>Each class <span class="math notranslate nohighlight">\( k \)</span> follows a multivariate normal (Gaussian) distribution.</p></li>
+<li><p>The classes have different covariance matrices, i.e., each class <span class="math notranslate nohighlight">\( k \)</span> has its own covariance matrix <span class="math notranslate nohighlight">\( \Sigma_k \)</span>.</p></li>
+<li><p>The prior probability of each class, <span class="math notranslate nohighlight">\( P(Y = k) \)</span>, can be different.</p></li>
+</ul>
+</li>
+<li><p><strong>Probability Density Function</strong>:</p>
+<ul class="simple">
+<li><p>For a given class <span class="math notranslate nohighlight">\( k \)</span>, the probability density function of a feature vector <span class="math notranslate nohighlight">\( x \)</span> is given by the multivariate normal distribution:</p></li>
+</ul>
+</li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+     f_k(x) = \frac{1}{(2\pi)^{p/2}|\Sigma_k|^{1/2}} \exp\left(-\frac{1}{2}(x - \mu_k)^\top \Sigma_k^{-1} (x - \mu_k)\right)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\( p \)</span> is the number of features, <span class="math notranslate nohighlight">\( \mu_k \)</span> is the mean vector of class <span class="math notranslate nohighlight">\( k \)</span>, and <span class="math notranslate nohighlight">\( \Sigma_k \)</span> is the covariance matrix of class <span class="math notranslate nohighlight">\( k \)</span>.</p>
+<ol class="arabic simple" start="3">
+<li><p><strong>Parameters</strong>:</p>
+<ul class="simple">
+<li><p>For each class <span class="math notranslate nohighlight">\( k \)</span>, QDA estimates the mean vector <span class="math notranslate nohighlight">\( \mu_k \)</span> and the covariance matrix <span class="math notranslate nohighlight">\( \Sigma_k \)</span>.</p></li>
+<li><p>The prior probabilities <span class="math notranslate nohighlight">\( P(Y = k) \)</span> can be estimated based on the relative frequencies of each class in the training data or can be set based on domain knowledge.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="decision-rule">
+<h3>Decision Rule<a class="headerlink" href="#decision-rule" title="Permalink to this heading">#</a></h3>
+<blockquote>
+<div><p><strong>(a) Describe the underlying model of quadratic discriminant analysis (QDA) for a general K-class problem (K &gt; 2), and write down its decision rule. [7]</strong></p>
+</div></blockquote>
+<div class="admonition-answer admonition">
+<p class="admonition-title">Answer</p>
+<p>Quadratic Discriminant Analysis (QDA) is a statistical method used for classification problems where there are <span class="math notranslate nohighlight">\( K \)</span> classes (<span class="math notranslate nohighlight">\( K &gt; 2 \)</span>). Here’s a description of its underlying model and the decision rule:</p>
+<p class="rubric">Underlying Model of QDA</p>
+<ol class="arabic simple">
+<li><p><strong>Assumptions</strong>:</p>
+<ul class="simple">
+<li><p>Each class <span class="math notranslate nohighlight">\( k \)</span> follows a multivariate normal (Gaussian) distribution.</p></li>
+<li><p>The classes have different covariance matrices, i.e., each class <span class="math notranslate nohighlight">\( k \)</span> has its own covariance matrix <span class="math notranslate nohighlight">\( \Sigma_k \)</span>.</p></li>
+<li><p>The prior probability of each class, <span class="math notranslate nohighlight">\( P(Y = k) \)</span>, can be different.</p></li>
+</ul>
+</li>
+<li><p><strong>Probability Density Function</strong>:</p>
+<ul class="simple">
+<li><p>For a given class <span class="math notranslate nohighlight">\( k \)</span>, the probability density function of a feature vector <span class="math notranslate nohighlight">\( x \)</span> is given by the multivariate normal distribution:</p></li>
+</ul>
+</li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+     f_k(x) = \frac{1}{(2\pi)^{p/2}|\Sigma_k|^{1/2}} \exp\left(-\frac{1}{2}(x - \mu_k)^\top \Sigma_k^{-1} (x - \mu_k)\right)
+     \]</div>
+<p>where <span class="math notranslate nohighlight">\( p \)</span> is the number of features, <span class="math notranslate nohighlight">\( \mu_k \)</span> is the mean vector of class <span class="math notranslate nohighlight">\( k \)</span>, and <span class="math notranslate nohighlight">\( \Sigma_k \)</span> is the covariance matrix of class <span class="math notranslate nohighlight">\( k \)</span>.</p>
+<ol class="arabic simple" start="3">
+<li><p><strong>Parameters</strong>:</p>
+<ul class="simple">
+<li><p>For each class <span class="math notranslate nohighlight">\( k \)</span>, QDA estimates the mean vector <span class="math notranslate nohighlight">\( \mu_k \)</span> and the covariance matrix <span class="math notranslate nohighlight">\( \Sigma_k \)</span>.</p></li>
+<li><p>The prior probabilities <span class="math notranslate nohighlight">\( P(Y = k) \)</span> can be estimated based on the relative frequencies of each class in the training data or can be set based on domain knowledge.</p></li>
+</ul>
+</li>
+</ol>
+<p class="rubric">Decision Rule</p>
+<p>The decision rule in QDA is to assign a new observation <span class="math notranslate nohighlight">\( x \)</span> to the class that maximizes the posterior probability <span class="math notranslate nohighlight">\( P(Y = k | X = x) \)</span>. Using Bayes’ theorem, this is equivalent to maximizing the following discriminant function for each class <span class="math notranslate nohighlight">\( k \)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\delta_k(x) = -\frac{1}{2} \ln|\Sigma_k| - \frac{1}{2}(x - \mu_k)^\top \Sigma_k^{-1} (x - \mu_k) + \ln P(Y = k)
+\]</div>
+<p>An observation <span class="math notranslate nohighlight">\( x \)</span> is classified into the class <span class="math notranslate nohighlight">\( k \)</span> for which <span class="math notranslate nohighlight">\( \delta_k(x) \)</span> is the largest.</p>
+<p class="rubric">Summary</p>
+<p>In summary, QDA models each class with its own covariance matrix and mean vector, assuming a Gaussian distribution for the features within each class. The classification is done by computing a quadratic discriminant function for each class and assigning the observation to the class with the highest value of this function. The “quadratic” in QDA refers to the decision boundary between classes being a quadratic function, due to the class-specific covariance matrices.</p>
+</div>
+<div class="admonition-lda admonition">
+<p class="admonition-title">LDA</p>
+<p>For Linear Discriminant Analysis (LDA), the derivation of the discriminant function differs from QDA mainly in its assumption about the covariance matrices of the classes. LDA assumes that all classes have the same covariance matrix, which leads to linear decision boundaries. Here’s how the discriminant function for LDA is derived:</p>
+<p class="rubric">Assumptions of LDA</p>
+<ol class="arabic simple">
+<li><p><strong>Common Covariance Matrix</strong>:</p>
+<ul class="simple">
+<li><p>LDA assumes that all classes share the same covariance matrix, denoted as <span class="math notranslate nohighlight">\( \Sigma \)</span>. This is in contrast to QDA, where each class has its own covariance matrix <span class="math notranslate nohighlight">\( \Sigma_k \)</span>.</p></li>
+</ul>
+</li>
+<li><p><strong>Multivariate Normal Distribution</strong>:</p>
+<ul class="simple">
+<li><p>Similar to QDA, LDA assumes that the data in each class follows a multivariate normal distribution with class-specific mean vectors <span class="math notranslate nohighlight">\( \mu_k \)</span> but a common covariance matrix <span class="math notranslate nohighlight">\( \Sigma \)</span>.</p></li>
+</ul>
+</li>
+</ol>
+<p class="rubric">Derivation of the Discriminant Function</p>
+<ol class="arabic simple">
+<li><p><strong>Bayes’ Theorem</strong>:</p>
+<ul class="simple">
+<li><p>As with QDA, we start with Bayes’ theorem:</p></li>
+</ul>
+</li>
+</ol>
+<div class="math notranslate nohighlight">
+\[     P(Y = k | X = x) = \frac{P(X = x | Y = k) \times P(Y = k)}{P(X = x)}
+     \]</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Logarithmic Transformation</strong>:</p>
+<ul class="simple">
+<li><p>The likelihood <span class="math notranslate nohighlight">\( P(X = x | Y = k) \)</span> is modeled as a multivariate normal distribution. After taking the logarithm and simplifying (ignoring the constant terms), the discriminant function becomes:</p></li>
+</ul>
+</li>
+</ol>
+<div class="math notranslate nohighlight">
+\[     \ln P(Y = k | X = x) = -\frac{1}{2}(x - \mu_k)^\top \Sigma^{-1} (x - \mu_k) + \ln P(Y = k) + \text{constant}
+     \]</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>Simplification for LDA</strong>:</p>
+<ul class="simple">
+<li><p>Because the covariance matrix <span class="math notranslate nohighlight">\( \Sigma \)</span> is common across all classes, the quadratic term simplifies, resulting in a linear function. Specifically, the term <span class="math notranslate nohighlight">\( x^\top \Sigma^{-1} x \)</span> is constant for all classes and can be ignored for classification purposes.</p></li>
+<li><p>The discriminant function then simplifies to:</p></li>
+</ul>
+</li>
+</ol>
+<div class="math notranslate nohighlight">
+\[     \delta_k(x) = x^\top \Sigma^{-1} \mu_k - \frac{1}{2} \mu_k^\top \Sigma^{-1} \mu_k + \ln P(Y = k)
+     \]</div>
+<p class="rubric">Decision Rule for LDA</p>
+<ul class="simple">
+<li><p>An observation <span class="math notranslate nohighlight">\( x \)</span> is classified into the class <span class="math notranslate nohighlight">\( k \)</span> that maximizes the discriminant function <span class="math notranslate nohighlight">\( \delta_k(x) \)</span>. Mathematically:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[  \text{Classify } x \text{ to class } k \text{ if } \delta_k(x) &gt; \delta_j(x) \text{ for all } j \neq k
+  \]</div>
+<p class="rubric">Summary</p>
+<p>The key difference between LDA and QDA lies in their assumptions about the covariance matrix. LDA’s assumption of a common covariance matrix leads to a simpler, linear discriminant function, which results in linear decision boundaries. This makes LDA more robust to overfitting, especially when the sample size is small, compared to QDA, which can model more complex boundaries but requires more data to estimate class-specific covariance matrices accurately.</p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="discriminant-function-qda">
+<h2>Discriminant Function (QDA)<a class="headerlink" href="#discriminant-function-qda" title="Permalink to this heading">#</a></h2>
+<p>The discriminant function in Quadratic Discriminant Analysis (QDA) is derived using Bayes’ theorem, which relates the conditional and marginal probabilities of random events. The goal is to assign a new observation <span class="math notranslate nohighlight">\( x \)</span> to the class <span class="math notranslate nohighlight">\( k \)</span> that maximizes the posterior probability <span class="math notranslate nohighlight">\( P(Y = k | X = x) \)</span>. Let’s break down the steps to obtain the discriminant function:</p>
+<ol class="arabic simple">
+<li><p><strong>Bayes’ Theorem Application</strong>:
+Bayes’ theorem states that:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+   P(Y = k | X = x) = \frac{P(X = x | Y = k) \times P(Y = k)}{P(X = x)}
+   \]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( P(Y = k | X = x) \)</span> is the posterior probability of class <span class="math notranslate nohighlight">\( k \)</span> given observation <span class="math notranslate nohighlight">\( x \)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\( P(X = x | Y = k) \)</span> is the likelihood of observing <span class="math notranslate nohighlight">\( x \)</span> in class <span class="math notranslate nohighlight">\( k \)</span>, modeled by the multivariate normal distribution.</p></li>
+<li><p><span class="math notranslate nohighlight">\( P(Y = k) \)</span> is the prior probability of class <span class="math notranslate nohighlight">\( k \)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\( P(X = x) \)</span> is the marginal probability of observing <span class="math notranslate nohighlight">\( x \)</span>, which acts as a scaling factor and is the same for each class.</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p><strong>Modeling the Likelihood</strong>:
+The likelihood <span class="math notranslate nohighlight">\( P(X = x | Y = k) \)</span> is modeled as a multivariate normal distribution with a mean vector <span class="math notranslate nohighlight">\( \mu_k \)</span> and covariance matrix <span class="math notranslate nohighlight">\( \Sigma_k \)</span> specific to each class <span class="math notranslate nohighlight">\( k \)</span>. The probability density function of a multivariate normal distribution is given by:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+   f(x | \mu_k, \Sigma_k) = \frac{1}{(2\pi)^{p/2}|\Sigma_k|^{1/2}} \exp\left(-\frac{1}{2}(x - \mu_k)^\top \Sigma_k^{-1} (x - \mu_k)\right)
+   \]</div>
+<p>where <span class="math notranslate nohighlight">\( p \)</span> is the number of features.</p>
+<ol class="arabic simple" start="3">
+<li><p><strong>Logarithmic Transformation</strong>:
+To simplify calculations and avoid numerical underflow, we take the logarithm of Bayes’ formula (ignoring <span class="math notranslate nohighlight">\( P(X = x) \)</span> since it’s constant for all classes). The logarithm of the multivariate normal distribution leads to:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+   \ln f(x | \mu_k, \Sigma_k) = -\frac{1}{2} \ln|\Sigma_k| - \frac{1}{2}(x - \mu_k)^\top \Sigma_k^{-1} (x - \mu_k) - \frac{p}{2} \ln(2\pi)
+   \]</div>
+<p>Since <span class="math notranslate nohighlight">\(- \frac{p}{2} \ln(2\pi)\)</span> is constant for all classes, it can be omitted for the purpose of classification.</p>
+<ol class="arabic simple" start="4">
+<li><p><strong>Deriving the Discriminant Function</strong>:
+Incorporating the prior probability <span class="math notranslate nohighlight">\( P(Y = k) \)</span> and the logarithm of the likelihood, the discriminant function for QDA becomes:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+   \delta_k(x) = -\frac{1}{2} \ln|\Sigma_k| - \frac{1}{2}(x - \mu_k)^\top \Sigma_k^{-1} (x - \mu_k) + \ln P(Y = k)
+   \]</div>
+<p>The discriminant function <span class="math notranslate nohighlight">\( \delta_k(x) \)</span> thus obtained is used to classify a new observation <span class="math notranslate nohighlight">\( x \)</span> into the class <span class="math notranslate nohighlight">\( k \)</span> that maximizes this function. The quadratic nature of the decision boundaries in QDA arises from the term <span class="math notranslate nohighlight">\( (x - \mu_k)^\top \Sigma_k^{-1} (x - \mu_k) \)</span> in the discriminant function.</p>
+</section>
+<hr class="docutils" />
+<section id="discriminant-function-lda">
+<h2>Discriminant Function (LDA)<a class="headerlink" href="#discriminant-function-lda" title="Permalink to this heading">#</a></h2>
+<p>The simplification in Linear Discriminant Analysis (LDA) arises from the assumption that all classes share the same covariance matrix, denoted as <span class="math notranslate nohighlight">\( \Sigma \)</span>. This shared covariance matrix allows for simplification of the discriminant function, leading to linear decision boundaries. Let’s break down the simplification process:</p>
+<section id="original-discriminant-function">
+<h3>Original Discriminant Function<a class="headerlink" href="#original-discriminant-function" title="Permalink to this heading">#</a></h3>
+<p>Starting from Bayes’ Theorem, the discriminant function for class <span class="math notranslate nohighlight">\( k \)</span> in LDA, after applying logarithm to the multivariate normal distribution and dropping the constant terms, is given as:</p>
+<div class="math notranslate nohighlight">
+\[
+\ln P(Y = k | X = x) = -\frac{1}{2}(x - \mu_k)^\top \Sigma^{-1} (x - \mu_k) + \ln P(Y = k) + \text{constant}
+\]</div>
+</section>
+<section id="breaking-down-the-quadratic-term">
+<h3>Breaking Down the Quadratic Term<a class="headerlink" href="#breaking-down-the-quadratic-term" title="Permalink to this heading">#</a></h3>
+<p>The quadratic term <span class="math notranslate nohighlight">\((x - \mu_k)^\top \Sigma^{-1} (x - \mu_k)\)</span> can be expanded as:</p>
+<div class="math notranslate nohighlight">
+\[
+(x - \mu_k)^\top \Sigma^{-1} (x - \mu_k) = x^\top \Sigma^{-1} x - x^\top \Sigma^{-1} \mu_k - \mu_k^\top \Sigma^{-1} x + \mu_k^\top \Sigma^{-1} \mu_k
+\]</div>
+<p>Notice that <span class="math notranslate nohighlight">\( x^\top \Sigma^{-1} x \)</span> is a term that does not depend on the class <span class="math notranslate nohighlight">\( k \)</span> and will be the same for every class. In the context of classification, where we are interested in comparing the discriminant function values across different classes, this term does not affect the decision and can thus be omitted.</p>
+</section>
+<section id="simplification-to-linear-function">
+<h3>Simplification to Linear Function<a class="headerlink" href="#simplification-to-linear-function" title="Permalink to this heading">#</a></h3>
+<p>After dropping the constant <span class="math notranslate nohighlight">\( x^\top \Sigma^{-1} x \)</span> term, the discriminant function simplifies to:</p>
+<div class="math notranslate nohighlight">
+\[
+\delta_k(x) = x^\top \Sigma^{-1} \mu_k - \frac{1}{2} \mu_k^\top \Sigma^{-1} \mu_k + \ln P(Y = k)
+\]</div>
+<p>Here’s what remains in the simplified discriminant function:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( x^\top \Sigma^{-1} \mu_k \)</span>: This term is linear in <span class="math notranslate nohighlight">\( x \)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \frac{1}{2} \mu_k^\top \Sigma^{-1} \mu_k \)</span>: This is a scalar and does not depend on <span class="math notranslate nohighlight">\( x \)</span>. It serves as an offset for each class.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \ln P(Y = k) \)</span>: This is the natural logarithm of the prior probability of class <span class="math notranslate nohighlight">\( k \)</span>.</p></li>
+</ul>
+</section>
+<section id="conclusion">
+<h3>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h3>
+<p>The simplification in LDA to a linear function is due to the removal of the constant quadratic term <span class="math notranslate nohighlight">\( x^\top \Sigma^{-1} x \)</span> in the discriminant function. This leads to linear decision boundaries, as the remaining terms in <span class="math notranslate nohighlight">\( \delta_k(x) \)</span> are linear with respect to <span class="math notranslate nohighlight">\( x \)</span>. This is in contrast to Quadratic Discriminant Analysis (QDA), where each class has its own covariance matrix, resulting in a quadratic term in the discriminant function that varies across classes, leading to quadratic decision boundaries.</p>
+</section>
+</section>
+<section id="k-means-algorithm">
+<h2>K means algorithm<a class="headerlink" href="#k-means-algorithm" title="Permalink to this heading">#</a></h2>
+<blockquote>
+<div><p><strong>Describe the K-means algorithm and explain which optimal solution the algorithm is trying to approximate. [7]</strong></p>
+</div></blockquote>
+<p>The K-means algorithm is a popular clustering method used in data analysis and machine learning. Its primary objective is to partition a dataset into <span class="math notranslate nohighlight">\( K \)</span> distinct, non-overlapping clusters. Here’s a description of the algorithm and the optimal solution it attempts to approximate:</p>
+<section id="description-of-the-k-means-algorithm">
+<h3>Description of the K-means Algorithm<a class="headerlink" href="#description-of-the-k-means-algorithm" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Initialization</strong>:</p>
+<ul class="simple">
+<li><p>Choose <span class="math notranslate nohighlight">\( K \)</span>, the number of clusters.</p></li>
+<li><p>Randomly select <span class="math notranslate nohighlight">\( K \)</span> points from the dataset as the initial centroids of the clusters. These can be actual data points or random points within the data space.</p></li>
+</ul>
+</li>
+<li><p><strong>Assignment Step</strong>:</p>
+<ul class="simple">
+<li><p>Assign each data point to the nearest centroid. The “nearest” is usually defined using the Euclidean distance, although other distance metrics can be used.</p></li>
+<li><p>After this step, each point is assigned to exactly one cluster, based on which centroid it is closest to.</p></li>
+</ul>
+</li>
+<li><p><strong>Update Step</strong>:</p>
+<ul class="simple">
+<li><p>Update the centroid of each cluster to be the mean (average) of all points assigned to that cluster.</p></li>
+<li><p>This mean becomes the new centroid of the cluster.</p></li>
+</ul>
+</li>
+<li><p><strong>Iteration</strong>:</p>
+<ul class="simple">
+<li><p>Repeat the Assignment and Update steps until convergence. Convergence is typically defined as a situation where the centroids no longer move significantly or the assignments no longer change.</p></li>
+</ul>
+</li>
+<li><p><strong>Output</strong>:</p>
+<ul class="simple">
+<li><p>The final output is a set of <span class="math notranslate nohighlight">\( K \)</span> centroids and cluster assignments for each data point.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="optimal-solution-k-means-attempts-to-approximate">
+<h3>Optimal Solution K-means Attempts to Approximate<a class="headerlink" href="#optimal-solution-k-means-attempts-to-approximate" title="Permalink to this heading">#</a></h3>
+<p>The K-means algorithm seeks to minimize the within-cluster variance, which is the sum of squared distances between each data point and its corresponding centroid. Mathematically, this objective can be expressed as:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Minimize} \sum_{i=1}^{K} \sum_{x \in S_i} ||x - \mu_i||^2
+\]</div>
+<p>Here:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( K \)</span> is the number of clusters.</p></li>
+<li><p><span class="math notranslate nohighlight">\( S_i \)</span> represents the set of data points in the <span class="math notranslate nohighlight">\( i \)</span>-th cluster.</p></li>
+<li><p><span class="math notranslate nohighlight">\( \mu_i \)</span> is the centroid of the <span class="math notranslate nohighlight">\( i \)</span>-th cluster.</p></li>
+<li><p><span class="math notranslate nohighlight">\( ||x - \mu_i||^2 \)</span> is the squared Euclidean distance between a data point <span class="math notranslate nohighlight">\( x \)</span> and the centroid <span class="math notranslate nohighlight">\( \mu_i \)</span>.</p></li>
+</ul>
+</section>
+<section id="characteristics-and-limitations">
+<h3>Characteristics and Limitations<a class="headerlink" href="#characteristics-and-limitations" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Local Optima</strong>: K-means is a heuristic algorithm and can converge to local optima. The final solution depends on the initial choice of centroids.</p></li>
+<li><p><strong>Sensitivity to Initialization</strong>: Different initial centroids can lead to different results. Methods like the K-means++ algorithm are used to optimize the initialization process.</p></li>
+<li><p><strong>Euclidean Distance</strong>: Standard K-means uses Euclidean distance, making it most suitable for spherical clusters of similar sizes. It may not perform well with clusters of different shapes and densities.</p></li>
+<li><p><strong>Specification of <span class="math notranslate nohighlight">\( K \)</span></strong>: The number of clusters <span class="math notranslate nohighlight">\( K \)</span> must be specified in advance. Determining the optimal number of clusters is a separate problem and often requires additional methods like the Elbow method or Silhouette analysis.</p></li>
+</ul>
+<p>In summary, K-means is an iterative algorithm that partitions a dataset into <span class="math notranslate nohighlight">\( K \)</span> clusters by minimizing the within-cluster variance. Its simplicity and efficiency make it widely used, although it has limitations such as sensitivity to initial conditions and a tendency to find local optima.</p>
+<hr class="docutils" />
+<p><strong>Briefly describe how the K-medoids algorithm di↵ers from the K-means algorithm. Name one advantage of using the K-medoids algorithm over the K-means algorithm. [7]</strong></p>
+<p>The K-medoids algorithm is similar to the K-means algorithm in that both are used for clustering data into <span class="math notranslate nohighlight">\( K \)</span> groups, but there are key differences in their methodologies and one notable advantage of K-medoids over K-means.</p>
+</section>
+<section id="differences-between-k-medoids-and-k-means">
+<h3>Differences Between K-medoids and K-means<a class="headerlink" href="#differences-between-k-medoids-and-k-means" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Centroid vs. Medoid</strong>:</p>
+<ul class="simple">
+<li><p><strong>K-means</strong>: The centroid (mean) of the data points in a cluster represents the center of the cluster. This centroid is not necessarily a member of the dataset.</p></li>
+<li><p><strong>K-medoids</strong>: The medoid is used as the center of each cluster. Unlike the centroid in K-means, the medoid is always one of the data points in the dataset. The medoid is chosen to minimize the sum of dissimilarities between itself and all other points in the cluster.</p></li>
+</ul>
+</li>
+<li><p><strong>Sensitivity to Outliers</strong>:</p>
+<ul class="simple">
+<li><p><strong>K-means</strong>: More sensitive to outliers since the mean can be significantly influenced by extreme values.</p></li>
+<li><p><strong>K-medoids</strong>: Less sensitive to outliers, as the medoid (being an actual data point) is typically more centrally located within a cluster.</p></li>
+</ul>
+</li>
+<li><p><strong>Distance Measures</strong>:</p>
+<ul class="simple">
+<li><p><strong>K-means</strong>: Typically uses Euclidean distance to measure the similarity between data points and centroids.</p></li>
+<li><p><strong>K-medoids</strong>: Can use a variety of distance metrics, not limited to Euclidean distance. This makes it more versatile, especially for non-numeric data.</p></li>
+</ul>
+</li>
+<li><p><strong>Algorithm Complexity</strong>:</p>
+<ul class="simple">
+<li><p><strong>K-means</strong>: Generally faster and more computationally efficient due to the simplicity of calculating the mean.</p></li>
+<li><p><strong>K-medoids</strong>: More computationally intensive, especially for large datasets, because it requires evaluating the cost of swapping medoids and non-medoids.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="agglomerative-algorithm">
+<h2>Agglomerative algorithm<a class="headerlink" href="#agglomerative-algorithm" title="Permalink to this heading">#</a></h2>
+<blockquote>
+<div><p>You are given a dissimilarity matrix D = (Dij )i,j =1,…,n for observations 1, … , n. Clearly describe how the group average agglomerative clustering measures dissimilarity between two clusters of observations G and H, where G and H can be represented by two disjoint subsets of {1, … , n}. Then, clearly describe an agglomerative hierarchical clustering algorithm for creating a dendrogram. [7]</p>
+</div></blockquote>
+<p>To explain the group average agglomerative clustering and the process of creating a dendrogram using an agglomerative hierarchical clustering algorithm, let’s break down the concepts and steps:</p>
+<section id="group-average-agglomerative-clustering">
+<h3>Group Average Agglomerative Clustering<a class="headerlink" href="#group-average-agglomerative-clustering" title="Permalink to this heading">#</a></h3>
+<p>In group average agglomerative clustering, the dissimilarity between two clusters <span class="math notranslate nohighlight">\( G \)</span> and <span class="math notranslate nohighlight">\( H \)</span>, each a subset of the observations <span class="math notranslate nohighlight">\(\{1, \ldots, n\}\)</span>, is measured using the average dissimilarity between all pairs of observations, where one member of the pair is from cluster <span class="math notranslate nohighlight">\( G \)</span> and the other is from cluster <span class="math notranslate nohighlight">\( H \)</span>.</p>
+<p>Given the dissimilarity matrix <span class="math notranslate nohighlight">\( D = (D_{ij}) \)</span> for observations <span class="math notranslate nohighlight">\( 1, \ldots, n \)</span>, the dissimilarity between clusters <span class="math notranslate nohighlight">\( G \)</span> and <span class="math notranslate nohighlight">\( H \)</span> is calculated as:</p>
+<div class="math notranslate nohighlight">
+\[
+D(G, H) = \frac{1}{|G| \cdot |H|} \sum_{i \in G} \sum_{j \in H} D_{ij}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\( |G| \)</span> and <span class="math notranslate nohighlight">\( |H| \)</span> are the number of observations in clusters <span class="math notranslate nohighlight">\( G \)</span> and <span class="math notranslate nohighlight">\( H \)</span>, respectively.</p>
+</section>
+<section id="agglomerative-hierarchical-clustering-algorithm">
+<h3>Agglomerative Hierarchical Clustering Algorithm<a class="headerlink" href="#agglomerative-hierarchical-clustering-algorithm" title="Permalink to this heading">#</a></h3>
+<p>The agglomerative hierarchical clustering algorithm for creating a dendrogram involves the following steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Initialization</strong>: Start by treating each observation as a separate cluster. So, you initially have <span class="math notranslate nohighlight">\( n \)</span> clusters, each containing one observation.</p></li>
+<li><p><strong>Compute Initial Dissimilarities</strong>: Calculate the dissimilarity between each pair of clusters using the provided dissimilarity matrix <span class="math notranslate nohighlight">\( D \)</span>.</p></li>
+<li><p><strong>Agglomeration Loop</strong>:</p>
+<ul class="simple">
+<li><p><strong>Find Closest Clusters</strong>: At each step, identify the two clusters that are closest to each other based on the chosen dissimilarity measure (in this case, the group average).</p></li>
+<li><p><strong>Merge Clusters</strong>: Combine these two closest clusters into a single new cluster.</p></li>
+<li><p><strong>Update Dissimilarities</strong>: Recalculate the dissimilarities between the new cluster and all other existing clusters. For any pair of clusters, use the group average formula to determine their dissimilarity.</p></li>
+<li><p><strong>Repeat</strong>: Continue this process of finding and merging the closest clusters, then updating the dissimilarities.</p></li>
+</ul>
+</li>
+<li><p><strong>Stop Condition</strong>: This process is repeated until all observations are merged into a single cluster.</p></li>
+<li><p><strong>Create Dendrogram</strong>: During the agglomeration process, record the pairs of clusters that are merged and the dissimilarity at which they merge. This information is used to construct a dendrogram, a tree-like diagram that illustrates the arrangement of the clusters formed at each stage of the algorithm. The height at which two clusters are joined in the dendrogram represents the dissimilarity between them.</p></li>
+<li><p><strong>Interpreting the Dendrogram</strong>: The dendrogram can be used to choose a cut-off dissimilarity level that determines the number of clusters. Cutting the dendrogram at a particular height will give a partition of the data into clusters.</p></li>
+</ol>
+<p>In an exam answer, you would outline these steps, emphasizing the key aspects of the group average method for measuring dissimilarity and the iterative nature of the agglomerative hierarchical clustering process, culminating in the construction of a dendrogram.</p>
+</section>
+<section id="advantage-of-k-medoids-over-k-means">
+<h3>Advantage of K-medoids Over K-means<a class="headerlink" href="#advantage-of-k-medoids-over-k-means" title="Permalink to this heading">#</a></h3>
+<p>One significant advantage of the K-medoids algorithm over the K-means algorithm is its robustness to noise and outliers. Since K-medoids chooses actual data points as cluster centers (medoids), it is less influenced by outliers compared to K-means, which calculates the mean (centroid) of the cluster. Outliers can significantly skew the mean, but they have much less impact on the medoid, making K-medoids more suitable for datasets where outliers are present or when the data contains noise. Additionally, the use of different distance metrics in K-medoids makes it more flexible for various types of data, including categorical and non-numeric data.</p>
+</section>
+</section>
+<section id="t-or-f">
+<h2>T or F<a class="headerlink" href="#t-or-f" title="Permalink to this heading">#</a></h2>
+<blockquote>
+<div><p>Suppose X1,…,Xn ∈ Rp are independent and identically distributed normal random vectors with a strictly positive definite covariance matrix Σ. Then the sample covariance matrix S, will have no zero eigenvalues with probability 1 as long as n ≥ p.</p>
+</div></blockquote>
+<p>True.</p>
+<p>The statement that the sample covariance matrix <span class="math notranslate nohighlight">\( S \)</span> will have no zero eigenvalues with probability 1 as long as <span class="math notranslate nohighlight">\( n \geq p \)</span>, given that <span class="math notranslate nohighlight">\( X_1, ..., X_n \in \mathbb{R}^p \)</span> are independent and identically distributed normal random vectors with a strictly positive definite covariance matrix <span class="math notranslate nohighlight">\( \Sigma \)</span>, is true. Here’s the justification:</p>
+<ol class="arabic">
+<li><p><strong>Sample Covariance Matrix Definition</strong>:</p>
+<ul>
+<li><p>The sample covariance matrix <span class="math notranslate nohighlight">\( S \)</span> for samples <span class="math notranslate nohighlight">\( X_1, ..., X_n \)</span> is given by</p>
+<div class="math notranslate nohighlight">
+\[
+     S = \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \overline{X})(X_i - \overline{X})^T
+     \]</div>
+<p>where <span class="math notranslate nohighlight">\( \overline{X} \)</span> is the sample mean.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Properties of Normal Distribution</strong>:</p>
+<ul class="simple">
+<li><p>Since <span class="math notranslate nohighlight">\( X_1, ..., X_n \)</span> are i.i.d. normal random vectors with covariance matrix <span class="math notranslate nohighlight">\( \Sigma \)</span> (which is strictly positive definite), the distribution of each <span class="math notranslate nohighlight">\( X_i \)</span> is full rank. This implies that each <span class="math notranslate nohighlight">\( X_i \)</span> spans the entire <span class="math notranslate nohighlight">\( p \)</span>-dimensional space with probability 1.</p></li>
+</ul>
+</li>
+<li><p><strong>Positive Definite Covariance Matrix</strong>:</p>
+<ul class="simple">
+<li><p>A strictly positive definite matrix, like <span class="math notranslate nohighlight">\( \Sigma \)</span>, has all positive eigenvalues. This characteristic implies that the variabilities along all dimensions are positive, and there is no linear dependency among the dimensions of the data.</p></li>
+</ul>
+</li>
+<li><p><strong>Rank of Sample Covariance Matrix</strong>:</p>
+<ul class="simple">
+<li><p>When <span class="math notranslate nohighlight">\( n \geq p \)</span>, there are at least as many observations as dimensions. This generally allows the sample covariance matrix <span class="math notranslate nohighlight">\( S \)</span> to be full rank, which means it has rank <span class="math notranslate nohighlight">\( p \)</span>. Therefore, it will have no zero eigenvalues.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\( n &lt; p \)</span> (fewer observations than dimensions), the sample covariance matrix <span class="math notranslate nohighlight">\( S \)</span> cannot be full rank and will have zero eigenvalues.</p></li>
+</ul>
+</li>
+<li><p><strong>Probability Consideration</strong>:</p>
+<ul class="simple">
+<li><p>The condition of having no zero eigenvalues in the sample covariance matrix is equivalent to saying that the matrix is positive definite. In the case of normal distributions, as long as the number of observations is at least as large as the number of dimensions, the sample covariance matrix is almost surely positive definite.</p></li>
+</ul>
+</li>
+</ol>
+<p>In conclusion, as long as <span class="math notranslate nohighlight">\( n \geq p \)</span>, the sample covariance matrix <span class="math notranslate nohighlight">\( S \)</span> constructed from i.i.d. normal random vectors with a strictly positive definite covariance matrix <span class="math notranslate nohighlight">\( \Sigma \)</span> will have no zero eigenvalues with probability 1. This is due to the full-rank nature of the data and the positive definiteness of the true covariance matrix <span class="math notranslate nohighlight">\( \Sigma \)</span>.</p>
+<hr class="docutils" />
+<section id="tree-size">
+<h3>Tree Size<a class="headerlink" href="#tree-size" title="Permalink to this heading">#</a></h3>
+<blockquote>
+<div><p>Then increasing the tree size by partitioning the terminal nodes further does not always guarantee a net decrease in the overall node impurity.</p>
+</div></blockquote>
+<p>The statement is true. In the context of regression trees, the overall node impurity is often measured by the residual sum of squares (RSS). The RSS for a regression tree is calculated as the sum of squared differences between the observed values (<span class="math notranslate nohighlight">\(Y_i\)</span>) and the mean response values (<span class="math notranslate nohighlight">\(\hat{c}_l\)</span>) for each node, summed across all nodes (<span class="math notranslate nohighlight">\(l\)</span>) of the tree.</p>
+<p>The mean response value <span class="math notranslate nohighlight">\(\hat{c}_l\)</span> for a node is the average of the responses (<span class="math notranslate nohighlight">\(Y_i\)</span>) for all data points (<span class="math notranslate nohighlight">\(X_i\)</span>) that fall within that node’s region (<span class="math notranslate nohighlight">\(R_l\)</span>). As you partition the tree further by splitting terminal nodes, you create more regions (<span class="math notranslate nohighlight">\(R_l\)</span>), each with potentially more homogeneous groups of <span class="math notranslate nohighlight">\(Y_i\)</span>.</p>
+<p>However, while further partitioning can reduce the impurity within individual nodes (since the groups become more homogeneous), it does not always guarantee a net decrease in overall node impurity for several reasons:</p>
+<ol class="arabic simple">
+<li><p><strong>Overfitting</strong>: As the tree becomes more complex (with more splits), it may start to fit the noise in the data rather than the underlying pattern. This overfitting can lead to an increase in impurity when the model is applied to new, unseen data.</p></li>
+<li><p><strong>Decreasing Marginal Returns</strong>: Initially, splits are made at points that greatly reduce impurity. However, as the tree grows, further splits may yield less significant reductions in impurity.</p></li>
+<li><p><strong>Data Sparsity</strong>: With more splits, some nodes may end up with very few data points, making the estimates of <span class="math notranslate nohighlight">\(\hat{c}_l\)</span> less reliable and potentially increasing impurity.</p></li>
+</ol>
+<p>In summary, while increasing the size of a regression tree by adding more splits can reduce impurity in individual nodes, it does not necessarily translate to a decrease in overall node impurity due to overfitting, diminishing returns, and issues with data sparsity in highly partitioned trees.</p>
+</section>
+<section id="fa">
+<h3>FA<a class="headerlink" href="#fa" title="Permalink to this heading">#</a></h3>
+<blockquote>
+<div><p>When doing inference based on an orthogonal factor analysis model with p observable variables and k factors, the reason we impose at least k(k − 1)/2 many constraints on the factor loading matrix is to make the model more interpretable.</p>
+</div></blockquote>
+<p>False.</p>
+<p>The imposition of at least <span class="math notranslate nohighlight">\( k(k - 1)/2 \)</span> constraints on the factor loading matrix in orthogonal factor analysis is not primarily for making the model more interpretable, but rather for ensuring identifiability of the model.</p>
+<p>In factor analysis, the model is typically set up with <span class="math notranslate nohighlight">\( p \)</span> observable variables and <span class="math notranslate nohighlight">\( k \)</span> latent factors. The factor loading matrix, which describes the relationship between the observed variables and the latent factors, is not uniquely determined without additional constraints. This non-uniqueness arises because there are infinitely many ways to rotate or transform the factor loading matrix that would result in the same covariance structure among the observed variables.</p>
+<p>To resolve this issue, constraints are placed on the factor loading matrix. The most common approach is to impose orthogonality constraints, making the factors uncorrelated (orthogonal to each other). The specific requirement of at least <span class="math notranslate nohighlight">\( k(k - 1)/2 \)</span> constraints corresponds to the number of parameters that can be freely varied in a <span class="math notranslate nohighlight">\( k \)</span>-dimensional orthogonal rotation. This ensures that the solution to the factor model is identifiable, meaning it can be uniquely determined given the data.</p>
+<p>While these constraints can also aid in interpretability to some extent (for instance, by ensuring factors are uncorrelated, it might be easier to interpret them as representing distinct underlying dimensions), the primary reason for their imposition is to achieve identifiability of the factor model.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="pls-algorithm">
+<h2>PLS Algorithm<a class="headerlink" href="#pls-algorithm" title="Permalink to this heading">#</a></h2>
+<p><strong>Empirical Formulation of the First Partial Least Squares (PLS) Component:</strong></p>
+<p>Given a finite sample <span class="math notranslate nohighlight">\(\{Z_i, X_i\}\)</span> for <span class="math notranslate nohighlight">\(i = 1, \ldots, n\)</span> from the population, where <span class="math notranslate nohighlight">\(Z \in \mathbb{R}\)</span> is the response variable and <span class="math notranslate nohighlight">\(X \in \mathbb{R}^p\)</span> is the covariate vector, the first PLS component at the empirical level involves finding a projection vector that maximizes the sample covariance between <span class="math notranslate nohighlight">\(Z\)</span> and the projected covariates <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p>The empirical projection vector, denoted as <span class="math notranslate nohighlight">\(\hat{\phi}\)</span>, is obtained by solving the following optimization problem:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\phi} = \arg\max_{\phi: \|\phi\| = 1} \hat{\text{Cov}}(Z, \phi^T X)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\hat{\text{Cov}}(Z, \phi^T X)\)</span> is the sample covariance between <span class="math notranslate nohighlight">\(Z\)</span> and <span class="math notranslate nohighlight">\(\phi^T X\)</span>, calculated as:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\text{Cov}}(Z, \phi^T X) = \frac{1}{n-1} \sum_{i=1}^n (Z_i - \bar{Z})(\phi^T X_i - \phi^T \bar{X})
+\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(\bar{Z}\)</span> and <span class="math notranslate nohighlight">\(\bar{X}\)</span> are the sample means of <span class="math notranslate nohighlight">\(Z\)</span> and <span class="math notranslate nohighlight">\(X\)</span>, respectively.</p>
+<p>To find <span class="math notranslate nohighlight">\(\hat{\phi}\)</span>, we typically:</p>
+<ol class="arabic simple">
+<li><p>Center the data by subtracting the mean from each variable.</p></li>
+<li><p>Compute the sample covariance matrix between <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Z\)</span>.</p></li>
+<li><p>Normalize <span class="math notranslate nohighlight">\(\hat{\phi}\)</span> to ensure <span class="math notranslate nohighlight">\(\|\hat{\phi}\| = 1\)</span>.</p></li>
+</ol>
+<p>The first empirical PLS component is then the projection <span class="math notranslate nohighlight">\(\hat{\phi}^T X\)</span>, capturing the direction in the covariate space with the strongest correlation to the response variable in the sample.</p>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="progress.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Progress Check</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="week1.0.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">week1</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Comparison</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lda-qda">LDA &amp; QDA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means-and-k-medoids">K-means and K-medoids</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-and-dt-and-rt">RF and DT and RT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-and-fa-and-lda">PCA and FA and LDA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pcr-and-ols">PCR and OLS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pcr-and-pls">PCR and PLS</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#some-exam-questions">Some exam questions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qda-lda-algorithm">QDA &amp; LDA Algorithm</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underlying-model-of-qda">Underlying Model of QDA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-rule">Decision Rule</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discriminant-function-qda">Discriminant Function (QDA)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discriminant-function-lda">Discriminant Function (LDA)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#original-discriminant-function">Original Discriminant Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#breaking-down-the-quadratic-term">Breaking Down the Quadratic Term</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simplification-to-linear-function">Simplification to Linear Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means-algorithm">K means algorithm</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#description-of-the-k-means-algorithm">Description of the K-means Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-solution-k-means-attempts-to-approximate">Optimal Solution K-means Attempts to Approximate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-and-limitations">Characteristics and Limitations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-between-k-medoids-and-k-means">Differences Between K-medoids and K-means</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agglomerative-algorithm">Agglomerative algorithm</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#group-average-agglomerative-clustering">Group Average Agglomerative Clustering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agglomerative-hierarchical-clustering-algorithm">Agglomerative Hierarchical Clustering Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantage-of-k-medoids-over-k-means">Advantage of K-medoids Over K-means</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t-or-f">T or F</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tree-size">Tree Size</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fa">FA</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pls-algorithm">PLS Algorithm</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jiahe Liu (jiahe3@student.unimelb.edu.au)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
